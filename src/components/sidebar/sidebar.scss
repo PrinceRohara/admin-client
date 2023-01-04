@@ -43,7 +43,7 @@
         align-items: center;
         padding: 5px;
         cursor: pointer;
-        margin: 8px 2px;
+        margin: 10px 2px;
 
         // &:hover {
         //   background-color: #ece8ff;
@@ -57,11 +57,15 @@
           }
         }
 
-        span {  
-          font-size: 15px;
-          font-weight: 400;
-          color: #888;
-          margin-left: 10px;
+        span {
+          font-size: 14px;
+
+          font-weight: 600;
+          // color: #888;
+          color: #333;
+          padding: 2px;
+
+          margin-left: 12px;
           &:hover {
             color: #f18f71;
           }
@@ -98,6 +102,12 @@
 // .svg_icons {
 //   transform: scale(1.8);
 // }
+
+@media (prefers-color-scheme: dark) {
+  span {
+    color: white;
+  }
+}
 
 @media (min-width: 640px) {
 }

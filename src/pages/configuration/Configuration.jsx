@@ -14,6 +14,7 @@ const Configuration = () => {
       <div className="single ">
         <Sidebar />
         <div className="singleContainer">
+          <Navbar />
           <div className="">
             <h1 className="mt-12 ml-4 text-3xl mb-4">Configuration</h1>
             <hr />

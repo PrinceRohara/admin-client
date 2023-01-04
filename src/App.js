@@ -19,6 +19,9 @@ import Customers from "./pages/customers/Customers";
 import Owners from "./pages/owners/Owners";
 import PayoutRequests from "./pages/payoutrequests/PayoutRequests";
 import Tax from "./pages/Tax/Tax";
+import Stylist from "./pages/stylist/Stylist";
+import Stuff from "./pages/stuff/Stuff";
+import KeepInTouch from "./pages/keepintouch/KeepInTouch";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -56,6 +59,9 @@ function App() {
             <Route path="owners" element={<Owners />} />
             <Route path="payoutrequests" element={<PayoutRequests />} />
             <Route path="tax" element={<Tax />} />
+            <Route path="stylist" element={<Stylist />} />
+            <Route path="staff" element={<Stuff />} />
+            <Route path="keepintouch" element={<KeepInTouch />} />
           </Route>
         </Routes>
       </BrowserRouter>

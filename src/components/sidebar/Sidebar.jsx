@@ -32,11 +32,12 @@ const Sidebar = () => {
         <ul>
           <li>
             <img
+              className=""
               src="https://cdn-icons-png.flaticon.com/512/5178/5178544.png"
               alt=""
               width="26px"
             />
-            <span>Dashboard</span>
+            <span className="dark:text-white">DASHBOARD</span>
           </li>
           {/* <p className="title">LISTS</p> */}
           <Link to="/bookings" style={{ textDecoration: "none" }}>
@@ -132,7 +133,7 @@ const Sidebar = () => {
               <span>MANAGE SERVICES</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/stylist" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/554/554724.png"
@@ -142,7 +143,7 @@ const Sidebar = () => {
               <span>STYLIST</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/staff" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/554/554724.png"
@@ -152,7 +153,7 @@ const Sidebar = () => {
               <span>STAFF</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/keepintouch" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/554/554724.png"

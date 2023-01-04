@@ -45,6 +45,13 @@
         .icon {
           color: #999;
         }
+        img {
+          filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(166deg)
+            brightness(103%) contrast(100%);
+        }
+        span {
+          color: white;
+        }
       }
     }
   }
@@ -63,7 +70,7 @@
     }
   }
 
-  input{
-      background-color: transparent;
+  input {
+    background-color: transparent;
   }
 }

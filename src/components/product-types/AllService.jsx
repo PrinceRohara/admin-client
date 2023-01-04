@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { serviceColumns, services } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../navbar/Navbar";
 
 const AllServices = () => {
   const [data, setData] = useState(services);
@@ -34,25 +35,27 @@ const AllServices = () => {
     },
   ];
   return (
-    <div className="datatable bg-white">
-      <div className="datatableTitle">
-        Service Types
-        <Link
-          to="/users/new"
-          className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"
-        >
-          CREATE SERVICE TYPE
-        </Link>
+    <>
+      <div className="datatable bg-white">
+        <div className="datatableTitle">
+          Service Types
+          <Link
+            to="/users/new"
+            className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"
+          >
+            CREATE SERVICE TYPE
+          </Link>
+        </div>
+        <DataGrid
+          className="datagrid"
+          rows={data}
+          columns={serviceColumns}
+          pageSize={9}
+          rowsPerPageOptions={[9]}
+          checkboxSelection
+        />
       </div>
-      <DataGrid
-        className="datagrid"
-        rows={data}
-        columns={serviceColumns}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        checkboxSelection
-      />
-    </div>
+    </>
   );
 };
 
