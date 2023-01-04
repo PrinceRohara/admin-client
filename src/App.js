@@ -13,6 +13,12 @@ import { ProductionQuantityLimits } from "@mui/icons-material";
 import ProductTypes from "./components/product-types/ProductTypes";
 import Navigation from "./components/navigation/Navigation";
 import MiscellaneousPage from "./components/miscellaneous-page/MiscellaneousPage";
+import Bookings from "./pages/bookings/Bookings";
+import Transation from "./pages/transations/Transation";
+import Customers from "./pages/customers/Customers";
+import Owners from "./pages/owners/Owners";
+import PayoutRequests from "./pages/payoutrequests/PayoutRequests";
+import Tax from "./pages/Tax/Tax";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -44,6 +50,12 @@ function App() {
             <Route path="product-types" element={<ProductTypes />} />
             <Route path="navigation" element={<Navigation />} />
             <Route path="pages" element={<MiscellaneousPage />} />
+            <Route path="bookings" element={<Bookings />} />
+            <Route path="transation" element={<Transation />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="owners" element={<Owners />} />
+            <Route path="payoutrequests" element={<PayoutRequests />} />
+            <Route path="tax" element={<Tax />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -230,3 +230,145 @@ export const services = [
     excel: "Booking",
   },
 ];
+
+export const bookings = [
+  {
+    field: "id",
+    headerName: "Appointment Id",
+    width: 170,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 150,
+  },
+
+  {
+    field: "name",
+    headerName: "Costomer",
+    width: 170,
+  },
+  {
+    field: "shopname",
+    headerName: "Shop Name",
+    width: 170,
+  },
+  {
+    field: "paymentstatus",
+    headerName: "Payment Status",
+    width: 160,
+  },
+  {
+    field: "bookingstatus",
+    headerName: "Booking Status",
+    width: 150,
+  },
+  {
+    field: "total",
+    headerName: "Total",
+    width: 150,
+  },
+];
+
+export const bookingsData = [
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+];

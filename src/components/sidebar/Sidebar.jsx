@@ -39,7 +39,7 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </li>
           {/* <p className="title">LISTS</p> */}
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/bookings" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/649/649931.png"
@@ -49,7 +49,7 @@ const Sidebar = () => {
               <span>BOOKINGS</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/transation" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/9292/9292388.png"
@@ -59,7 +59,7 @@ const Sidebar = () => {
               <span>TRANSATIONS</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/customers" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/456/456283.png"
@@ -69,7 +69,7 @@ const Sidebar = () => {
               <span>CUSTOMERS</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/owners" style={{ textDecoration: "none" }}>
             <li>
               {/* <i class="fa-solid fa-users"></i> */}
               <img
@@ -81,7 +81,7 @@ const Sidebar = () => {
               <span>OWNERS</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/payoutrequests" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3110/3110884.png"
@@ -91,7 +91,7 @@ const Sidebar = () => {
               <span>PAYOUT REQUESTS</span>
             </li>
           </Link>
-          <Link to="/configuration" style={{ textDecoration: "none" }}>
+          <Link to="/tax" style={{ textDecoration: "none" }}>
             <li>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3110/3110884.png"
