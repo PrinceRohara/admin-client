@@ -8,7 +8,7 @@ const ServiceTypes = () => {
   return (
     <Link to="/product-types">
       <div
-        // onClick={handleClick}
+        
         className="ml-4 bg-white p-4 rounded-lg hover:bg-gray-300 hover:cursor-pointer"
       >
         <h4 className="text-orange-600 font-bold text-2xl ">

@@ -14,11 +14,12 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   return (
-    <div className="sidebar">
+    <div className=" sidebar ">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">
@@ -29,63 +30,147 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
           <li>
-            <DashboardIcon className="icon" />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/5178/5178544.png"
+              alt=""
+              width="26px"
+            />
             <span>Dashboard</span>
           </li>
           {/* <p className="title">LISTS</p> */}
-          {/* <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/649/649931.png"
+                alt=""
+                width="26px"
+              />
+              <span>BOOKINGS</span>
             </li>
-          </Link> */}
-          {/* <Link to="/products" style={{ textDecoration: "none" }}>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/9292/9292388.png"
+                alt=""
+                width="26px"
+              />
+              <span>TRANSATIONS</span>
             </li>
-          </Link> */}
-          {/* <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li> */}
-          {/* <p className="title">USEFUL</p> */}
-          {/* <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li> */}
-          {/* <p className="title">SERVICE</p> */}
-          {/* <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li> */}
-          {/* <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li> */}
-          {/* <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
-          </li> */}
-          {/* <p className="title">USER</p> */}
-          {/* <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li> */}
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/456/456283.png"
+                alt=""
+                width="26px"
+              />
+              <span>CUSTOMERS</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              {/* <i class="fa-solid fa-users"></i> */}
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/694/694642.png"
+                alt=""
+                width="26px"
+              />
+
+              <span>OWNERS</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3110/3110884.png"
+                alt=""
+                width="26px"
+              />
+              <span>PAYOUT REQUESTS</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3110/3110884.png"
+                alt=""
+                width="26px"
+              />
+              <span>TAX</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/697/697722.png"
+                alt=""
+                width="26px"
+              />
+              <span>CATALOG</span>
+            </li>
+          </Link>
+
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3790/3790422.png"
+                alt=""
+                width="26px"
+              />
+              <span className="text-xl">SALONS</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3046/3046889.png"
+                alt=""
+                width="26px"
+              />
+              <span>MANAGE SERVICES</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/554/554724.png"
+                alt=""
+                width="26px"
+              />
+              <span>STYLIST</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/554/554724.png"
+                alt=""
+                width="26px"
+              />
+              <span>STAFF</span>
+            </li>
+          </Link>
+          <Link to="/configuration" style={{ textDecoration: "none" }}>
+            <li>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/554/554724.png"
+                alt=""
+                width="26px"
+              />
+              <span>KEEP IN TOUCH</span>
+            </li>
+          </Link>
 
           <Link to="/configuration" style={{ textDecoration: "none" }}>
             <li>
-              <SettingsApplicationsIcon className="icon" />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png"
+                alt=""
+                width="26px"
+              />
+              {/* <SettingsApplicationsIcon className="icon" /> */}
               <span>CONFIGURATION</span>
             </li>
           </Link>

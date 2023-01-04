@@ -1,11 +1,11 @@
-import "./datatable.scss";
+// import "./allservice.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { serviceColumns, services } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Datatable = () => {
-  const [data, setData] = useState(userRows);
+const Navigationpanel = () => {
+  const [data, setData] = useState(services);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -34,20 +34,20 @@ const Datatable = () => {
     },
   ];
   return (
-    <div className="datatable">
+    <div className="datatable bg-white">
       <div className="datatableTitle">
-        Salons
+        Service Types
         <Link
           to="/users/new"
           className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"
         >
-          CREATE SALON
+          CREATE SERVICE TYPE
         </Link>
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={serviceColumns}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
@@ -56,4 +56,4 @@ const Datatable = () => {
   );
 };
 
-export default Datatable;
+export default Navigationpanel;

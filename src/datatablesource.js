@@ -1,28 +1,28 @@
 export const userColumns = [
-  { field: "id", headerName: "ID", width: 70 },
+  // { field: "id", headerName: "ID", width: 70 },
   {
-    field: "user",
-    headerName: "User",
-    width: 230,
+    field: "salonname",
+    headerName: "Salon Name",
+    width: 400, //230
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
           {params.row.username}
         </div>
       );
     },
   },
   {
-    field: "email",
-    headerName: "Email",
-    width: 230,
+    field: "address",
+    headerName: "Salon Address",
+    width: 330,
   },
 
   {
-    field: "age",
-    headerName: "Age",
-    width: 100,
+    field: "excel",
+    headerName: "Excel Sheet",
+    width: 150,
   },
   {
     field: "status",
@@ -38,39 +38,66 @@ export const userColumns = [
   },
 ];
 
+export const serviceColumns = [
+  // { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "typename",
+    headerName: "Type Name",
+    width: 400, //230
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          {/* <img className="cellImg" src={params.row.img} alt="avatar" /> */}
+          {params.row.username}
+        </div>
+      );
+    },
+  },
+
+  {
+    field: "Type",
+    headerName: "Type",
+    width: 150,
+  },
+  {
+    field: "Tax",
+    headerName: "Tax",
+    width: 150,
+  },
+];
 //temporary data
 export const userRows = [
   {
     id: 1,
-    username: "Snow",
+    username: "Test Salon",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
-    email: "1snow@gmail.com",
-    age: 35,
+    address: "delhi",
+    excel: "Booking",
   },
   {
     id: 2,
-    username: "Jamie Lannister",
+    salonname: "Jamie Lannister",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "2snow@gmail.com",
+    address: "delhi",
     status: "passive",
-    age: 42,
+    excel: "Booking",
   },
   {
     id: 3,
     username: "Lannister",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "3snow@gmail.com",
+    address: "delhi",
     status: "pending",
-    age: 45,
+    excel: "Booking",
   },
   {
     id: 4,
     username: "Stark",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "4snow@gmail.com",
+    address: "delhi",
     status: "active",
-    age: 16,
+    excel: "Booking",
   },
   {
     id: 5,
@@ -78,29 +105,29 @@ export const userRows = [
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     email: "5snow@gmail.com",
     status: "passive",
-    age: 22,
+    excel: "Booking",
   },
   {
     id: 6,
     username: "Melisandre",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "6snow@gmail.com",
+    address: "delhi",
     status: "active",
-    age: 15,
+    excel: "Booking",
   },
   {
     id: 7,
     username: "Clifford",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "7snow@gmail.com",
+    address: "delhi",
     status: "passive",
-    age: 44,
+    excel: "Booking",
   },
   {
     id: 8,
     username: "Frances",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "8snow@gmail.com",
+    address: "delhi",
     status: "active",
     age: 36,
   },
@@ -108,16 +135,98 @@ export const userRows = [
     id: 9,
     username: "Roxie",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "snow@gmail.com",
+    address: "705 sector 5, delhi",
     status: "pending",
-    age: 65,
+    excel: "Booking",
   },
   {
     id: 10,
     username: "Roxie",
     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    email: "snow@gmail.com",
+    address: "delhi",
     status: "active",
-    age: 65,
+    excel: "Booking",
+  },
+];
+
+export const services = [
+  {
+    id: 1,
+    salonname: "Test Salon",
+
+    type: "Digital",
+    tax: "",
+  },
+  {
+    id: 2,
+    salonname: "Jamie Lannister",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "passive",
+    excel: "Booking",
+  },
+  {
+    id: 3,
+    username: "Lannister",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "pending",
+    excel: "Booking",
+  },
+  {
+    id: 4,
+    username: "Stark",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "active",
+    excel: "Booking",
+  },
+  {
+    id: 5,
+    username: "Targaryen",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "5snow@gmail.com",
+    status: "passive",
+    excel: "Booking",
+  },
+  {
+    id: 6,
+    username: "Melisandre",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "active",
+    excel: "Booking",
+  },
+  {
+    id: 7,
+    username: "Clifford",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "passive",
+    excel: "Booking",
+  },
+  {
+    id: 8,
+    username: "Frances",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "active",
+    age: 36,
+  },
+  {
+    id: 9,
+    username: "Roxie",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "705 sector 5, delhi",
+    status: "pending",
+    excel: "Booking",
+  },
+  {
+    id: 10,
+    username: "Roxie",
+    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    address: "delhi",
+    status: "active",
+    excel: "Booking",
   },
 ];

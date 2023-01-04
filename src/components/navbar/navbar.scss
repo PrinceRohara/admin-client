@@ -69,3 +69,10 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .navbar {
+    height: 25px;
+    display: block;
+  }
+}
