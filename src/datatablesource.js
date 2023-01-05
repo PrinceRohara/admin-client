@@ -372,3 +372,106 @@ export const bookingsData = [
     total: "235.5",
   },
 ];
+
+export const cancelledData = [
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "mahesh babu",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "jackie",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 9455566661,
+    date: "jan 3 2023",
+
+    name: "tom",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "jackie",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+  {
+    id: 5454545661661,
+    date: "jan 3 2023",
+
+    name: "Govind",
+    shopname: "Cuttind edge salon",
+    paymentstatus: "Full Charged",
+    bookingstatus: "Expired",
+    total: "235.5",
+  },
+];
