@@ -22,6 +22,8 @@ import Tax from "./pages/Tax/Tax";
 import Stylist from "./pages/stylist/Stylist";
 import Stuff from "./pages/stuff/Stuff";
 import KeepInTouch from "./pages/keepintouch/KeepInTouch";
+import StylistForm from "./pages/stylist/StylistForm";
+import StylistNew from "./pages/stylist/StylistNew";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -60,6 +62,7 @@ function App() {
             <Route path="payoutrequests" element={<PayoutRequests />} />
             <Route path="tax" element={<Tax />} />
             <Route path="stylist" element={<Stylist />} />
+            <Route path="stylist/new" element={<StylistNew />} />
             <Route path="staff" element={<Stuff />} />
             <Route path="keepintouch" element={<KeepInTouch />} />
           </Route>

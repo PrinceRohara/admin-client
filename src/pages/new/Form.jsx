@@ -206,7 +206,15 @@ const form = () => {
           </RadioGroup>
         </div>
       </form>
-      <button className="bg-orange-700 p-2 m-2 rounded text-white">Save</button>
+      <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">
+        Save
+      </button>{" "}
+      <button
+        disabled
+        className=" p-2 m-4 rounded text-black font-bold float-right"
+      >
+        Back
+      </button>
     </>
   );
 };
