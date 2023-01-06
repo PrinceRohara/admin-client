@@ -149,7 +149,7 @@ const BookingComponent = () => {
           <DataGrid
             className="datagrid "
             rows={data1}
-            columns={bookings}
+            columns={bookings.concat(actionColumn)}
             pageSize={9}
             rowsPerPageOptions={[9]}
             checkboxSelection
