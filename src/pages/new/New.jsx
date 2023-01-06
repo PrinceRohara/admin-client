@@ -15,7 +15,9 @@ const New = () => {
         <Navbar />
 
         <h1 className="text-xl p-1 m-2">Create New Salon</h1>
-        <Form />
+        <div className="text-black">
+          <Form />
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const form = () => {
   const data = ["Mahesh", "vincezo", "rohan"];
   return (
     <>
-      <form className="p-2 m-2">
+      <form className="p-2 m-2 ">
         <h3 className="text-xl  font-bold ml-4 mt-4">General Information</h3>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
@@ -185,14 +185,17 @@ const form = () => {
             multiline
             maxRows={4}
           />{" "}
-          <RadioGroup
-            className=" bg-orange-400 p-2 text-red-900"
+          <span>Feautured</span>
+          <input type="radio" className="text-xl" />
+          {/* <RadioGroup
+            className="  p-2 text-red-900"
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
+            color="success"
           >
             <FormControlLabel
-              className="text-red-500 label:text-red-500"
+              className="text-red-500 label:text-black label:text-red-500"
               value="yes"
               control={<Radio />}
               label="Yes"
@@ -203,7 +206,7 @@ const form = () => {
               control={<Radio />}
               label="No"
             />
-          </RadioGroup>
+          </RadioGroup> */}
         </div>
       </form>
       <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">

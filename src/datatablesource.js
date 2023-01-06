@@ -272,7 +272,7 @@ export const bookings = [
 
 export const bookingsData = [
   {
-    id: 5454545661661,
+    id: 5454545664461,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -282,7 +282,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 545442361661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -292,7 +292,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 616965986266,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -302,7 +302,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 545454522663331661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -312,7 +312,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 545454261661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -322,7 +322,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 54544661661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -332,7 +332,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 545451661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -342,7 +342,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 546661661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -352,7 +352,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 54545456631661,
     date: "jan 3 2023",
 
     name: "Govind",
@@ -362,7 +362,7 @@ export const bookingsData = [
     total: "235.5",
   },
   {
-    id: 5454545661661,
+    id: 54545451515661,
     date: "jan 3 2023",
 
     name: "Govind",

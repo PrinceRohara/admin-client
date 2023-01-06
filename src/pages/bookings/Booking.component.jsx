@@ -107,7 +107,28 @@ const BookingComponent = () => {
       </div> */}
         {allBookings && (
           <>
+            {/* {bookings.map((b) => {
+              <Link>
+                {" "}
+                <DataGrid
+                  onClick={(e) => {
+                    console.log("testing");
+                  }}
+                  data-aos="fade-right"
+                  className="datagrid"
+                  rows={data}
+                  columns={b}
+                  pageSize={9}
+                  rowsPerPageOptions={[9]}
+                  checkboxSelection
+                />
+              </Link>;
+            })} */}
             <DataGrid
+              classname="cursor-pointer"
+              onClick={(e) => {
+                console.log("testing");
+              }}
               data-aos="fade-right"
               className="datagrid"
               rows={data}

@@ -27,6 +27,8 @@ import StylistNew from "./pages/stylist/StylistNew";
 import CreateNewStuff from "./pages/stuff/CreateNewStuff";
 import OwnerForm from "./pages/owners/OwnerForm";
 import OwnerNew from "./pages/owners/OwnerNew";
+import SingleBooking from "./pages/bookid/SingleBooking";
+import BookingId from "./pages/bookid/BookingId";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -70,6 +72,7 @@ function App() {
             <Route path="staff" element={<Stuff />} />
             <Route path="staff/new" element={<CreateNewStuff />} />
             <Route path="keepintouch" element={<KeepInTouch />} />
+            <Route path="myid" element={<BookingId />} />
           </Route>
         </Routes>
       </BrowserRouter>
