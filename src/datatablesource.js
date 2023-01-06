@@ -240,13 +240,13 @@ export const bookings = [
   {
     field: "date",
     headerName: "Date",
-    width: 150,
+    width: 120,
   },
 
   {
     field: "name",
     headerName: "Costomer",
-    width: 170,
+    width: 140,
   },
   {
     field: "shopname",
@@ -256,17 +256,17 @@ export const bookings = [
   {
     field: "paymentstatus",
     headerName: "Payment Status",
-    width: 160,
+    width: 130,
   },
   {
     field: "bookingstatus",
     headerName: "Booking Status",
-    width: 150,
+    width: 120,
   },
   {
     field: "total",
     headerName: "Total",
-    width: 150,
+    width: 110,
   },
 ];
 

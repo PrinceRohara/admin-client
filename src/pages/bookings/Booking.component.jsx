@@ -23,6 +23,10 @@ const BookingComponent = () => {
   const [data1, setData1] = useState(cancelledData);
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
+
+  // give data
+  const [bookData, setBookData] = useState(null);
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -42,20 +46,21 @@ const BookingComponent = () => {
   const actionColumn = [
     {
       field: "action",
-      headerName: "Action",
-      width: 200,
+      headerName: "View",
+      width: 40,
       renderCell: (params) => {
+        // setBookData(params);
         return (
-          <div className="cellAction">
-            {/* <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link> */}
-            <div
+          <div className="cellAction w-full">
+            <Link to={`${params.id}`} style={{ textDecoration: "none" }}>
+              <div className="viewButton ">View</div>
+            </Link>
+            {/* <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
             >
               Delete
-            </div>
+            </div> */}
           </div>
         );
       },
@@ -105,6 +110,11 @@ const BookingComponent = () => {
           type="text"
         />
       </div> */}
+
+        {/* {allBookings && (
+          
+      )} */}
+
         {allBookings && (
           <>
             {/* {bookings.map((b) => {
@@ -125,14 +135,10 @@ const BookingComponent = () => {
               </Link>;
             })} */}
             <DataGrid
-              classname="cursor-pointer"
-              onClick={(e) => {
-                console.log("testing");
-              }}
               data-aos="fade-right"
               className="datagrid"
               rows={data}
-              columns={bookings}
+              columns={bookings.concat(actionColumn)}
               pageSize={9}
               rowsPerPageOptions={[9]}
               checkboxSelection

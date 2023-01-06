@@ -72,7 +72,7 @@ function App() {
             <Route path="staff" element={<Stuff />} />
             <Route path="staff/new" element={<CreateNewStuff />} />
             <Route path="keepintouch" element={<KeepInTouch />} />
-            <Route path="myid" element={<BookingId />} />
+            <Route path="bookings/:id" element={<BookingId />} />
           </Route>
         </Routes>
       </BrowserRouter>

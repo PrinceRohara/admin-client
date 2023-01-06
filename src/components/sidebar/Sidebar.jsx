@@ -42,7 +42,8 @@ const Sidebar = () => {
   const [menuCollapse, setMenuCollapse] = useState(false);
 
   //create a custom function that will change menucollapse state from false to true and true to false
-  const menuIconClick = () => {
+  const menuIconClick = (e) => {
+    e.preventDefault();
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
@@ -58,7 +59,12 @@ const Sidebar = () => {
         </div>
         <hr />
         <SidebarContent>
-          <div className="closemenu text-2xl mt-4 " onClick={menuIconClick}>
+          <div
+            className={`closemenu text-4xl text-orange-500 z-50 mt-2 cursor-pointer ${
+              !menuCollapse ? "ml-48" : "ml-4   "
+            } `}
+            onClick={menuIconClick}
+          >
             {/* changing menu collapse icon on click */}
             {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
           </div>
