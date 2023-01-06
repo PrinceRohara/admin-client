@@ -25,6 +25,8 @@ import KeepInTouch from "./pages/keepintouch/KeepInTouch";
 import StylistForm from "./pages/stylist/StylistForm";
 import StylistNew from "./pages/stylist/StylistNew";
 import CreateNewStuff from "./pages/stuff/CreateNewStuff";
+import OwnerForm from "./pages/owners/OwnerForm";
+import OwnerNew from "./pages/owners/OwnerNew";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -60,6 +62,7 @@ function App() {
             <Route path="transation" element={<Transation />} />
             <Route path="customers" element={<Customers />} />
             <Route path="owners" element={<Owners />} />
+            <Route path="owners/new" element={<OwnerNew />} />
             <Route path="payoutrequests" element={<PayoutRequests />} />
             <Route path="tax" element={<Tax />} />
             <Route path="stylist" element={<Stylist />} />

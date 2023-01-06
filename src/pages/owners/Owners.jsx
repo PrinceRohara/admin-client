@@ -2,6 +2,7 @@ import React from "react";
 import FetchDataComponent from "../../components/fetchdata/FetchDataComponent";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { Link } from "react-router-dom";
 import BookingComponent from "../bookings/Booking.component";
 const Owners = () => {
   return (
@@ -11,9 +12,11 @@ const Owners = () => {
         <Navbar />
         <div className="">
           <h1 className="mt-8 ml-4 text-3xl ">Owners</h1>
-          <button className="bg-orange-600 pt-1 pb-1 pr-2 pl-2  h-12 rounded text-white ml-[68rem] ">
-            Add Stylist
-          </button>
+          <Link to="new">
+            <button className="bg-orange-600 pt-1 pb-1 pr-2 pl-2  h-12 rounded text-white ml-[68rem] ">
+              Add Stylist
+            </button>
+          </Link>
         </div>
 
         <BookingComponent />
