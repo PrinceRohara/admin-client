@@ -24,6 +24,7 @@ import Stuff from "./pages/stuff/Stuff";
 import KeepInTouch from "./pages/keepintouch/KeepInTouch";
 import StylistForm from "./pages/stylist/StylistForm";
 import StylistNew from "./pages/stylist/StylistNew";
+import CreateNewStuff from "./pages/stuff/CreateNewStuff";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -64,6 +65,7 @@ function App() {
             <Route path="stylist" element={<Stylist />} />
             <Route path="stylist/new" element={<StylistNew />} />
             <Route path="staff" element={<Stuff />} />
+            <Route path="staff/new" element={<CreateNewStuff />} />
             <Route path="keepintouch" element={<KeepInTouch />} />
           </Route>
         </Routes>

@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
 import Sidebar from "../../components/sidebar/Sidebar";
-import StylistForm from "./StylistForm";
+import StuffPopUp from "./StuffPopUp";
 
-const StylistNew = () => {
+const CreateNewStuff = () => {
   return (
     <div className="new">
       <Sidebar />
@@ -11,10 +11,10 @@ const StylistNew = () => {
         <Navbar />
 
         <h1 className="text-xl p-1 m-2">Add Stylist</h1>
-        <StylistForm />
+        <StuffPopUp/>
       </div>
     </div>
   );
 };
 
-export default StylistNew;
+export default CreateNewStuff;
