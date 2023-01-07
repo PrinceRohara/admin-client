@@ -10,7 +10,7 @@ const OwnerForm = () => {
           <TextField
             className="w-[100%] p-1 ml-2"
             id="filled-basic"
-            label="Last Name"
+            label="First Name"
             variant="outlined"
             color="warning"
           />
