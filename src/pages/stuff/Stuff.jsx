@@ -5,6 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import BookingComponent from "../bookings/Booking.component";
 import { Link } from "react-router-dom";
 import StuffPopUp from "./StuffPopUp";
+import StuffComponent from "./stuff.component";
 const Stuff = () => {
   return (
     <div className="single ">
@@ -23,7 +24,7 @@ const Stuff = () => {
         <div className="mb-12">
           <StuffPopUp className="w-[100%]" />
         </div>
-        <BookingComponent />
+        <StuffComponent />
       </div>
     </div>
   );
