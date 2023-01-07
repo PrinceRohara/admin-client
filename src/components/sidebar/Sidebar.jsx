@@ -36,10 +36,15 @@ import {
 } from "react-icons/fi";
 import { RiPencilLine } from "react-icons/ri";
 import { BiCog } from "react-icons/bi";
+import CatalogDrawer from "../../pages/Catalog/CatalogDrawer";
+import { Drawer, Box, Typography } from "@mui/material";
+
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   //create initial menuCollapse state using useState hook
   const [menuCollapse, setMenuCollapse] = useState(false);
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = (e) => {
@@ -47,6 +52,9 @@ const Sidebar = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
+
+  // catalog Temporary drawer
+
   return (
     <ProSidebar collapsed={menuCollapse}>
       <div className=" sidebar ">
@@ -70,17 +78,19 @@ const Sidebar = () => {
           </div>
           <div className="center">
             <ul>
-              <li>
-                <img
-                  className=""
-                  src="https://cdn-icons-png.flaticon.com/512/5178/5178544.png"
-                  alt=""
-                  width="26px"
-                />
-                {!menuCollapse && (
-                  <span className="dark:text-white">DASHBOARD</span>
-                )}
-              </li>
+              <Link to="/">
+                <li>
+                  <img
+                    className=""
+                    src="https://cdn-icons-png.flaticon.com/512/5178/5178544.png"
+                    alt=""
+                    width="26px"
+                  />
+                  {!menuCollapse && (
+                    <span className="dark:text-white">DASHBOARD</span>
+                  )}
+                </li>
+              </Link>
               {/* <p className="title">LISTS</p> */}
               <Link to="/bookings" style={{ textDecoration: "none" }}>
                 <li>
@@ -143,7 +153,8 @@ const Sidebar = () => {
                   {!menuCollapse && <span>TAX</span>}
                 </li>
               </Link>
-              <Link to="/configuration" style={{ textDecoration: "none" }}>
+              {/* <Link to="/catalog" style={{ textDecoration: "none" }}> */}
+              {/* <Link>
                 <li>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/697/697722.png"
@@ -152,8 +163,44 @@ const Sidebar = () => {
                   />
                   {!menuCollapse && <span>CATALOG</span>}
                 </li>
-              </Link>
-
+              </Link>{" "} */}
+              <>
+                <li>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/697/697722.png"
+                    alt=""
+                    width="26px"
+                  />
+                  {!menuCollapse && (
+                    <div>
+                      {" "}
+                      <span onClick={() => setIsDrawerOpen(true)}>Catalog</span>
+                      <Drawer
+                        className="ml-12"
+                        anchor="left"
+                        open={isDrawerOpen}
+                        onClose={() => setIsDrawerOpen(false)}
+                      >
+                        <Box
+                          p={2}
+                          width="250px"
+                          textAlign="left"
+                          role="presentation"
+                        >
+                          <Typography variant="h6" component="div">
+                            CataLog
+                          </Typography>
+                          <div className="mt-8 mb-4 ">
+                            <Link to="/services">Service</Link>
+                          </div>
+                          <Link to="/categories">Categories</Link>
+                        </Box>
+                      </Drawer>
+                    </div>
+                  )}
+                </li>
+              </>
+              {/* </Link> */}
               <Link to="/users" style={{ textDecoration: "none" }}>
                 <li>
                   <img
@@ -204,7 +251,6 @@ const Sidebar = () => {
                   {!menuCollapse && <span>KEEP IN TOUCH</span>}
                 </li>
               </Link>
-
               <Link to="/configuration" style={{ textDecoration: "none" }}>
                 <li>
                   <img

@@ -97,7 +97,7 @@ const SingleBooking = (props) => {
           <div className="w-[30%] p-2 m-2 bg-white rounded-xl">
             <h1 className="text-2xl mt-2  p-2 mb-2">Customer</h1>
             <hr />
-            <span>Govind Pant</span>
+            <span className="text-black">Govind Pant</span>
             <br />
             <a href="" className="underline text-orange-500">
               {" "}
@@ -105,7 +105,9 @@ const SingleBooking = (props) => {
             </a>{" "}
             <br />
             <br />
-            <span className=" mt-8 mb-2 font-bold ">Contact Information</span>
+            <span className=" mt-8 mb-2 font-bold text-black ">
+              Contact Information
+            </span>
             <br />
             <a href="" className="underline text-orange-500">
               {" "}

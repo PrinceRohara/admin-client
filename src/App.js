@@ -33,6 +33,10 @@ import CustomersId from "./pages/customers/CustomersId";
 import TaxId from "./pages/Tax/TaxId";
 import PayoutRequestDetails from "./pages/payoutrequests/PayoutRequestDetails";
 import OwnerDetails from "./pages/owners/OwnerDetails";
+import Catalog from "./pages/Catalog/Catalog";
+import MuiDrawer from "./components/sidebar/MuiDrawer";
+import Services from "./pages/services/Services";
+import Categories from "./pages/categories/Categories";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -81,6 +85,10 @@ function App() {
             <Route path="transation/:id" element={<BookingId />} />
             <Route path="customers/:id" element={<CustomersId />} />
             <Route path="tax/:id" element={<TaxId />} />
+            <Route path="catalog" element={<Catalog />} />
+            <Route path="check" element={<MuiDrawer />} />
+            <Route path="services" element={<Services />} />
+            <Route path="categories" element={<Categories />} />
             <Route
               path="payoutrequests/:id"
               element={<PayoutRequestDetails />}
