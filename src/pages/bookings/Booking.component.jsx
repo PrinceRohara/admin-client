@@ -73,7 +73,7 @@ const BookingComponent = () => {
     <>
       <div className="bg-white p-2 items-center">
         <button
-          className={`ml-[4rem] w-[400px] text-gray-500 p-2 hover:bg-orange-200  hover:text-orange-400 ${
+          className={`ml-[4rem] w-[400px] text-gray-500 p-2  ${
             allBookings ? "border-b-2 border-orange-500" : "border-none"
           }`}
           onClick={handleAllBookings}
@@ -81,7 +81,7 @@ const BookingComponent = () => {
           All Bookings
         </button>
         <button
-          className={`ml-[10rem] w-[400px] text-gray-500 p-2 hover:bg-orange-200  hover:text-orange-400 ${
+          className={`ml-[10rem] w-[400px] text-gray-500 p-2   ${
             cancelledBookings ? "border-b-2 border-orange-500" : "no-underline"
           }`}
           onClick={handleCancelledBookings}
