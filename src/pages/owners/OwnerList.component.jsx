@@ -20,7 +20,7 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-const CustomerList = () => {
+const OwnerList = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
   const [allBookings, setAllBookings] = useState(true);
@@ -78,7 +78,7 @@ const CustomerList = () => {
           }`}
           onClick={handleAllBookings}
         >
-          All Customers
+          All Owners
         </button>
       </div>
       <div className="space-x-4 p-2 ml-4 font-semibold ">
@@ -111,4 +111,4 @@ const CustomerList = () => {
   );
 };
 
-export default CustomerList;
+export default OwnerList;
