@@ -30,6 +30,9 @@ import OwnerNew from "./pages/owners/OwnerNew";
 import SingleBooking from "./pages/bookid/SingleBooking";
 import BookingId from "./pages/bookid/BookingId";
 import CustomersId from "./pages/customers/CustomersId";
+import TaxId from "./pages/Tax/TaxId";
+import PayoutRequestDetails from "./pages/payoutrequests/PayoutRequestDetails";
+import OwnerDetails from "./pages/owners/OwnerDetails";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -65,6 +68,7 @@ function App() {
             <Route path="transation" element={<Transation />} />
             <Route path="customers" element={<Customers />} />
             <Route path="owners" element={<Owners />} />
+            <Route path="owners/:id" element={<OwnerDetails />} />
             <Route path="owners/new" element={<OwnerNew />} />
             <Route path="payoutrequests" element={<PayoutRequests />} />
             <Route path="tax" element={<Tax />} />
@@ -76,6 +80,11 @@ function App() {
             <Route path="bookings/:id" element={<BookingId />} />
             <Route path="transation/:id" element={<BookingId />} />
             <Route path="customers/:id" element={<CustomersId />} />
+            <Route path="tax/:id" element={<TaxId />} />
+            <Route
+              path="payoutrequests/:id"
+              element={<PayoutRequestDetails />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

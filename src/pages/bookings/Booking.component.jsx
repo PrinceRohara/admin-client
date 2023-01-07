@@ -17,6 +17,8 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import overlayFactory from "react-bootstrap-table2-overlay";
 // import BootstrapTable from "react-bootstrap-table-next";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
@@ -87,12 +89,48 @@ const BookingComponent = () => {
           Cancelled Bookings
         </button>
       </div>
+      <div className="bg-white p-2 items-center flex flex-row mb-[-10px]">
+        {allBookings && (
+          <button
+            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
+              allBookings ? "border-b-[3px] border-orange-500" : "border-none"
+            }`}
+            onClick={handleAllBookings}
+          >
+            All Bookings
+          </button>
+        )}
+        {cancelledBookings && (
+          <button
+            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
+              cancelledBookings
+                ? "border-b-[3px] border-orange-500"
+                : "border-none"
+            }`}
+            onClick={handleAllBookings}
+          >
+            All Cancelled Bookings
+          </button>
+        )}
+      </div>
       <div className="datatable bg-white">
+        {" "}
+        <div className="space-x-4 p-2 ml-1 font-semibold ">
+          <Button variant="outlined" className="'" color="warning">
+            Filters
+          </Button>
+          <TextField
+            id="outlined-basic"
+            className="p-2 ml-2 w-[90%]"
+            variant="outlined"
+            size="small"
+            color="warning"
+          />
+        </div>
         {/* <div className="flex p-2 m-2 ">
         <button className="p-2 bg-gray-400 m-2 ">AllBookings</button>
         <button className="p-2 bg-gray-400">Cancelled Bookings</button>
       </div>{" "} */}
-
         {/* <div className="flex w-full p-4 m-2 space-x-96 text-center align-middle drop-shadow-xl">
         <button className="bg-white text-black hover:text-orange-400 ml-12 p-2 rounded-sm">
           All Bookings
@@ -110,11 +148,9 @@ const BookingComponent = () => {
           type="text"
         />
       </div> */}
-
         {/* {allBookings && (
           
       )} */}
-
         {allBookings && (
           <>
             {/* {bookings.map((b) => {
