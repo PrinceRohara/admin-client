@@ -1,5 +1,6 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+import "../../style/dark.scss";
 
 const OwnerForm = () => {
   return (

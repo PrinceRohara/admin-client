@@ -37,6 +37,7 @@ import Catalog from "./pages/Catalog/Catalog";
 import MuiDrawer from "./components/sidebar/MuiDrawer";
 import Services from "./pages/services/Services";
 import Categories from "./pages/categories/Categories";
+import NewService from "./pages/services/NewService";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -88,6 +89,7 @@ function App() {
             <Route path="catalog" element={<Catalog />} />
             <Route path="check" element={<MuiDrawer />} />
             <Route path="services" element={<Services />} />
+            <Route path="services/add" element={<NewService />} />
             <Route path="categories" element={<Categories />} />
             <Route
               path="payoutrequests/:id"

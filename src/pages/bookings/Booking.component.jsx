@@ -19,13 +19,15 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 // import BootstrapTable from "react-bootstrap-table-next";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { DarkModeContext } from "../../context/darkModeContext";
+import { useContext } from "react";
 
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
-
+  const { darkMode } = useContext(DarkModeContext);
   // give data
   const [bookData, setBookData] = useState(null);
 
@@ -71,7 +73,7 @@ const BookingComponent = () => {
 
   return (
     <>
-      <div className="bg-white p-2 items-center">
+      <div className={` p-2 items-center rounded ${data ? "bg-white" : ""}`}>
         <button
           className={`ml-[4rem] w-[400px] text-gray-500 p-2  ${
             allBookings ? "border-b-2 border-orange-500" : "border-none"
@@ -89,7 +91,7 @@ const BookingComponent = () => {
           Cancelled Bookings
         </button>
       </div>
-      <div className="bg-white p-2 items-center flex flex-row mb-[-10px]">
+      <div className=" p-2 items-center flex flex-row mb-[-10px]">
         {allBookings && (
           <button
             className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
@@ -113,7 +115,7 @@ const BookingComponent = () => {
           </button>
         )}
       </div>
-      <div className="datatable bg-white">
+      <div className="datatable ">
         {" "}
         <div className="space-x-4 p-2 ml-1 font-semibold ">
           <Button variant="outlined" className="'" color="warning">

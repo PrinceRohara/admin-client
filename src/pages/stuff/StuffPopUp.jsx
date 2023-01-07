@@ -22,7 +22,7 @@ const StuffPopUp = () => {
     setOpen(false);
   };
   return (
-    <div className="float-right  ">
+    <div className="ml-[55rem] ">
       <Button variant="contained" color="error" onClick={handleClickOpen}>
         INVIATE STAFF MEMBERS
       </Button>

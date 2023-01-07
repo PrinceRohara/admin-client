@@ -73,9 +73,11 @@ const ServicesList = () => {
     <>
       <div className="flex space-x-[55rem] mt-4 mb-4">
         <h1 className="text-xl p-2">Services</h1>
-        <Button className="" variant="contained" color="error">
-          Create Service
-        </Button>
+        <Link to="add">
+          <Button className="" variant="contained" color="error">
+            Create Service
+          </Button>
+        </Link>
       </div>
       <div className="bg-white mt-8 p-2 items-center flex flex-row">
         <button
