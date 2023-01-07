@@ -33,10 +33,19 @@ const SingleCustomer = () => {
           <br />
           <span className="text-sm p-1 mb-2">Active member since Jan 2023</span>
           <hr />
-          <div className="mt-4">
+          <div className="mt-4 mb-2">
             <Checkbox {...label} />
-            <span>User account active</span>
-          </div>
+            <span>User account active</span>{" "}
+          </div>{" "}
+          <TextField
+            className="w-full"
+            id="outlined-textarea"
+            label="Note"
+            placeholder="Note"
+            size="large"
+            multiline
+            rows={2}
+          />
         </div>
         <div className="bg-white w-[30%] p-4 m-4 rounded-md">
           <span className="text-xl font-semibold p-1">Customer History</span>
