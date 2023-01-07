@@ -24,7 +24,7 @@ const SingleCustomer = () => {
   ];
   return (
     <div className="">
-      <h1 className="text-2xl bg-[#F1F6F6]">Prashant Babu</h1>
+      <h1 className="text-2xl mt-4 ml-4 bg-[#F1F6F6]">Prashant Babu</h1>
       <div className="flex ">
         <div className="p-4 m-4 rounded-md bg-white w-[70%]">
           <span className="text-xl font-semibold p-1">
