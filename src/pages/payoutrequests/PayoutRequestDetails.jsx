@@ -10,7 +10,7 @@ const PayoutRequestDetails = () => {
       <div className="newContainer">
         <Navbar />
 
-        <h1 className="text-xl p-1 m-2">Create Owners</h1>
+        <h1 className="text-xl p-1 m-2">Payout Request Details</h1>
         <PayoutdetailsTable />
       </div>
     </div>
