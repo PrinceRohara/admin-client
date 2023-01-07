@@ -73,7 +73,7 @@ const OwnerList = () => {
     <>
       <div className="bg-white p-2 items-center flex flex-row">
         <button
-          className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2 hover:bg-orange-200  hover:text-orange-400 ${
+          className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2   ${
             allBookings ? "border-b-[3px] border-orange-500" : "border-none"
           }`}
           onClick={handleAllBookings}

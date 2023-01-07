@@ -75,7 +75,7 @@ function App() {
             <Route path="keepintouch" element={<KeepInTouch />} />
             <Route path="bookings/:id" element={<BookingId />} />
             <Route path="transation/:id" element={<BookingId />} />
-            <Route path="myid" element={<CustomersId />} />
+            <Route path="customers/:id" element={<CustomersId />} />
           </Route>
         </Routes>
       </BrowserRouter>
