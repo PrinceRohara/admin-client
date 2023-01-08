@@ -36,9 +36,16 @@ const AllServices = () => {
   ];
   return (
     <>
-      <div className="datatable bg-white">
+      <div className="datatable bg-white rounded-md">
         <div className="datatableTitle">
-          Service Types
+          <button
+            className={`ml-[1rem] text-md font-semibold tracking-wide  text-gray-700 p-2 
+             border-b-[3px] border-orange-500 
+            `}
+          >
+            All Services Types
+          </button>
+
           <Link
             to="/users/new"
             className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"

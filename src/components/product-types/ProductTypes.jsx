@@ -1,6 +1,7 @@
 import React from "react";
 import "./producttypes.scss";
 import Sidebar from "../sidebar/Sidebar";
+import Navbar from "../navbar/Navbar";
 // import Datatable from "../datatable/Datatable";
 import AllService from "./AllService";
 const producttypes = () => {
@@ -9,7 +10,9 @@ const producttypes = () => {
       <Sidebar />
 
       <div className="singleContainer m-8">
-        <h4 className="text-2xl">Service types </h4>
+        {" "}
+        <Navbar />
+        <h4 className="text-2xl m-2 p-2">Service types </h4>
         {/* <div className="flex ">
           <div className="mr-12">
             {" "}
@@ -21,7 +24,6 @@ const producttypes = () => {
             </button>
           </div>
         </div> */}
-
         <AllService />
       </div>
     </div>
