@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import BookingComponent from "../bookings/Booking.component";
 import { Link } from "react-router-dom";
+import StylistList from "./StylistList.component";
 const Stylist = () => {
   return (
     <div className="single ">
@@ -19,7 +20,7 @@ const Stylist = () => {
           </Link>
         </div>
 
-        <BookingComponent />
+        <StylistList />
       </div>
     </div>
   );
