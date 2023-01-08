@@ -9,12 +9,12 @@ const Stylist = () => {
   return (
     <div className="single ">
       <Sidebar />
-      <div className="singleContainer p-4 ml-4 mr-4">
+      <div className="singleContainer p-4 ml-4 mr-4 bg-[#F1F6F6]">
         <Navbar />
-        <div className="">
-          <h1 className="mt-8 ml-4 text-3xl mb-4">Stylist</h1>
+        <div className="flex my-8">
+          <h1 className="mt-8 ml-4 text-3xl ">Stylist</h1>
           <Link to="new">
-            <button className="bg-orange-600 pt-1 pb-1 pr-2 pl-2  h-12 rounded text-white ml-[60rem] mb-4 ">
+            <button className="bg-orange-600 p-2 font-bold h-12 rounded text-white ml-[60rem] mb-2">
               ADD STYLIST
             </button>
           </Link>

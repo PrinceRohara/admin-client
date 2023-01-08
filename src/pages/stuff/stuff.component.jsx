@@ -21,6 +21,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
 import MenuItem from "@mui/material/MenuItem";
+import StuffPopUp from "./StuffPopUp";
 
 const StuffComponent = () => {
   const [data, setData] = useState(bookingsData);
@@ -107,7 +108,14 @@ const StuffComponent = () => {
         >
           Owner Staff
         </button>
-      </div>
+      </div>{" "}
+      {allBookings && (
+        <div className="flex space-x-[50rem] my-4 p-1">
+          <h1 className=" text-2xl ">Staff Members</h1>
+
+          <StuffPopUp className="w-[100%] " />
+        </div>
+      )}
       <div className="bg-white p-2 items-center flex flex-row mb-[-10px]">
         {allBookings && (
           <button

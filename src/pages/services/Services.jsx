@@ -11,7 +11,7 @@ const Services = () => {
     <div className="single ">
       <Sidebar />
       <div
-        className={`"singleContainer p-4 ml-4 mr-4 bg-[#F1F6F6]" ${
+        className={`"singleContainer p-4 ml-4 mr-4 w-full " ${
           darkMode ? "bg-[#1D1E1F]" : "bg-[#F1F6F6]"
         }`}
       >

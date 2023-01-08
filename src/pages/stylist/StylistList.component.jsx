@@ -68,7 +68,7 @@ const StylistList = () => {
 
   return (
     <>
-      <div className=" p-2 items-center flex flex-row mb-[-10px]">
+      <div className=" p-2 items-center flex flex-row mb-[-10px] bg-white rounded ">
         {allBookings && (
           <button
             className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
@@ -76,19 +76,16 @@ const StylistList = () => {
             }`}
             onClick={handleAllBookings}
           >
-            All Bookings
+            All Stylist
           </button>
         )}
       </div>
-      <div className="datatable ">
+      <div className="datatable bg-white rounded ">
         {" "}
         <div className="space-x-4 p-2 ml-1 font-semibold ">
-          <Button variant="outlined" className="'" color="warning">
-            Filters
-          </Button>
           <TextField
             id="outlined-basic"
-            className="p-2 ml-2 w-[90%]"
+            className="p-2 ml-2 w-[100%]"
             variant="outlined"
             size="small"
             color="warning"

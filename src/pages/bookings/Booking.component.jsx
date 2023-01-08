@@ -73,85 +73,89 @@ const BookingComponent = () => {
 
   return (
     <>
-      <div className={` p-2 items-center rounded ${data ? "bg-white" : ""}`}>
-        <button
-          className={`ml-[4rem] w-[400px] text-gray-500 p-2  ${
-            allBookings ? "border-b-2 border-orange-500" : "border-none"
-          }`}
-          onClick={handleAllBookings}
-        >
-          All Bookings
-        </button>
-        <button
-          className={`ml-[10rem] w-[400px] text-gray-500 p-2   ${
-            cancelledBookings ? "border-b-2 border-orange-500" : "no-underline"
-          }`}
-          onClick={handleCancelledBookings}
-        >
-          Cancelled Bookings
-        </button>
-      </div>
-      <div className=" p-2 items-center flex flex-row mb-[-10px]">
-        {allBookings && (
+      <div className="bg-white ">
+        <div className={` p-2 items-center rounded bg-white`}>
           <button
-            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
-              allBookings ? "border-b-[3px] border-orange-500" : "border-none"
+            className={`ml-[4rem] w-[400px] text-gray-500 p-2  ${
+              allBookings ? "border-b-2 border-orange-500" : "border-none"
             }`}
             onClick={handleAllBookings}
           >
             All Bookings
           </button>
-        )}
-        {cancelledBookings && (
           <button
-            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
+            className={`ml-[10rem] w-[400px] text-gray-500 p-2   ${
               cancelledBookings
-                ? "border-b-[3px] border-orange-500"
-                : "border-none"
+                ? "border-b-2 border-orange-500"
+                : "no-underline"
             }`}
-            onClick={handleAllBookings}
+            onClick={handleCancelledBookings}
           >
-            All Cancelled Bookings
+            Cancelled Bookings
           </button>
-        )}
-      </div>
-      <div className="datatable ">
-        {" "}
-        <div className="space-x-4 p-2 ml-1 font-semibold ">
-          <Button variant="outlined" className="'" color="warning">
-            Filters
-          </Button>
-          <TextField
-            id="outlined-basic"
-            className="p-2 ml-2 w-[90%]"
-            variant="outlined"
-            size="small"
-            color="warning"
-          />
         </div>
-        {allBookings && (
-          <>
+        <div className=" p-2 items-center flex flex-row mb-[-10px] bg-white mt-4">
+          {allBookings && (
+            <button
+              className={`ml-[1rem] font-semibold tracking-wide bg-white  text-gray-700 p-2    ${
+                allBookings ? "border-b-[3px] border-orange-500" : "border-none"
+              }`}
+              onClick={handleAllBookings}
+            >
+              All Bookings
+            </button>
+          )}
+          {cancelledBookings && (
+            <button
+              className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
+                cancelledBookings
+                  ? "border-b-[3px] border-orange-500"
+                  : "border-none"
+              }`}
+              onClick={handleAllBookings}
+            >
+              All Cancelled Bookings
+            </button>
+          )}
+        </div>
+        <div className="datatable ">
+          {" "}
+          <div className="space-x-4 p-2 ml-1 font-semibold ">
+            <Button variant="outlined" className="'" color="warning">
+              Filters
+            </Button>
+            <TextField
+              id="outlined-basic"
+              className="p-2 ml-2 w-[90%]"
+              variant="outlined"
+              size="small"
+              color="warning"
+            />
+          </div>
+          {allBookings && (
+            <>
+              <DataGrid
+                data-aos="fade-right"
+                className="datagrid"
+                rows={data}
+                columns={bookings.concat(actionColumn)}
+                pageSize={9}
+                rowsPerPageOptions={[9]}
+                checkboxSelection
+              />
+            </>
+          )}
+          {cancelledBookings && (
             <DataGrid
-              data-aos="fade-right"
-              className="datagrid"
-              rows={data}
+              className="datagrid "
+              rows={data1}
               columns={bookings.concat(actionColumn)}
               pageSize={9}
               rowsPerPageOptions={[9]}
               checkboxSelection
             />
-          </>
-        )}
-        {cancelledBookings && (
-          <DataGrid
-            className="datagrid "
-            rows={data1}
-            columns={bookings.concat(actionColumn)}
-            pageSize={9}
-            rowsPerPageOptions={[9]}
-            checkboxSelection
-          />
-        )}
+          )}
+        </div>
       </div>
     </>
   );

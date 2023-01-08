@@ -71,52 +71,56 @@ const ServicesList = () => {
 
   return (
     <>
-      <div className="flex space-x-[55rem] mt-4 mb-4">
-        <h1 className="text-xl p-2">Services</h1>
-        <Link to="add">
-          <Button className="" variant="contained" color="error">
-            Create Service
-          </Button>
-        </Link>
-      </div>
-      <div className="bg-white mt-8 p-2 items-center flex flex-row">
-        <button
-          className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2 hover:bg-orange-200  hover:text-orange-400 ${
-            allBookings ? "border-b-[3px] border-orange-500" : "border-none"
-          }`}
-          onClick={handleAllBookings}
-        >
-          All Services
-        </button>
-      </div>
-      <div className="space-x-4 p-2  font-semibold bg-white">
-        <div className="p-2 ml-2 space-x-2">
-          <Button variant="outlined" color="warning">
-            Filters
-          </Button>
-          <TextField
-            id="outlined-basic"
-            className="p-2 ml-2 w-[90%]"
-            variant="outlined"
-            size="small"
-            color="warning"
-          />{" "}
+      <div >
+        <div className="flex space-x-[50rem] mt-4 mb-4">
+          <h1 className="text-xl p-2">Services</h1>
+          <div className="">
+            <Link to="add">
+              <Button className="" variant="contained" color="error">
+                Create Service
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="datatable bg-white ">
-        {allBookings && (
-          <>
-            <DataGrid
-              checkboxSelection
-              data-aos="fade-right"
-              className="datagrid"
-              rows={data}
-              columns={bookings.concat(actionColumn)}
-              pageSize={9}
-              rowsPerPageOptions={[9]}
-            />
-          </>
-        )}
+        <div className="bg-white mt-8 p-2 items-center flex flex-row">
+          <button
+            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2 hover:bg-orange-200  hover:text-orange-400 ${
+              allBookings ? "border-b-[3px] border-orange-500" : "border-none"
+            }`}
+            onClick={handleAllBookings}
+          >
+            All Services
+          </button>
+        </div>
+        <div className="space-x-4 p-2  font-semibold bg-white">
+          <div className="p-2 ml-2 space-x-2">
+            <Button variant="outlined" color="warning">
+              Filters
+            </Button>
+            <TextField
+              id="outlined-basic"
+              className="p-2 ml-2 w-[90%]"
+              variant="outlined"
+              size="small"
+              color="warning"
+            />{" "}
+          </div>
+        </div>
+        <div className="datatable bg-white ">
+          {allBookings && (
+            <>
+              <DataGrid
+                checkboxSelection
+                data-aos="fade-right"
+                className="datagrid"
+                rows={data}
+                columns={bookings.concat(actionColumn)}
+                pageSize={9}
+                rowsPerPageOptions={[9]}
+              />
+            </>
+          )}
+        </div>
       </div>
     </>
   );
