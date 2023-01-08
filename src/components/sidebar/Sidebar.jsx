@@ -45,6 +45,7 @@ const Sidebar = () => {
   const [menuCollapse, setMenuCollapse] = useState(false);
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpenManage, setIsDrawerOpenManage] = useState(false);
 
   //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = (e) => {
@@ -174,7 +175,9 @@ const Sidebar = () => {
                   {!menuCollapse && (
                     <div>
                       {" "}
-                      <span onClick={() => setIsDrawerOpen(true)}>Catalog</span>
+                      <span onClick={() => setIsDrawerOpen(true)}>
+                        CATAGLOG
+                      </span>
                       <Drawer
                         className="ml-12"
                         anchor="left"
@@ -211,16 +214,45 @@ const Sidebar = () => {
                   {!menuCollapse && <span className="text-xl">SALONS</span>}
                 </li>
               </Link>
-              <Link to="/configuration" style={{ textDecoration: "none" }}>
-                <li>
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3046/3046889.png"
-                    alt=""
-                    width="26px"
-                  />
-                  {!menuCollapse && <span>MANAGE SERVICES</span>}
-                </li>
-              </Link>
+
+              <li>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3046/3046889.png"
+                  alt=""
+                  width="26px"
+                />
+                {!menuCollapse && (
+                  <div>
+                    {" "}
+                    <span onClick={() => setIsDrawerOpenManage(true)}>
+                      {" "}
+                      MANAGE SERVICES
+                    </span>
+                    <Drawer
+                      className="ml-12"
+                      anchor="left"
+                      open={isDrawerOpenManage}
+                      onClose={() => setIsDrawerOpenManage(false)}
+                    >
+                      <Box
+                        p={2}
+                        width="250px"
+                        textAlign="left"
+                        role="presentation"
+                      >
+                        <Typography variant="h6" component="div">
+                          MANAGE SERVICES
+                        </Typography>
+                        <div className="mt-8 mb-4 ">
+                          <Link to="/shop-services">Service</Link>
+                        </div>
+                        <Link to="/categories">Requested Services</Link>
+                      </Box>
+                    </Drawer>
+                  </div>
+                )}
+              </li>
+
               <Link to="/stylist" style={{ textDecoration: "none" }}>
                 <li>
                   <img

@@ -42,6 +42,8 @@ import CategoriesAdd from "./pages/categories/CategoriesAdd";
 import SingleServices from "./pages/services/SingleServices";
 import SignInSide from "./pages/signin/SignIn";
 import SingleCategory from "./pages/categories/SingleCategory";
+import MangeService from "./pages/mangeservice/MangeService";
+import TaxCreate from "./pages/Tax/TaxCreate";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -91,6 +93,7 @@ function App() {
             <Route path="transation/:id" element={<BookingId />} />
             <Route path="customers/:id" element={<CustomersId />} />
             <Route path="tax/:id" element={<TaxId />} />
+            <Route path="tax/add" element={<TaxCreate />} />
             <Route path="catalog" element={<Catalog />} />
             <Route path="check" element={<MuiDrawer />} />
             <Route path="services" element={<Services />} />
@@ -99,6 +102,7 @@ function App() {
             <Route path="categories" element={<Categories />} />
             <Route path="categories/:id" element={<SingleCategory />} />
             <Route path="categories/add" element={<CategoriesAdd />} />
+            <Route path="shop-services" element={<MangeService />} />
             <Route
               path="payoutrequests/:id"
               element={<PayoutRequestDetails />}
