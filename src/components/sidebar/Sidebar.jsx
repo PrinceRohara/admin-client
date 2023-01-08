@@ -188,7 +188,7 @@ const Sidebar = () => {
                           role="presentation"
                         >
                           <Typography variant="h6" component="div">
-                            CataLog
+                            CATAGLOG
                           </Typography>
                           <div className="mt-8 mb-4 ">
                             <Link to="/services">Service</Link>
