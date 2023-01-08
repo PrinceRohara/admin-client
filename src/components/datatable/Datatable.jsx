@@ -39,7 +39,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to=":id" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
           </div>
@@ -69,7 +69,7 @@ const Datatable = () => {
               </MenuItem>
             ))}
           </TextField>
-          <Link to="/users/new" className="  text-white rounded ">
+          <Link to="new" className="  text-white rounded ">
             {/* bg-[#D1461B] text-lg font-bold p-1  */}
             <Button color="error" variant="contained" size="large">
               Create Salon

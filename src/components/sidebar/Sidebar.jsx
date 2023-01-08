@@ -204,7 +204,7 @@ const Sidebar = () => {
                 </li>
               </>
               {/* </Link> */}
-              <Link to="/users" style={{ textDecoration: "none" }}>
+              <Link to="/salon" style={{ textDecoration: "none" }}>
                 <li>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/3790/3790422.png"
