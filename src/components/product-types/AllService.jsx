@@ -47,7 +47,7 @@ const AllServices = () => {
           </button>
 
           <Link
-            to="/users/new"
+            to="add"
             className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"
           >
             CREATE SERVICE TYPE

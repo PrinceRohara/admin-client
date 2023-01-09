@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FetchDataComponent from "../../components/fetchdata/FetchDataComponent";
 import Sidebar from "../../components/sidebar/Sidebar";
 import BookingComponent from "../bookings/Booking.component";
 // import { CardContent } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Navbar from "../../components/navbar/Navbar";
+import axios from "axios";
 const KeepInTouch = () => {
+  const [keepinTouchData, setKeepinTouchData] = useState(null);
+
+  const fetchApi = () => {
+    return axios
+      .get("http://3.111.54.115:3000/api/backend/KeepInTouch")
+      .then((response) => setKeepinTouchData(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
   const data = [
     "govind@gmail.com",
     "abcd@gmail.com",
@@ -15,6 +29,7 @@ const KeepInTouch = () => {
     "arman.kamra15@gmail.com",
   ];
 
+  console.log(keepinTouchData);
   return (
     <div className="single ">
       <Sidebar />

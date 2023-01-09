@@ -44,6 +44,7 @@ import SignInSide from "./pages/signin/SignIn";
 import SingleCategory from "./pages/categories/SingleCategory";
 import MangeService from "./pages/mangeservice/MangeService";
 import TaxCreate from "./pages/Tax/TaxCreate";
+import AddService from "./pages/services/AddService";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -74,6 +75,7 @@ function App() {
             <Route path="configuration" element={<Configuration />} />
             <Route path="signin" element={<SignInSide />} />
             <Route path="product-types" element={<ProductTypes />} />
+            <Route path="product-types/add" element={<AddService />} />
             <Route path="navigation" element={<Navigation />} />
             <Route path="pages" element={<MiscellaneousPage />} />
             <Route path="bookings" element={<Bookings />} />

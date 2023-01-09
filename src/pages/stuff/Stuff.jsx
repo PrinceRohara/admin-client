@@ -12,10 +12,7 @@ const Stuff = () => {
       <Sidebar />
       <div className="singleContainer p-4 ml-4 mr-4 bg-[#F1F6F6]">
         <Navbar />
-      
-        <div className="mb-12">
-          <StuffPopUp className="w-[100%]" />
-        </div>
+
         <StuffComponent />
       </div>
     </div>

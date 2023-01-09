@@ -71,7 +71,7 @@ const ServicesList = () => {
 
   return (
     <>
-      <div >
+      <div>
         <div className="flex space-x-[50rem] mt-4 mb-4">
           <h1 className="text-xl p-2">Services</h1>
           <div className="">
