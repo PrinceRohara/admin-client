@@ -20,15 +20,15 @@ const AllServices = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            {/* <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`${params.id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
-            </Link> */}
-            <div
+            </Link>
+            {/* <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
             >
               Delete
-            </div>
+            </div> */}
           </div>
         );
       },
@@ -56,7 +56,7 @@ const AllServices = () => {
         <DataGrid
           className="datagrid"
           rows={data}
-          columns={serviceColumns}
+          columns={serviceColumns.concat(actionColumn)}
           pageSize={9}
           rowsPerPageOptions={[9]}
           checkboxSelection

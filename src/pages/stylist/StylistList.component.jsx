@@ -21,7 +21,9 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
-
+import axios from "axios";
+import { stylistFields } from "./stylistFields";
+import SingleStylistForm from "./SingleStylistForm";
 const StylistList = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -31,7 +33,18 @@ const StylistList = () => {
   // give data
   const [bookData, setBookData] = useState(null);
 
+  const [stylist, setStylist] = useState([]);
+
+  const fetchApi = async () => {
+    const response = await axios.get(
+      "http://3.111.54.115:3000/api/backend/Stylist"
+    );
+
+    console.log(response.data.shops);
+    setStylist(response.data.shops);
+  };
   useEffect(() => {
+    fetchApi();
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -46,8 +59,9 @@ const StylistList = () => {
     {
       field: "action",
       headerName: "View",
-      width: 40,
+      width: 80,
       renderCell: (params) => {
+      
         // setBookData(params);
         return (
           <div className="cellAction w-full">
@@ -137,11 +151,10 @@ const StylistList = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={data}
-              columns={bookings.concat(actionColumn)}
+              rows={stylist}
+              columns={stylistFields.concat(actionColumn)}
               pageSize={9}
               rowsPerPageOptions={[9]}
-              checkboxSelection
             />
           </>
         )}

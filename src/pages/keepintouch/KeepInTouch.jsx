@@ -5,14 +5,15 @@ import BookingComponent from "../bookings/Booking.component";
 // import { CardContent } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Navbar from "../../components/navbar/Navbar";
+
 import axios from "axios";
 const KeepInTouch = () => {
-  const [keepinTouchData, setKeepinTouchData] = useState(null);
+  const [keepinTouchData, setKeepinTouchData] = useState([]);
 
   const fetchApi = () => {
     return axios
       .get("http://3.111.54.115:3000/api/backend/KeepInTouch")
-      .then((response) => setKeepinTouchData(response.data))
+      .then((response) => setKeepinTouchData(response.data.shops))
       .catch((error) => console.log(error));
   };
 
@@ -43,12 +44,25 @@ const KeepInTouch = () => {
           <div className="p-2 m-2">
             <h4>Email</h4>
             <hr />
-            {data.map((d) => (
-              <ul className="p-2  ">
-                <li className="mt-2 mb-2 ">{d}</li>
+            {keepinTouchData.map((el) => (
+              <ul className="my-4 ">
+                <li className="my-2" key={el.id}>
+                  {el.email}
+                </li>
                 <hr />
               </ul>
             ))}
+            {/* {keepinTouchData.map((el) => (
+              <>
+                {console.log(el)}
+                <ul className="p-2  ">
+                  <li className="mt-2 mb-2 " key={el.id}>
+                    {el.email}
+                  </li>
+                  <hr />
+                </ul>
+              </>
+            ))} */}
           </div>
         </div>
 

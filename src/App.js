@@ -45,6 +45,8 @@ import SingleCategory from "./pages/categories/SingleCategory";
 import MangeService from "./pages/mangeservice/MangeService";
 import TaxCreate from "./pages/Tax/TaxCreate";
 import AddService from "./pages/services/AddService";
+import SingleProduct from "./components/product-types/SingleProduct";
+import SingleStylist from "./pages/stylist/SingleStylist";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -76,6 +78,7 @@ function App() {
             <Route path="signin" element={<SignInSide />} />
             <Route path="product-types" element={<ProductTypes />} />
             <Route path="product-types/add" element={<AddService />} />
+            <Route path="product-types/:id" element={<SingleProduct />} />
             <Route path="navigation" element={<Navigation />} />
             <Route path="pages" element={<MiscellaneousPage />} />
             <Route path="bookings" element={<Bookings />} />
@@ -87,6 +90,7 @@ function App() {
             <Route path="payoutrequests" element={<PayoutRequests />} />
             <Route path="tax" element={<Tax />} />
             <Route path="stylist" element={<Stylist />} />
+            <Route path="stylist/:id" element={<SingleStylist />} />
             <Route path="stylist/new" element={<StylistNew />} />
             <Route path="staff" element={<Stuff />} />
             <Route path="staff/new" element={<CreateNewStuff />} />

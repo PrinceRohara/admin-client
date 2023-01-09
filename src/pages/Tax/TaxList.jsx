@@ -6,8 +6,9 @@ import {
   serviceColumns,
   services,
 } from "../../datatablesource";
+import { taxType } from "./TaxFieldType";
 import Carousel from "react-bootstrap/Carousel";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // import "./booking.css";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
@@ -16,9 +17,11 @@ import "aos/dist/aos.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import overlayFactory from "react-bootstrap-table2-overlay";
-// import BootstrapTable from "react-bootstrap-table-next";
+// import { TaxData } from "./fetchApi";
+
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
 
 const TaxList = () => {
   const [data, setData] = useState(bookingsData);
@@ -26,12 +29,52 @@ const TaxList = () => {
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
 
+  const temp = [
+    {
+      tax_name: "Gst",
+      id: 5454455,
+      tax_type: "GST admin",
+      created: "2023-01-08T09:12:44.000Z",
+    },
+    {
+      tax_name: "Gst",
+      id: 5454545,
+      tax_type: "GST admin",
+      created: new Date("2023-01-08T09:12:44.000Z").toLocaleDateString(),
+    },
+    {
+      tax_name: "Gst",
+      id: 5454515,
+      tax_type: "GST admin",
+      created: "2023-01-08T09:12:44.000Z",
+    },
+  ];
+
   // give data
   const [bookData, setBookData] = useState(null);
+  const [taxData, setTaxData] = useState(temp);
+  // const [tax, setTax] = useState(TaxData);
+
+  // const one = taxData[0];
+  const fetchApi = () => {
+    return axios
+      .get("http://3.111.54.115:3000/api/backend/TaxList")
+
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+  };
+  // .then((response) => setTaxData(response.data))
+  // console.log(one);
 
   useEffect(() => {
     AOS.init();
+    fetchApi();
   }, []);
+  // console.log(taxData);
+
+  // const one = taxData.map((el) => el);
+  // console.log(one);
+
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -62,6 +105,7 @@ const TaxList = () => {
       },
     },
   ];
+  const id = [5454, 456, 161, 6, 616];
 
   return (
     <>
@@ -93,8 +137,8 @@ const TaxList = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={data}
-              columns={bookings.concat(actionColumn)}
+              rows={taxData}
+              columns={taxType.concat(actionColumn)}
               pageSize={9}
               rowsPerPageOptions={[9]}
             />
