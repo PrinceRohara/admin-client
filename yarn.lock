@@ -1674,7 +1674,7 @@
     "csstype" "^3.1.1"
     "prop-types" "^15.8.1"
 
-"@mui/styles@^5.0.0":
+"@mui/styles@^5.0.0", "@mui/styles@^5.11.2":
   "integrity" "sha512-Yg6+PMPV4Mx1UJHow2e/nND2bQNWS1H38zrkJxlucXfaR0+aglO6u8R/OXmVspDj+Z5YW5B27lxRDvxCQN9nGw=="
   "resolved" "https://registry.npmjs.org/@mui/styles/-/styles-5.11.2.tgz"
   "version" "5.11.2"
