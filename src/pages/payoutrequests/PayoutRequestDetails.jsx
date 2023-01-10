@@ -7,10 +7,10 @@ const PayoutRequestDetails = () => {
   return (
     <div className="new">
       <Sidebar />
-      <div className="newContainer">
+      <div className="newContainer p-4 bg-[#F1F6F6]">
         <Navbar />
 
-        <h1 className="text-xl p-1 m-2">Payout Request Details</h1>
+        <h1 className="text-2xl p-1 m-2">Payout Request Details</h1>
         <PayoutdetailsTable />
       </div>
     </div>
