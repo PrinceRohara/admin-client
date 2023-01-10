@@ -37,7 +37,7 @@ const StylistList = () => {
 
   const fetchApi = async () => {
     const response = await axios.get(
-      "http://3.111.54.115:3000/api/backend/Stylist"
+      "https://spaalon.harij.in/api/backend/Stylist"
     );
 
     console.log(response.data.shops);
@@ -61,7 +61,6 @@ const StylistList = () => {
       headerName: "View",
       width: 80,
       renderCell: (params) => {
-      
         // setBookData(params);
         return (
           <div className="cellAction w-full">

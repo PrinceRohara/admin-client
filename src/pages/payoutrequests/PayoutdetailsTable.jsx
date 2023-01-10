@@ -6,35 +6,35 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { DataGrid } from "@mui/x-data-grid";
+
 import Checkbox from "@mui/material/Checkbox";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const PayoutdetailsTable = () => {
-  const demoData = [{ totalPrice: 800, name: "Total Base Price" }, ,];
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "firstName", headerName: "First name", width: 130 },
-    { field: "lastName", headerName: "Last name", width: 130 },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      width: 90,
-    },
-    {
-      field: "fullName",
-      headerName: "Full name",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-    },
-  ];
+  // const demoData = [{ totalPrice: 800, name: "Total Base Price" }, ,];
+  // const columns = [
+  //   { field: "id", headerName: "ID", width: 70 },
+  //   { field: "firstName", headerName: "First name", width: 130 },
+  //   { field: "lastName", headerName: "Last name", width: 130 },
+  //   {
+  //     field: "age",
+  //     headerName: "Age",
+  //     type: "number",
+  //     width: 90,
+  //   },
+  //   {
+  //     field: "fullName",
+  //     headerName: "Full name",
+  //     description: "This column has a value getter and is not sortable.",
+  //     sortable: false,
+  //     width: 160,
+  //     valueGetter: (params) =>
+  //       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+  //   },
+  // ];
 
-  const rows = [{ id: 1, lastName: "Snow", firstName: "Jon", age: 35 }];
+  // const rows = [{ id: 1, lastName: "Snow", firstName: "Jon", age: 35 }];
 
   return (
     <>

@@ -1,8 +1,8 @@
 import React from "react";
-import FetchDataComponent from "../../components/fetchdata/FetchDataComponent";
+
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import BookingComponent from "../bookings/Booking.component";
+
 import TaxList from "./TaxList";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";

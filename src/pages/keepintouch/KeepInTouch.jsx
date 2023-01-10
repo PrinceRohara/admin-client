@@ -12,7 +12,7 @@ const KeepInTouch = () => {
 
   const fetchApi = () => {
     return axios
-      .get("http://3.111.54.115:3000/api/backend/KeepInTouch")
+      .get("https://spaalon.harij.in/api/backend/KeepInTouch")
       .then((response) => setKeepinTouchData(response.data.shops))
       .catch((error) => console.log(error));
   };
