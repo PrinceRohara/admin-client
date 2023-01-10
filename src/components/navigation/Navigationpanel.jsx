@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { serviceColumns, services } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import StuffPopUp from "./StuffPopUp";
 
 const Navigationpanel = () => {
   const [data, setData] = useState(services);
@@ -35,15 +36,16 @@ const Navigationpanel = () => {
   ];
   return (
     <div className="datatable bg-white">
-      <div className="datatableTitle">
-        Service Types
+      {/* <div className="ml-[60rem]">
         <Link
           to="/users/new"
           className=" bg-[#D1461B] text-lg font-bold p-2  text-white rounded"
         >
-          CREATE SERVICE TYPE
+          CREATE MENU
         </Link>
-      </div>
+      </div> */}
+      <StuffPopUp />
+      <div className="datatableTitle"></div>
       <DataGrid
         className="datagrid"
         rows={data}

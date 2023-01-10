@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 const MiscellaneousPage = () => {
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -44,11 +45,13 @@ const MiscellaneousPage = () => {
       <h1 className="mt-8 ml-4 text-3xl mb-4">Bookings</h1>
     </div> */}
         <div className="my-4 p-4 ">
-          <div className="p-2 flex space-x-[60rem]  ">
+          <div className="p-2 flex space-x-[60rem]    ">
             <h1 className="text-xl">Pages</h1>
-            <button className="bg-orange-500 p-2 rounded text-white">
-              Create Page
-            </button>
+            <Link to="add">
+              <button className="bg-orange-500 p-2 rounded text-white">
+                Create Page
+              </button>
+            </Link>
           </div>
           <div
             className="bg-white rounded p-4 m-2"

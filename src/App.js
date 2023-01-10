@@ -47,6 +47,7 @@ import TaxCreate from "./pages/Tax/TaxCreate";
 import AddService from "./pages/services/AddService";
 import SingleProduct from "./components/product-types/SingleProduct";
 import SingleStylist from "./pages/stylist/SingleStylist";
+import AddPage from "./components/miscellaneous-page/AddPage";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -81,6 +82,7 @@ function App() {
             <Route path="product-types/:id" element={<SingleProduct />} />
             <Route path="navigation" element={<Navigation />} />
             <Route path="pages" element={<MiscellaneousPage />} />
+            <Route path="pages/add" element={<AddPage />} />
             <Route path="bookings" element={<Bookings />} />
             <Route path="transation" element={<Transation />} />
             <Route path="customers" element={<Customers />} />

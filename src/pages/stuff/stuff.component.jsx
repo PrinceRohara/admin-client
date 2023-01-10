@@ -127,18 +127,6 @@ const StuffComponent = () => {
             Members
           </button>
         )}
-        {/* {cancelledBookings && (
-          <button
-            className={`ml-[1rem] font-semibold tracking-wide  text-gray-700 p-2    ${
-              cancelledBookings
-                ? "border-b-[3px] border-orange-500"
-                : "border-none"
-            }`}
-            onClick={handleAllBookings}
-          >
-           
-          </button>
-        )} */}
       </div>
       <div className="datatable bg-white">
         {" "}
