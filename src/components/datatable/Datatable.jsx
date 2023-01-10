@@ -2,17 +2,30 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import axios from "axios";
+import { SalonFields } from "./SalonFields";
 const Datatable = () => {
   const [data, setData] = useState(userRows);
+  const [salonData, setSalonData] = useState([]);
 
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));
   // };
+  const fetchApi = async () => {
+    const response = await axios.get(
+      "https://spaalon.harij.in/api/backend/Shops"
+    );
+    console.log(response.data.shops);
+    setSalonData(response.data.shops);
+  };
 
+  useEffect(() => {
+    fetchApi();
+  });
   const names = [
     {
       value: 545,
@@ -95,8 +108,8 @@ const Datatable = () => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={data}
-        columns={userColumns.concat(actionColumn)}
+        rows={salonData}
+        columns={SalonFields.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

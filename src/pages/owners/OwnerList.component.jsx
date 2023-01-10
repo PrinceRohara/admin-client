@@ -19,17 +19,37 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 // import BootstrapTable from "react-bootstrap-table-next";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
+import { OwnersFields } from "./OwnersFields";
 
 const OwnerList = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
+  const [ownerList, setOwnerList] = useState([]);
 
   // give data
   const [bookData, setBookData] = useState(null);
-
+  const fetchApi = async () => {
+    const response = await axios.get(
+      "https://spaalon.harij.in/api/backend/OwnerList"
+    );
+    console.log(response.data);
+    setOwnerList(response.data);
+  };
+  const demo = [
+    {
+      id: 45,
+      first_name: "Govind",
+      last_name: "Pant",
+      contact_no: "9958944744",
+      email: "govind@harij.in",
+      created_on: new Date("2023-01-07T17:26:17.000Z").toDateString(),
+    },
+  ];
   useEffect(() => {
+    fetchApi();
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -44,6 +64,12 @@ const OwnerList = () => {
     setAllBookings(false);
     setCancelledBookings(true);
   };
+  // console.log(ownerList);
+
+  const createId = [{ id: 54545 }];
+
+  const addId = ownerList.concat(createId);
+  console.log(addId, "add id");
 
   const actionColumn = [
     {
@@ -99,8 +125,8 @@ const OwnerList = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={data}
-              columns={bookings.concat(actionColumn)}
+              rows={demo}
+              columns={OwnersFields.concat(actionColumn)}
               pageSize={9}
               rowsPerPageOptions={[9]}
             />

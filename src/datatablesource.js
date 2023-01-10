@@ -475,9 +475,3 @@ export const cancelledData = [
     total: "235.5",
   },
 ];
-
-const fetchApi = () => {
-  
-}
-
-export const tax = []

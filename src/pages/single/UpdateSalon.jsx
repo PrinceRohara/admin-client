@@ -55,25 +55,25 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Salon Name"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Email"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Discount"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Discount"
             className="w-[22%]"
             variant="outlined"
           />
@@ -81,19 +81,19 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="latitude"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="longitude"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="taxId"
             className="w-[22%]"
             variant="outlined"
           />{" "}
@@ -103,25 +103,25 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="phone1"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="phone2"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="mobile1"
             className="w-[22%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="shop_capacity"
             className="w-[22%]"
             variant="outlined"
           />
@@ -129,7 +129,7 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="description"
             className="w-[95%]"
             variant="outlined"
             multiline
@@ -150,19 +150,19 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="shop Address"
             className="w-[30%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="shop Address 2 "
             className="w-[30%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Country"
             className="w-[30%]"
             variant="outlined"
           />
@@ -170,19 +170,19 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="State"
             className="w-[30%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="City"
             className="w-[30%]"
             variant="outlined"
           />
           <TextField
             id="outlined-basic"
-            label="Outlined"
+            label="Postal Code"
             className="w-[30%]"
             variant="outlined"
           />

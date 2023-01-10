@@ -6,6 +6,7 @@ import {
   serviceColumns,
   services,
 } from "../../datatablesource";
+import { redirect } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -35,6 +36,8 @@ const StylistList = () => {
 
   const [stylist, setStylist] = useState([]);
 
+  const [click, setClick] = useState(null);
+
   const fetchApi = async () => {
     const response = await axios.get(
       "https://spaalon.harij.in/api/backend/Stylist"
@@ -53,6 +56,12 @@ const StylistList = () => {
 
   const handleAllBookings = () => {
     setAllBookings(true);
+  };
+
+  const cellClick = (params) => {
+    setClick(params);
+    // console.log("my params baby ", params.id);
+    // return redirect(`${params.id}`);
   };
 
   const actionColumn = [
@@ -81,6 +90,7 @@ const StylistList = () => {
 
   return (
     <>
+      {click && redirect(`${click.id}`)}
       <div className=" p-2 items-center flex flex-row mb-[-10px] bg-white rounded ">
         {allBookings && (
           <button
@@ -153,7 +163,9 @@ const StylistList = () => {
               rows={stylist}
               columns={stylistFields.concat(actionColumn)}
               pageSize={9}
+              onCellClick={cellClick}
               rowsPerPageOptions={[9]}
+              style={{ cursor: "pointer" }}
             />
           </>
         )}
