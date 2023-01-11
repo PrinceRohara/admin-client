@@ -22,6 +22,7 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const TaxList = () => {
   const [data, setData] = useState(bookingsData);
@@ -106,6 +107,10 @@ const TaxList = () => {
     },
   ];
   const id = [5454, 456, 161, 6, 616];
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    navigate(`${params.id}`);
+  };
 
   return (
     <>
@@ -138,9 +143,11 @@ const TaxList = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={taxData}
-              columns={taxType.concat(actionColumn)}
+              onRowClick={handleRowClick}
+              columns={taxType}
               pageSize={9}
               rowsPerPageOptions={[9]}
+              style={{ cursor: "pointer" }}
             />
           </>
         )}

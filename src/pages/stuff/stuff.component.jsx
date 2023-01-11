@@ -22,6 +22,7 @@ import TextField from "@mui/material/TextField";
 
 import MenuItem from "@mui/material/MenuItem";
 import StuffPopUp from "./StuffPopUp";
+import { useNavigate } from "react-router-dom";
 
 const StuffComponent = () => {
   const [data, setData] = useState(bookingsData);
@@ -47,7 +48,10 @@ const StuffComponent = () => {
     setAllBookings(false);
     setCancelledBookings(true);
   };
-
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    navigate(`${params.id}`);
+  };
   const actionColumn = [
     {
       field: "action",
@@ -152,7 +156,9 @@ const StuffComponent = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={data}
-              columns={bookings.concat(actionColumn)}
+              columns={bookings}
+              onRowClick={handleRowClick}
+              style={{ cursor: "pointer" }}
               pageSize={9}
               rowsPerPageOptions={[9]}
               checkboxSelection

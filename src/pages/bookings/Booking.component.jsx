@@ -21,7 +21,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -30,7 +30,7 @@ const BookingComponent = () => {
   const { darkMode } = useContext(DarkModeContext);
   // give data
   const [bookData, setBookData] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init();
   }, []);
@@ -46,7 +46,10 @@ const BookingComponent = () => {
     setAllBookings(false);
     setCancelledBookings(true);
   };
-
+  const handleRowClick = (params) => {
+    console.log("clicing", params.id);
+    navigate(`${params.id}`);
+  };
   const actionColumn = [
     {
       field: "action",
@@ -138,9 +141,11 @@ const BookingComponent = () => {
                 data-aos="fade-right"
                 className="datagrid"
                 rows={data}
-                columns={bookings.concat(actionColumn)}
+                onRowClick={handleRowClick}
+                columns={bookings}
                 pageSize={9}
                 rowsPerPageOptions={[9]}
+                style={{ cursor: "pointer" }}
                 checkboxSelection
               />
             </>
@@ -149,10 +154,12 @@ const BookingComponent = () => {
             <DataGrid
               className="datagrid "
               rows={data1}
-              columns={bookings.concat(actionColumn)}
+              columns={bookings}
+              onRowClick={handleRowClick}
               pageSize={9}
               rowsPerPageOptions={[9]}
               checkboxSelection
+              style={{ cursor: "pointer" }}
             />
           )}
         </div>

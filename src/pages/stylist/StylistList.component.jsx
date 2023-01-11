@@ -25,6 +25,8 @@ import { useContext } from "react";
 import axios from "axios";
 import { stylistFields } from "./stylistFields";
 import SingleStylistForm from "./SingleStylistForm";
+import SingleStylist from "./SingleStylist";
+import { useNavigate } from "react-router-dom";
 const StylistList = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -37,6 +39,7 @@ const StylistList = () => {
   const [stylist, setStylist] = useState([]);
 
   const [click, setClick] = useState(null);
+  const navigate = useNavigate();
 
   const fetchApi = async () => {
     const response = await axios.get(
@@ -64,6 +67,12 @@ const StylistList = () => {
     // return redirect(`${params.id}`);
   };
 
+  const handleRowClick = (params) => {
+    console.log("clicing", params.id);
+    navigate(`${params.id}`);
+  
+  };
+  // console.log(click);
   const actionColumn = [
     {
       field: "action",
@@ -87,10 +96,11 @@ const StylistList = () => {
       },
     },
   ];
-
+  {
+    click && redirect(`/`);
+  }
   return (
     <>
-      {click && redirect(`${click.id}`)}
       <div className=" p-2 items-center flex flex-row mb-[-10px] bg-white rounded ">
         {allBookings && (
           <button
@@ -161,9 +171,10 @@ const StylistList = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={stylist}
-              columns={stylistFields.concat(actionColumn)}
+              columns={stylistFields}
               pageSize={9}
-              onCellClick={cellClick}
+              onRowClick={handleRowClick}
+              // onRowClick={(params) => <SingleStylist />}
               rowsPerPageOptions={[9]}
               style={{ cursor: "pointer" }}
             />

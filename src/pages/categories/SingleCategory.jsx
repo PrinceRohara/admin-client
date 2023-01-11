@@ -2,6 +2,7 @@ import React from "react";
 import SingleCategoryForm from "./SingleCategoryForm";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import { BackButton } from "../../components/backbutton/BackButton";
 
 const SingleCategory = () => {
   return (
@@ -12,6 +13,7 @@ const SingleCategory = () => {
         {/* <div className="">
       <h1 className="mt-8 ml-4 text-3xl mb-4">Bookings</h1>
     </div> */}
+        <BackButton name="CATEGORY" />
         <SingleCategoryForm />
       </div>
     </div>

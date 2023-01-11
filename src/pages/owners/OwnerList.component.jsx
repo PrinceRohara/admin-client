@@ -1,4 +1,5 @@
 import { DataGrid } from "@mui/x-data-grid";
+import { useNavigate } from "react-router-dom";
 import {
   bookings,
   bookingsData,
@@ -48,6 +49,10 @@ const OwnerList = () => {
       created_on: new Date("2023-01-07T17:26:17.000Z").toDateString(),
     },
   ];
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    navigate(`${params.id}`);
+  };
   useEffect(() => {
     fetchApi();
     AOS.init();
@@ -126,7 +131,9 @@ const OwnerList = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={demo}
-              columns={OwnersFields.concat(actionColumn)}
+              onRowClick={handleRowClick}
+              columns={OwnersFields}
+              style={{ cursor: "pointer" }}
               pageSize={9}
               rowsPerPageOptions={[9]}
             />

@@ -19,6 +19,7 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 // import BootstrapTable from "react-bootstrap-table-next";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useNavigate } from "react-router-dom";
 
 const CategoriesList = () => {
   const [data, setData] = useState(bookingsData);
@@ -43,6 +44,10 @@ const CategoriesList = () => {
   const handleCancelledBookings = () => {
     setAllBookings(false);
     setCancelledBookings(true);
+  };
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    navigate(`${params.id}`);
   };
 
   const actionColumn = [
@@ -111,8 +116,10 @@ const CategoriesList = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={data}
-              columns={bookings.concat(actionColumn)}
+              columns={bookings}
               pageSize={9}
+              onRowClick={handleRowClick}
+              style={{ cursor: "pointer" }}
               rowsPerPageOptions={[9]}
             />
           </>

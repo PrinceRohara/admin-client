@@ -19,12 +19,18 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 // import BootstrapTable from "react-bootstrap-table-next";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { useNavigate } from "react-router-dom";
 
 const TransationsComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
+
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    navigate(`${params.id}`);
+  };
 
   // give data
   const [bookData, setBookData] = useState(null);
@@ -100,8 +106,10 @@ const TransationsComponent = () => {
               data-aos="fade-right"
               className="datagrid"
               rows={data}
-              columns={bookings.concat(actionColumn)}
+              columns={bookings}
+              onRowClick={handleRowClick}
               pageSize={9}
+              style={{ cursor: "pointer" }}
               rowsPerPageOptions={[9]}
             />
           </>

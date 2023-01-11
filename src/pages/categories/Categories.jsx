@@ -1,4 +1,5 @@
 import React from "react";
+
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 
@@ -13,6 +14,7 @@ const Categories = () => {
         {/* <div className="">
       <h1 className="mt-8 ml-4 text-3xl mb-4">Bookings</h1>
     </div> */}
+        
         <CategoriesList />
       </div>
     </div>
