@@ -48,6 +48,7 @@ import AddService from "./pages/services/AddService";
 import SingleProduct from "./components/product-types/SingleProduct";
 import SingleStylist from "./pages/stylist/SingleStylist";
 import AddPage from "./components/miscellaneous-page/AddPage";
+import StuffId from "./pages/stuff/StuffId";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -95,6 +96,7 @@ function App() {
             <Route path="stylist/:id" element={<SingleStylist />} />
             <Route path="stylist/new" element={<StylistNew />} />
             <Route path="staff" element={<Stuff />} />
+            <Route path="staff/:id" element={<StuffId />} />
             <Route path="staff/new" element={<CreateNewStuff />} />
             <Route path="keepintouch" element={<KeepInTouch />} />
             <Route path="bookings/:id" element={<BookingId />} />
