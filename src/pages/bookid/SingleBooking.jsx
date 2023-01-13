@@ -78,7 +78,7 @@ const SingleBooking = (props) => {
   // console.log(data.customer, "my data");
   // localStorage.setItem("alldata", JSON.stringify(data));
 
-  console.log(salon);
+  console.log(salon, "sak");
   console.log(orderDetails, "order");
 
   // const items = JSON.parse(localStorage.getItem("alldata"));
@@ -167,7 +167,11 @@ const SingleBooking = (props) => {
               {salon && salon[0]?.shop_name}
             </span>
             <address>{salon && salon[0]?.street_address_1}</address>
-            <address>{salon && salon[0]?.street_address_2}</address>
+            <address>
+              {salon &&
+                `${salon[0]?.street_address_2}, ${salon[0]?.state},  ${salon[0]?.country}`}
+            </address>
+            {/* <address>{salon && salon[0]?.}</address> */}
           </div>{" "}
           <div className="w-[30%] p-2 m-2 bg-white rounded-xl">
             <h1 className="text-2xl mt-2  p-2 mb-2">Customer</h1>
@@ -187,11 +191,16 @@ const SingleBooking = (props) => {
               Contact Information
             </span>
             <br />
-            <a href="" className="underline text-orange-500">
+            <a href="" className=" text-orange-500">
               {" "}
-              <span className="text-orange-500 mt-2 mb-2">
+              <span className="text-orange-500 underline mt-2 mb-2">
                 {" "}
                 {customer && customer[0]?.email}
+              </span>{" "}
+              <br />
+              <span className=" mt-2 mb-2">
+                {" "}
+                {customer && customer[0]?.mobile}
               </span>
             </a>
           </div>
