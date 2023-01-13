@@ -2,7 +2,7 @@ export const bookingsFields = [
   {
     field: "order_id",
     headerName: "Appointment Id",
-    width: 190,
+    width: 120,
   },
   {
     field: "created",
