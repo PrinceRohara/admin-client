@@ -22,8 +22,28 @@ const SingleBooking = (props) => {
   const [salon, setSalon] = useState([]);
   const [orderDetails, setorderDetails] = useState([]);
 
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+  function createData(
+    name,
+    calories,
+    bookingdate,
+    bookingslot,
+    bookingotp,
+
+    fat,
+    carbs,
+    protein
+  ) {
+    const date = new Date(bookingdate);
+    return {
+      name,
+      calories,
+      bookingdate,
+      bookingslot,
+      bookingotp,
+      fat,
+      carbs,
+      protein,
+    };
   }
 
   let { id } = useParams();
@@ -74,6 +94,10 @@ const SingleBooking = (props) => {
     createData(
       orderDetails[0]?.service,
       orderDetails[0]?.quantity,
+      orderDetails[0]?.booking_date,
+      orderDetails[0]?.booking_slot,
+      orderDetails[0]?.booking_otp,
+
       orderDetails[0]?.unit_price_gross_amount,
       orderDetails[0]?.discount_amount,
       orderDetails[0]?.tax_rate,
@@ -96,14 +120,17 @@ const SingleBooking = (props) => {
                 <TableHead>
                   <TableRow>
                     <TableCell>Service</TableCell>
-                    <TableCell align="right"> Quantity</TableCell>
+                    <TableCell align="right"> Quantity</TableCell>{" "}
+                    <TableCell align="right"> Booking Date</TableCell>
+                    <TableCell align="right"> Booking Slot</TableCell>
+                    <TableCell align="right"> Booking OTP</TableCell>
                     <TableCell align="right">Gross Amount(₹)</TableCell>
                     <TableCell align="right">Discount</TableCell>
                     <TableCell align="right"> Tax</TableCell>
                     <TableCell align="right">
                       {" "}
                       Net Amount (incl tax)(₹)
-                    </TableCell>
+                    </TableCell>{" "}
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -116,6 +143,11 @@ const SingleBooking = (props) => {
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.calories}</TableCell>
+                      <TableCell align="right">
+                        {new Date(row.bookingdate).toLocaleDateString()}
+                      </TableCell>
+                      <TableCell align="right">{row.bookingslot}</TableCell>
+                      <TableCell align="right">{row.bookingotp}</TableCell>
                       <TableCell align="right">{row.fat}</TableCell>
                       <TableCell align="right">{row.carbs}</TableCell>
                       <TableCell align="right">{row.protein}</TableCell>
