@@ -3,6 +3,7 @@ export const bookingsFields = [
     field: "order_id",
     headerName: "Appointment Id",
     width: 120,
+    valueGetter: (params) => `${params.row.order_id.replace("SPA000-", "")}`,
   },
   {
     field: "created",

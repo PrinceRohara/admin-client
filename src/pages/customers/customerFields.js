@@ -15,7 +15,7 @@ export const customerFields = [
   {
     field: "registered_via",
     headerName: "Regd Via",
-    width: 130,
+    width: 120,
   },
 
   {

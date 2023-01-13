@@ -23,9 +23,10 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { bookingsFields } from "./BookingsFields";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
-
+import SingleBooking from "../bookid/SingleBooking";
+import BookingId from "../bookid/BookingId";
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -35,6 +36,8 @@ const BookingComponent = () => {
   // give data
   const [bookData, setBookData] = useState([]);
   // const [, setBookingsData] = useState([]);
+
+  const [passid, setPassId] = useState(null);
   const navigate = useNavigate();
 
   const fetchApi = async () => {
@@ -46,9 +49,21 @@ const BookingComponent = () => {
 
     console.log(response.data);
   };
+  // const fetchApi1 = async (id) => {
+  //   const response = await axios({
+  //     method: "post",
+  //     url: "https://spaalon.harij.in/api/backend/CustomerOrderDetail/",
+  //     data: {
+  //       order_id: id,
+  //     },
+  //   });
+
+  //   console.log(response);
+  // };
 
   useEffect(() => {
     fetchApi();
+
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -64,8 +79,10 @@ const BookingComponent = () => {
     setCancelledBookings(true);
   };
   const handleRowClick = (params) => {
-    console.log("clicing", params.id);
-    navigate(`${params.id}`);
+    const id = params.id.replace("SPA000-", "");
+    console.log("clicking", params.id.replace("SPA000-", ""));
+
+    navigate(`${id}`);
   };
   const actionColumn = [
     {

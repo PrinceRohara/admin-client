@@ -9,20 +9,86 @@ import Paper from "@mui/material/Paper";
 import "./single.css";
 import TimeLine from "./TimeLine";
 import TimeLineBooking from "./TimeLine";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+
 const SingleBooking = (props) => {
+  const [data, setData] = useState([]);
+
+  const [customer, setCustomer] = useState([]);
+  const [error, setError] = useState(false);
+  const [salon, setSalon] = useState([]);
+  const [orderDetails, setorderDetails] = useState([]);
+
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }
 
-  const rows = [createData("Men's Haircut(Men)", 159, 6.0, 24, 4.0, 154.44)];
+  let { id } = useParams();
+
+  const fetchApi1 = async (id) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://spaalon.harij.in/api/backend/CustomerOrderDetail/",
+        data: {
+          order_id: id,
+        },
+      });
+      // setCustomer(response.data.customer);
+
+      setorderDetails(response.data.order_detail);
+      setCustomer(response.data.customer);
+      setSalon(response.data.shop);
+      // localStorage.setItem("alldata", JSON.stringify(data));
+      // console.log(data.customer, "my data");
+      // console.log("in single booking page", response.data);
+    } catch (error) {
+      // setError(true);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchApi1(id);
+    console.log("useEffect run");
+  }, []);
+  // console.log(data.customer, "my data");
+  // localStorage.setItem("alldata", JSON.stringify(data));
+
+  console.log(salon);
+  console.log(orderDetails, "order");
+
+  // const items = JSON.parse(localStorage.getItem("alldata"));
+  // console.log(items, "items");
+  // const customerData = customer[0];
+  // console.log(customer, customerData);
+  // console.log(customer[0].last_name, "customer baby");
+  const orderlist = orderDetails?.map((el) => {
+    return el;
+  });
+
+  const rows = [
+    createData(
+      orderDetails[0]?.service,
+      orderDetails[0]?.quantity,
+      orderDetails[0]?.unit_price_gross_amount,
+      orderDetails[0]?.discount_amount,
+      orderDetails[0]?.tax_rate,
+      orderDetails[0]?.unit_price_net_amount
+    ),
+  ];
   return (
     <div className="p-2 m-2 ">
-      <h1 className="text-2xl p-2 ml-2">{props.id} Ap24645646</h1>
+      {" "}
+      <h1 className="text-2xl p-2 ml-2"> Ap24645646</h1>
       <span className="text-gray-400 p-2 ml-2">3 days ago</span>
       <div className="m-1 p-1">
         <div className="flex">
           <hr />
-          <div className="w-[70%] p-2 rounded-md m-2 bg-white">
+          <div className="w-[100%] p-2 rounded-md m-2 bg-white">
             <h2 className="text-2xl p-2 ">Details</h2>
             <hr />
             <TableContainer component={Paper}>
@@ -31,10 +97,13 @@ const SingleBooking = (props) => {
                   <TableRow>
                     <TableCell>Service</TableCell>
                     <TableCell align="right"> Quantity</TableCell>
-                    <TableCell align="right">Base Price(₹)</TableCell>
+                    <TableCell align="right">Gross Amount(₹)</TableCell>
                     <TableCell align="right">Discount</TableCell>
                     <TableCell align="right"> Tax</TableCell>
-                    <TableCell align="right"> Total (incl tax)(₹)</TableCell>
+                    <TableCell align="right">
+                      {" "}
+                      Net Amount (incl tax)(₹)
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -57,47 +126,24 @@ const SingleBooking = (props) => {
               </Table>
             </TableContainer>
           </div>
-          <div className="text-black p-4 m-4 bg-white rounded-md w-[30%]">
-            <h2 className="text-2xl p-2 mb-2 ">Details</h2>
-            <hr />
-            <span className="text-black">
-              Appointment Id <b>:5790730938</b>
-            </span>
-            <br />
-            <span className="text-black">
-              Booking Date <b>:04-01-2023</b>
-            </span>
-            <br />
-            <span className="text-black">
-              Booking Slot<b>:09:00</b>
-            </span>
-            <br />
-            <span className="text-black">
-              Booking Created At <b>:5790730938</b>
-            </span>
-            <br />
-            <span className="text-black">
-              Transaction Id <b>:5790730938</b>
-            </span>
-            <br />
-            <span className="text-black">
-              Booking OTP <b>:589298</b>
-            </span>
-          </div>
         </div>{" "}
         <div className="flex  ">
           <div className="w-[70%]  p-4 m-2 mr-4 bg-white rounded-md">
             <h1 className="text-2xl p-2 ">salon</h1>
             <hr />
             <span className="text-black font-bold p-2 mb-2">
-              Cutting Edge Salon
+              {salon && salon[0]?.shop_name}
             </span>
-            <address>707, Sector 14 Gurgaon Gurgaon, 122022</address>
+            <address>{salon && salon[0]?.street_address_1}</address>
+            <address>{salon && salon[0]?.street_address_2}</address>
           </div>{" "}
           <div className="w-[30%] p-2 m-2 bg-white rounded-xl">
             <h1 className="text-2xl mt-2  p-2 mb-2">Customer</h1>
             <hr />
-            <span className="text-black">Govind Pant</span>
+            <span className="text-black">
+              {customer &&
+                `${customer[0]?.first_name} ${customer[0]?.last_name}`}
+            </span>
             <br />
             <a href="" className="underline text-orange-500">
               {" "}
@@ -111,22 +157,14 @@ const SingleBooking = (props) => {
             <br />
             <a href="" className="underline text-orange-500">
               {" "}
-              <span className="text-orange-500 mt-2 mb-2">e@example.com</span>
+              <span className="text-orange-500 mt-2 mb-2">
+                {" "}
+                {customer && customer[0]?.email}
+              </span>
             </a>
           </div>
         </div>
       </div>
-      <div className="flex rounded ">
-        <div className="w-[70%]">
-          <h2>Booking History</h2>
-          <TimeLineBooking />
-        </div>
-        <div className="bg-white rounded-md w-[30%] p-2">
-          <h1 className="text-2xl p-2 mb-2">Notes</h1>
-          <hr />
-          <span className="text-gray-400">No Notes from customer</span>
-        </div>
-      </div>{" "}
     </div>
   );
 };

@@ -40,9 +40,18 @@ const CustomerList = () => {
     setCustomerData(response.data);
     console.log(response.data);
   };
+  const fetchApi1 = async () => {
+    const response = await axios.post(
+      "https://spaalon.harij.in/api/backend/CustomerOrderDetail",
+      {}
+    );
+    // setCustomerData(response.data);
+    console.log(response);
+  };
 
   useEffect(() => {
     fetchApi();
+    fetchApi1();
     AOS.init();
   }, []);
   const handleDelete = (id) => {

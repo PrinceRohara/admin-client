@@ -144,6 +144,7 @@ const TaxList = () => {
               className="datagrid"
               rows={taxData}
               onRowClick={handleRowClick}
+              //  getRowId={(row) => row.order_id}
               columns={taxType}
               pageSize={9}
               rowsPerPageOptions={[9]}
