@@ -22,6 +22,10 @@ import TextField from "@mui/material/TextField";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { bookingsFields } from "./BookingsFields";
+
+import axios from "axios";
+
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -29,9 +33,22 @@ const BookingComponent = () => {
   const [cancelledBookings, setCancelledBookings] = useState(false);
   const { darkMode } = useContext(DarkModeContext);
   // give data
-  const [bookData, setBookData] = useState(null);
+  const [bookData, setBookData] = useState([]);
+  // const [, setBookingsData] = useState([]);
   const navigate = useNavigate();
+
+  const fetchApi = async () => {
+    const response = await axios.post(
+      "https://spaalon.harij.in/api/backend/CustomerOrder",
+      {}
+    );
+    setBookData(response.data);
+
+    console.log(response.data);
+  };
+
   useEffect(() => {
+    fetchApi();
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -140,9 +157,10 @@ const BookingComponent = () => {
               <DataGrid
                 data-aos="fade-right"
                 className="datagrid"
-                rows={data}
+                rows={bookData}
+                getRowId={(row) => row.order_id}
                 onRowClick={handleRowClick}
-                columns={bookings}
+                columns={bookingsFields}
                 pageSize={9}
                 rowsPerPageOptions={[9]}
                 style={{ cursor: "pointer" }}
@@ -153,10 +171,11 @@ const BookingComponent = () => {
           {cancelledBookings && (
             <DataGrid
               className="datagrid "
-              rows={data1}
-              columns={bookings}
+              rows={bookData}
+              columns={bookingsFields}
               onRowClick={handleRowClick}
               pageSize={9}
+              getRowId={(row) => row.order_id}
               rowsPerPageOptions={[9]}
               checkboxSelection
               style={{ cursor: "pointer" }}

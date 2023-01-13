@@ -20,6 +20,8 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import { customerFields } from "./customerFields";
+import axios from "axios";
 const CustomerList = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -28,8 +30,19 @@ const CustomerList = () => {
 
   // give data
   const [bookData, setBookData] = useState(null);
+  const [customerData, setCustomerData] = useState([]);
+
+  const fetchApi = async () => {
+    const response = await axios.post(
+      "https://spaalon.harij.in/api/backend/CustomerList",
+      {}
+    );
+    setCustomerData(response.data);
+    console.log(response.data);
+  };
 
   useEffect(() => {
+    fetchApi();
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -102,8 +115,9 @@ const CustomerList = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={data}
-              columns={bookings}
+              rows={customerData}
+              columns={customerFields}
+              checkboxSelection
               onRowClick={handleRowClick}
               pageSize={9}
               rowsPerPageOptions={[9]}

@@ -20,6 +20,8 @@ import overlayFactory from "react-bootstrap-table2-overlay";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { TransationFields } from "./TransationFields";
 
 const TransationsComponent = () => {
   const [data, setData] = useState(bookingsData);
@@ -34,8 +36,17 @@ const TransationsComponent = () => {
 
   // give data
   const [bookData, setBookData] = useState(null);
+  const [transationData, setTransationData] = useState([]);
+  const fetchApi = async () => {
+    const response = await axios.post(
+      "https://spaalon.harij.in/api/backend/CustomerTransaction"
+    );
+    setTransationData(response.data);
+    console.log(response);
+  };
 
   useEffect(() => {
+    fetchApi();
     AOS.init();
   }, []);
   const handleDelete = (id) => {
@@ -105,8 +116,9 @@ const TransationsComponent = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={data}
-              columns={bookings}
+              rows={transationData}
+              getRowId={(row) => row.order_id}
+              columns={TransationFields}
               onRowClick={handleRowClick}
               pageSize={9}
               style={{ cursor: "pointer" }}
