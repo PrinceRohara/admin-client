@@ -20,6 +20,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const OwnerDetailsForm = () => {
   const [owner, setOwner] = useState([]);
   const [shop, setShop] = useState([]);
+  const [formData, setFormData] = useState(null);
 
   let { id } = useParams();
   console.log(id);
@@ -34,6 +35,7 @@ const OwnerDetailsForm = () => {
       });
       setOwner(response.data.owner);
       setShop(response.data.shop);
+      setFormData(response.data.owner[0]);
       console.log(response, "owners page");
       // setOrders(response.data.orders);
       // setcustomer(response.data.customer);
@@ -44,6 +46,8 @@ const OwnerDetailsForm = () => {
   function createData(shop_name, address, city, isActive) {
     return { shop_name, address, city, isActive };
   }
+
+  console.log(formData, "formdata");
 
   useEffect(() => {
     console.log("useeffect run");
@@ -63,6 +67,7 @@ const OwnerDetailsForm = () => {
       el.is_active
     );
   });
+
   const rows = shopList;
   return (
     <div className="">
@@ -74,7 +79,8 @@ const OwnerDetailsForm = () => {
             // label="First Name"
             variant="outlined"
             color="warning"
-            value={owner && owner[0]?.first_name}
+            onChange={(e) => setFormData({ first_name: e.target.value })}
+            value={formData && formData?.first_name}
           />
         </div>{" "}
         <div className="my-4 p-2">
@@ -84,7 +90,8 @@ const OwnerDetailsForm = () => {
             // label="Last Name"
             variant="outlined"
             color="warning"
-            value={owner && owner[0]?.last_name}
+            onChange={(e) => setFormData({ last_name: e.target.value })}
+            value={formData && formData?.last_name}
           />
         </div>{" "}
         <div className="my-4 p-2">
@@ -94,7 +101,8 @@ const OwnerDetailsForm = () => {
             // label="Email"
             variant="outlined"
             color="warning"
-            value={owner && owner[0]?.email}
+            onChange={(e) => setFormData({ email: e.target.value })}
+            value={formData && formData?.email}
           />
         </div>
         <div className="my-4 p-2 opacity-40">
