@@ -1,7 +1,35 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 const TaxForm = () => {
+  let { id } = useParams();
+  console.log(id, "idddd");
+
+  const [tax, setTax] = useState([]);
+  const fetchApi = async (id) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://spaalon.harij.in/api/backend/TaxDetail",
+        data: {
+          tax_id: id,
+        },
+      });
+      console.log(response, "tax");
+      setTax(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useeffect run");
+    fetchApi(id);
+  }, []);
+  console.log(tax);
   const taxtype = ["GST-12", "GST-17", "GST-18", "Service Tax", "Others"];
   return (
     <div>
@@ -11,16 +39,18 @@ const TaxForm = () => {
           <TextField
             className="w-[50%] p-1 ml-2"
             id="filled-basic"
-            label="Tax Name"
+            // label="Tax Name"
             variant="outlined"
             color="warning"
+            value={tax && tax[0]?.tax_name}
           />
           <TextField
             className="w-[50%] p-1 ml-2"
             id="filled-basic"
-            label="Tax Rate"
+            // label="Tax Rate"
             variant="outlined"
             color="warning"
+            value={tax && tax[0]?.tax_rate}
           />
         </div>
 
@@ -29,13 +59,13 @@ const TaxForm = () => {
             className="w-[100%] p-1 m-2  foucs:border-orange-300"
             id="filled-select-currency"
             select
-            label="Tax Type*"
-            defaultValue="EUR"
+            // label="Tax Type*"
+            value={tax && tax[0]?.tax_type}
             color="warning"
             variant="outlined"
           >
-            {taxtype.map((option) => (
-              <MenuItem value={option}>{option}</MenuItem>
+            {taxtype.map((type) => (
+              <MenuItem value={type}>{type}</MenuItem>
             ))}
           </TextField>
         </div>
@@ -44,9 +74,10 @@ const TaxForm = () => {
           <TextField
             className="w-[100%] p-1 ml-2"
             id="filled-basic"
-            label="Description"
+            // label="Description"
             variant="outlined"
             color="warning"
+            value={tax && tax[0]?.tax_description}
           />
         </div>
       </form>

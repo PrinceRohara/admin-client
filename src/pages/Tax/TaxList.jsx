@@ -30,38 +30,21 @@ const TaxList = () => {
   const [allBookings, setAllBookings] = useState(true);
   const [cancelledBookings, setCancelledBookings] = useState(false);
 
-  const temp = [
-    {
-      tax_name: "Gst",
-      id: 5454455,
-      tax_type: "GST admin",
-      created: "2023-01-08T09:12:44.000Z",
-    },
-    {
-      tax_name: "Gst",
-      id: 5454545,
-      tax_type: "GST admin",
-      created: new Date("2023-01-08T09:12:44.000Z").toLocaleDateString(),
-    },
-    {
-      tax_name: "Gst",
-      id: 5454515,
-      tax_type: "GST admin",
-      created: "2023-01-08T09:12:44.000Z",
-    },
-  ];
 
   // give data
   const [bookData, setBookData] = useState(null);
-  const [taxData, setTaxData] = useState(temp);
+  const [taxData, setTaxData] = useState([]);
   // const [tax, setTax] = useState(TaxData);
 
   // const one = taxData[0];
   const fetchApi = () => {
     return axios
-      .get("http://3.111.54.115:3000/api/backend/TaxList")
+      .get("https://spaalon.harij.in/api/backend/TaxList")
 
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data);
+        setTaxData(response.data);
+      })
       .catch((error) => console.log(error));
   };
   // .then((response) => setTaxData(response.data))

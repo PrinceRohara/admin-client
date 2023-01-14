@@ -32,6 +32,7 @@ const OwnerList = () => {
 
   // give data
   const [bookData, setBookData] = useState(null);
+
   const fetchApi = async () => {
     const response = await axios.get(
       "https://spaalon.harij.in/api/backend/OwnerList"
@@ -130,7 +131,9 @@ const OwnerList = () => {
             <DataGrid
               data-aos="fade-right"
               className="datagrid"
-              rows={demo}
+              rows={ownerList}
+              checkboxSelection
+              getRowId={(row) => row.email}
               onRowClick={handleRowClick}
               columns={OwnersFields}
               style={{ cursor: "pointer" }}

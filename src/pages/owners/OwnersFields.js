@@ -20,12 +20,27 @@ export const OwnersFields = [
   {
     field: "email",
     headerName: "Email",
-    width: 180,
+    width: 280,
+  },
+  {
+    field: "is_active",
+    headerName: "Status",
+    width: 210,
+    valueGetter: (params) =>
+      `${params.row.is_active ? "REGISTERED" : "NOT REGISTERED"}`,
   },
 
   {
     field: "created_on",
     headerName: "Registration Date",
+    width: 210,
+    valueGetter: (params) =>
+      `${new Date(params.row.created_on).toLocaleDateString()}`,
+  },
+
+  {
+    field: "action",
+    headerName: "Action",
     width: 210,
   },
 ];

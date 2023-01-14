@@ -14,6 +14,8 @@ export const taxType = [
     field: "created",
     headerName: "CreatedOn",
     width: 440,
+    valueGetter: (params) =>
+      `${new Date(params.row.created).toLocaleDateString()} `,
   },
   {
     field: "tax_rate",
