@@ -1,6 +1,33 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 const OwnerDetailsForm = () => {
+  let { id } = useParams();
+  console.log(id);
+  const fetchApi = async (id) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://spaalon.harij.in/api/backend/OwnerDetail",
+        data: {
+          owner_id: id,
+        },
+      });
+      console.log(response, "owners page");
+      // setOrders(response.data.orders);
+      // setcustomer(response.data.customer);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useeffect run");
+    fetchApi(id);
+  }, []);
+
   return (
     <div>
       <div className="p-2 mt-1 mx-8 rounded-md bg-white">

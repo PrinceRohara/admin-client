@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import { TextField } from "@mui/material";
 import Table from "@mui/material/Table";
@@ -8,27 +8,86 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const SingleCustomer = () => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+  function createData(id, created, order_status, total_net_amount) {
+    return { id, created, order_status, total_net_amount };
   }
 
-  const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
-  ];
+  const [orders, setOrders] = useState([]);
+  const [customer, setcustomer] = useState([]);
+
+  let { id } = useParams();
+  console.log(id);
+
+  const handleChange = (e) => {
+    e.target.value = 0;
+    console.log(e.target.value);
+  };
+
+  const fetchApi = async (id) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: "https://spaalon.harij.in/api/backend/CustomerDetail",
+        data: {
+          customer_id: id,
+        },
+      });
+      console.log(response, "single cusotmer");
+      setOrders(response.data.orders);
+      setcustomer(response.data.customer);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useeffect run");
+    fetchApi(id);
+  }, []);
+
+  console.log(orders, "orders");
+
+  const lastFiveOrders = orders.slice(Math.max(orders.length - 5, 0));
+
+  const lastOrder = lastFiveOrders ? lastFiveOrders[4]?.created : "";
+  const diffTime = Math.abs(new Date(lastOrder) - new Date());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  console.log(diffDays);
+
+  console.log(lastOrder, "last order");
+
+  const orderslist = lastFiveOrders.map((el) =>
+    createData(
+      el.appointment_id,
+      el.created,
+      el.order_status,
+      el.total_net_amount
+    )
+  );
+  console.log(orderslist);
+  // const rows = [
+  //   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  //   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  //   createData("Eclair", 262, 16.0, 24, 6.0),
+  //   createData("Cupcake", 305, 3.7, 67, 4.3),
+  //   createData("Gingerbread", 356, 16.0, 49, 3.9),
+  // ];
+  const rows = orderslist;
+  console.log(rows, "rows");
   return (
     <div className="">
-      <h1 className="text-2xl mt-4 ml-4 bg-[#F1F6F6]">Prashant Babu</h1>
+      <h1 className="text-2xl mt-4 ml-4 bg-[#F1F6F6]">
+        {customer && `${customer[0]?.first_name} ${customer[0]?.last_name}`}
+      </h1>
       <div className="flex ">
         <div className="p-4 m-4 rounded-md bg-white w-[70%]">
           <span className="text-xl font-semibold p-1">
-            movaliyaprashant@gmail.com
+            {customer && `${customer[0]?.email} `}
           </span>
           <br />
           <span className="text-sm p-1 mb-2">Active member since Jan 2023</span>
@@ -40,10 +99,11 @@ const SingleCustomer = () => {
           <TextField
             className="w-full"
             id="outlined-textarea"
-            label="Note"
+            // label="Note"
             placeholder="Note"
             size="large"
             multiline
+            // value={customer && `${customer[0]?.note} `}
             rows={2}
           />
         </div>
@@ -54,7 +114,9 @@ const SingleCustomer = () => {
             <span className="text-sm mt-4">last login</span>
             <br />
             <br />
-            <span className="text-xl  font-semibold">4 Days ago</span>
+            <span className="text-xl  font-semibold">
+              {diffDays ? diffDays : diffTime} Days ago
+            </span>
             <hr />
 
             <span className="text-sm mt-4">last order</span>
@@ -74,16 +136,19 @@ const SingleCustomer = () => {
             <TextField
               className="w-[50%] p-1 m-2 "
               id="filled-basic"
-              label="First Name "
+              label={customer && customer ? "" : "First Name"}
               variant="outlined"
               color="warning"
+              onChange={handleChange}
+              value={customer && `${customer[0]?.first_name} `}
             />{" "}
             <TextField
               className="w-[50%] p-1 m-2"
               id="filled-basic"
-              label="Last Name"
+              label={customer && customer ? "" : "last Name"}
               variant="outlined"
               color="warning"
+              value={customer && `${customer[0]?.last_name} `}
             />{" "}
           </div>
           <hr />
@@ -93,16 +158,18 @@ const SingleCustomer = () => {
             <TextField
               className="w-[50%] p-1 m-2 "
               id="filled-basic"
-              label="Email Address"
+              // label="Email Address"
               variant="outlined"
               color="warning"
+              value={customer && `${customer[0]?.email} `}
             />{" "}
             <TextField
               className="w-[50%] p-1 m-2"
               id="filled-basic"
-              label="Contact Number"
+              // label="Contact Number"
               variant="outlined"
               color="warning"
+              value={customer && `${customer[0]?.mobile} `}
             />{" "}
           </div>
         </div>
@@ -119,25 +186,31 @@ const SingleCustomer = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Appointment Id </TableCell>
-                  <TableCell align="right"> Date</TableCell>
-                  <TableCell align="right"> Status</TableCell>
-                  <TableCell align="right">Total</TableCell>
+                  <TableCell> Date</TableCell>
+                  <TableCell> Status</TableCell>
+                  <TableCell>Total</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {/* dynamic data */}
-                {/* {rows.map((row) => (
+                {rows.map((row) => (
                   <TableRow
-                    key={row.name}
+                    key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  ></TableRow>
-                ))} */}
-                {/* <TableRow
-                  key={455}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  no data
-                </TableRow> */}
+                  >
+                    <TableCell component="" scope="row">
+                      {row.id}
+                    </TableCell>{" "}
+                    <TableCell component="" scope="row">
+                      {new Date(row.created).toLocaleDateString()}
+                    </TableCell>{" "}
+                    <TableCell component="" scope="row">
+                      {row.order_status}
+                    </TableCell>{" "}
+                    <TableCell component="" scope="row">
+                      {row.total_net_amount}
+                    </TableCell>
+                  </TableRow>
+                ))}{" "}
               </TableBody>
             </Table>
           </TableContainer>

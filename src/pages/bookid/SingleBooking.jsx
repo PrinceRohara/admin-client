@@ -105,7 +105,7 @@ const SingleBooking = (props) => {
     ),
   ];
   return (
-    <div className="p-2 m-2 ">
+    <div className="p-2 m-1 mt-[-10px] ">
       {" "}
       <h1 className="text-2xl p-2 ml-2"> Ap24645646</h1>
       <span className="text-gray-400 p-2 ml-2">3 days ago</span>
