@@ -450,7 +450,9 @@ export const UpdateSalon = () => {
                       }}
                     />
                   </TableCell>
-                  <TableCell align=""> {row.time}</TableCell>
+                  <TableCell align="">
+                    <input type="time" name="" value={row.time} />
+                  </TableCell>
                   <TableCell align="">{row.closingTime}</TableCell>
                 </TableRow>
               ))}
