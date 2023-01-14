@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { SalonFields } from "./SalonFields";
+import { useNavigate } from "react-router-dom";
 const Datatable = () => {
   const [data, setData] = useState(userRows);
   const [salonData, setSalonData] = useState([]);
@@ -25,7 +26,16 @@ const Datatable = () => {
 
   useEffect(() => {
     fetchApi();
-  });
+  }, []);
+
+  const navigate = useNavigate();
+  const handleRowClick = (params) => {
+    // const id = params.id.replace("SPA000-", "");
+    // console.log("clicking", params.id.replace("SPA000-", ""));
+    console.log("click baby data");
+
+    navigate(`${params.id}`);
+  };
   const names = [
     {
       value: 545,
@@ -109,10 +119,12 @@ const Datatable = () => {
       <DataGrid
         className="datagrid"
         rows={salonData}
-        columns={SalonFields.concat(actionColumn)}
+        columns={SalonFields}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
+        onRowClick={handleRowClick}
+        style={{ cursor: "pointer" }}
       />
     </div>
   );

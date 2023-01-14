@@ -17,13 +17,45 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+import { orange } from "@mui/material/colors";
 export const UpdateSalon = () => {
   const label = { inputProps: { "aria-label": "Switch demo" } };
+  const [salonType, setSalonType] = useState([]);
+  const [shopDetails, setShopDetails] = useState([]);
+  const [formData, setFormData] = useState(null);
+  const [shopAddressData, setShopAddressData] = useState(null);
 
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }
 
+  const fetchApi = async () => {
+    const response = await axios.get(
+      "https://spaalon.harij.in/api/backend/ShopType"
+    );
+    console.log(response.data.shoptype);
+    setSalonType(response.data.shoptype);
+  };
+  const fetchApi1 = async () => {
+    const response = await axios({
+      method: "post",
+      url: "https://spaalon.harij.in/api/backend/ShopDetail",
+      data: {
+        shop_id: 1,
+      },
+    });
+    console.log(response, "shops");
+    setShopDetails(response.data);
+    setFormData(response.data.shopinfo);
+    setShopAddressData(response.data.shopaddress);
+  };
+  useEffect(() => {
+    fetchApi();
+    fetchApi1();
+  }, []);
   const rows = [
     createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
     createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
@@ -32,6 +64,8 @@ export const UpdateSalon = () => {
     createData("Gingerbread", 356, 16.0, 49, 3.9),
   ];
 
+  console.log(shopDetails, "de");
+  console.log(formData, "form");
   return (
     <div className="mt-8 p-4">
       <div className="flex ">
@@ -39,7 +73,7 @@ export const UpdateSalon = () => {
         <div className="p-2 flex ml-[45rem]">
           <FormGroup className="ml-12">
             <FormControlLabel
-              label="Label"
+              label="Active"
               control={<Switch defaultChecked {...label} color="warning" />}
             />
           </FormGroup>
@@ -55,41 +89,53 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="Salon Name"
+            // label="Salon Name"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ shop_name: e.target.value })}
+            value={formData && formData?.shop_name}
           />
           <TextField
             id="outlined-basic"
-            label="Email"
+            // label="Email"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ shop_email: e.target.value })}
+            value={formData && formData?.shop_email}
           />
           <TextField
             id="outlined-basic"
-            label="Discount"
+            // label="Discount"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ service_discount: e.target.value })}
+            value={formData && formData?.service_discount}
           />
           <TextField
             id="outlined-basic"
-            label="Discount"
+            // label="Discount"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ shop_discount: e.target.value })}
+            value={formData && formData?.shop_discount}
           />
         </div>
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="latitude"
+            // label="latitude"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ latitude: e.target.value })}
+            value={formData && formData?.latitude}
           />
           <TextField
             id="outlined-basic"
-            label="longitude"
+            // label="longitude"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ longitude: e.target.value })}
+            value={formData && formData?.longitude}
           />
           <TextField
             id="outlined-basic"
@@ -106,34 +152,44 @@ export const UpdateSalon = () => {
             label="phone1"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ phone1: e.target.value })}
+            value={formData && formData?.phone1}
           />
           <TextField
             id="outlined-basic"
             label="phone2"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ phone2: e.target.value })}
+            value={formData && formData?.phone2}
           />
           <TextField
             id="outlined-basic"
-            label="mobile1"
+            // label="mobile1"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ mobile1: e.target.value })}
+            value={formData && formData?.mobile1}
           />
           <TextField
             id="outlined-basic"
-            label="shop_capacity"
+            // label="shop_capacity"
             className="w-[22%]"
             variant="outlined"
+            onChange={(e) => setFormData({ shop_capacity: e.target.value })}
+            value={formData && formData?.shop_capacity}
           />
         </div>
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="description"
+            // label="description"
             className="w-[95%]"
             variant="outlined"
             multiline
             rows={8}
+            onChange={(e) => setFormData({ description: e.target.value })}
+            value={formData && formData?.description}
           />
         </div>
         <div className="ml-4">
@@ -150,41 +206,59 @@ export const UpdateSalon = () => {
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="shop Address"
+            // label="shop Address"
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) =>
+              setShopAddressData({ street_address_1: e.target.value })
+            }
+            value={shopAddressData && shopAddressData?.street_address_1}
           />
           <TextField
             id="outlined-basic"
-            label="shop Address 2 "
+            // label="shop Address 2 "
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) =>
+              setShopAddressData({ street_address_2: e.target.value })
+            }
+            value={shopAddressData && shopAddressData?.street_address_2}
           />
           <TextField
             id="outlined-basic"
-            label="Country"
+            // label="Country"
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) => setShopAddressData({ country: e.target.value })}
+            value={shopAddressData && shopAddressData?.country}
           />
         </div>
         <div className="p-2 m-2 space-x-4 w-[100%]">
           <TextField
             id="outlined-basic"
-            label="State"
+            // label="State"
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) => setShopAddressData({ state: e.target.value })}
+            value={shopAddressData && shopAddressData?.state}
           />
           <TextField
             id="outlined-basic"
-            label="City"
+            // label="City"
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) => setShopAddressData({ city: e.target.value })}
+            value={shopAddressData && shopAddressData?.city}
           />
           <TextField
             id="outlined-basic"
-            label="Postal Code"
+            // label="Postal Code"
             className="w-[30%]"
             variant="outlined"
+            onChange={(e) =>
+              setShopAddressData({ postal_code: e.target.value })
+            }
+            value={shopAddressData && shopAddressData?.postal_code}
           />
         </div>
         <div className="ml-4">
@@ -222,12 +296,33 @@ export const UpdateSalon = () => {
         <div className="p-4 bg-white w-[50%]">
           <h3 className="text-xl font-bold">Salon Type</h3>
           <hr />
-          <Checkbox {...label} />
-          <label htmlFor="">WIFI</label>
-          <Checkbox {...label} />
-          <label htmlFor="">PARKING</label>
-          <Checkbox {...label} />
-          <label htmlFor="">TV</label>
+          <Checkbox
+            {...label}
+            sx={{
+              "&.Mui-checked": {
+                color: orange[800],
+              },
+            }}
+          />
+          <label htmlFor="">{salonType && salonType[0]?.shop_type}</label>
+          <Checkbox
+            {...label}
+            sx={{
+              "&.Mui-checked": {
+                color: orange[800],
+              },
+            }}
+          />
+          <label htmlFor="">{salonType && salonType[1]?.shop_type}</label>
+          <Checkbox
+            {...label}
+            sx={{
+              "&.Mui-checked": {
+                color: orange[800],
+              },
+            }}
+          />
+          <label htmlFor="">{salonType && salonType[2]?.shop_type}</label>
           <button className="bg-orange-600 text-white my-4  ml-48 p-2  mt-4 rounded">
             Save
           </button>

@@ -2,22 +2,22 @@ export const SalonFields = [
   {
     field: "shop_name",
     headerName: "shop name",
-    width: 220,
+    width: 240,
   },
   {
     field: "description",
     headerName: "description",
-    width: 280,
+    width: 380,
   },
   {
     field: "shop_email",
     headerName: "shop email",
-    width: 180,
+    width: 240,
   },
 
   {
     field: "service_type",
     headerName: "service type",
-    width: 210,
+    width: 220,
   },
 ];
