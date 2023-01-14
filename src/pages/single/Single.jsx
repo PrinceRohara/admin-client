@@ -21,6 +21,7 @@ const Single = () => {
       <Sidebar />
       <div className="singleContainer bg-[#F1F6F6]">
         <Navbar />
+        
         <UpdateSalon />
       </div>
     </div>

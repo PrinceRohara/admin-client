@@ -27,6 +27,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import SingleBooking from "../bookid/SingleBooking";
 import BookingId from "../bookid/BookingId";
+
+
 const BookingComponent = () => {
   const [data, setData] = useState(bookingsData);
   const [data1, setData1] = useState(cancelledData);
@@ -49,6 +51,8 @@ const BookingComponent = () => {
 
     console.log(response.data);
   };
+
+  
   // const fetchApi1 = async (id) => {
   //   const response = await axios({
   //     method: "post",
