@@ -64,8 +64,8 @@ const TaxForm = () => {
             color="warning"
             variant="outlined"
           >
-            {taxtype.map((type) => (
-              <MenuItem value={type}>{type}</MenuItem>
+            {tax?.map(({ tax_type }) => (
+              <MenuItem value={tax_type}>{tax_type}</MenuItem>
             ))}
           </TextField>
         </div>
