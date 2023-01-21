@@ -10,9 +10,10 @@ const TaxCreateForm = () => {
     tax_rate: "",
     tax_type: "",
     tax_description: "",
+    created_by_id: "123456",
   };
   const [form, setForm] = useState(defaultFields);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => {
@@ -45,31 +46,13 @@ const TaxCreateForm = () => {
         options
       );
       console.log(res, "res form");
-      // console.log(res.status);
+
       if (res.status === 201) {
         alert("Form created");
       }
     } catch (error) {
       console.log(error);
     }
-
-    // const res = await axios.post(
-    //   "https://spaalon.harij.in/api/backend/AddTax",
-    //   JSON.stringify(form)
-    // );
-    // console.log(res);
-    // let resJson = await res.json();
-    //     if (res.status === 200) {
-    //       setForm(defaultFields);
-    //       alert("success");
-    //     } else {
-    //       alert("Some error occured");
-    //     }
-    //   } catch (err) {
-    //     console.log(err);
-
-    // }
-    // console.log(form, "main form");
   };
 
   console.log(form, "myform");
@@ -133,6 +116,7 @@ const TaxCreateForm = () => {
         >
           Save
         </button>
+        <button className="text-gray-500 float-right p-2 m-2  ">Back</button>
       </form>
       <div className="mt-36 ">
         <div className=" ml-[65rem]">
@@ -142,7 +126,6 @@ const TaxCreateForm = () => {
           >
             Save
           </button> */}
-          <button className="text-gray-500 float-right p-2 m-2  ">Back</button>
         </div>
       </div>
     </div>

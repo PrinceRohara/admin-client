@@ -1,8 +1,59 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import { useState } from "react";
 const StylistForm = () => {
   const data = ["test salaon", "new salaon", "test salaon", "new salaon"];
+
+  const defaultFields = {
+    first_name: "",
+    last_name: "",
+    contact_no: "",
+    email: "",
+    password: "",
+    note: "",
+  };
+
+  const [form, setForm] = useState(defaultFields);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+    // console.log(e.target);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("rrun");
+
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    };
+
+    try {
+      const res = await fetch(
+        "https://spaalon.harij.in/api/backend/AddOwner",
+        options
+      );
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        alert("Form created");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(form, "myform stylist");
+
   return (
     <>
       <form className="p-2 m-2">
@@ -39,7 +90,7 @@ const StylistForm = () => {
             id="filled-select-currency"
             select
             label="salon *"
-            defaultValue="EUR"
+            // defaultValue="EUR"
             color="warning"
             variant="outlined"
           >

@@ -49,27 +49,7 @@ const OwnerForm = () => {
       console.log(error);
     }
 
-    // try {
-    //   const res = await axios({
-    //     method: "POST",
-    //     url: "https://spaalon.harij.in/api/backend/AddOwner",
-
-    //     headers: { "Content-Type": "application/json" },
-    //     body: { data: JSON.stringify(form) },
-    //   });
-
-    //   console.log(res);
-    //   let resJson = await res.json();
-    //   if (res.status === 200) {
-    //     setForm(defaultFields);
-    //     alert("success");
-    //   } else {
-    //     alert("Some error occured");
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    // console.log(form, "main form");
+    
   };
 
   console.log(form, "myform");
