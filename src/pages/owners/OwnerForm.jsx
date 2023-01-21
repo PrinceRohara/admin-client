@@ -25,26 +25,50 @@ const OwnerForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("rrun");
+
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    };
+
     try {
-      const res = await axios({
-        method: "POST",
-        url: "https://spaalon.harij.in/api/backend/AddOwner",
-
-        headers: { "Content-Type": "application/json" },
-        body: { data: JSON.stringify(form) },
-      });
-
-      console.log(res);
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setForm(defaultFields);
-        alert("success");
-      } else {
-        alert("Some error occured");
+      const res = await fetch(
+        "https://spaalon.harij.in/api/backend/AddOwner",
+        options
+      );
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        alert("Form created");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
+
+    // try {
+    //   const res = await axios({
+    //     method: "POST",
+    //     url: "https://spaalon.harij.in/api/backend/AddOwner",
+
+    //     headers: { "Content-Type": "application/json" },
+    //     body: { data: JSON.stringify(form) },
+    //   });
+
+    //   console.log(res);
+    //   let resJson = await res.json();
+    //   if (res.status === 200) {
+    //     setForm(defaultFields);
+    //     alert("success");
+    //   } else {
+    //     alert("Some error occured");
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
     // console.log(form, "main form");
   };
 
@@ -122,17 +146,23 @@ const OwnerForm = () => {
             name="note"
           />
         </div>
-        <button type="submit">send</button>
+        <button
+          disabled
+          className=" p-2 m-4 rounded text-black font-bold float-right"
+        >
+          Back
+        </button>
+        <button
+          type="submit"
+          className="bg-orange-700 p-2 m-4 rounded text-white float-right"
+        >
+          Save
+        </button>{" "}
+        {/* <button >send</button> */}
       </form>
-      <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">
+      {/* <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">
         Save
-      </button>{" "}
-      <button
-        disabled
-        className=" p-2 m-4 rounded text-black font-bold float-right"
-      >
-        Back
-      </button>
+      </button>{" "} */}
     </>
   );
 };

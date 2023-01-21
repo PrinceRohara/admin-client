@@ -12,6 +12,7 @@ const TaxCreateForm = () => {
     tax_description: "",
   };
   const [form, setForm] = useState(defaultFields);
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => {
@@ -22,30 +23,52 @@ const TaxCreateForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("rrun");
+    // try {
+    // const res = await axios({
+    //   method: "POST",
+    //   url: "https://spaalon.harij.in/api/backend/AddTax",
+
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(form),
+    // });
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    };
     try {
-      // const res = await axios({
-      //   method: "POST",
-      //   url: "https://spaalon.harij.in/api/backend/AddTax",
-
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(form),
-      // });
-
-      const res = await axios.post(
+      const res = await fetch(
         "https://spaalon.harij.in/api/backend/AddTax",
-        JSON.stringify(form)
+        options
       );
-      console.log(res);
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setForm(defaultFields);
-        alert("success");
-      } else {
-        alert("Some error occured");
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        alert("Form created");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
+
+    // const res = await axios.post(
+    //   "https://spaalon.harij.in/api/backend/AddTax",
+    //   JSON.stringify(form)
+    // );
+    // console.log(res);
+    // let resJson = await res.json();
+    //     if (res.status === 200) {
+    //       setForm(defaultFields);
+    //       alert("success");
+    //     } else {
+    //       alert("Some error occured");
+    //     }
+    //   } catch (err) {
+    //     console.log(err);
+
+    // }
     // console.log(form, "main form");
   };
 
@@ -57,7 +80,7 @@ const TaxCreateForm = () => {
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[50%] p-1 ml-2"
-            id="filled-basic"
+            id="tax_name"
             label="Tax Name"
             variant="outlined"
             color="warning"
@@ -66,7 +89,7 @@ const TaxCreateForm = () => {
           />
           <TextField
             className="w-[50%] p-1 ml-2"
-            id="filled-basic"
+            id="tax_rate"
             label="Tax Rate"
             variant="outlined"
             color="warning"
@@ -78,10 +101,10 @@ const TaxCreateForm = () => {
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[100%] p-1 m-2  foucs:border-orange-300"
-            id="filled-select-currency"
+            id="tax_type"
             select
             label="Tax Type*"
-            defaultValue="EUR"
+            // defaultValue="EUR"
             color="warning"
             variant="outlined"
             onChange={handleChange}
@@ -96,7 +119,7 @@ const TaxCreateForm = () => {
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[100%] p-1 ml-2"
-            id="filled-basic"
+            id="tax_description"
             label="Description"
             variant="outlined"
             color="warning"
@@ -106,7 +129,7 @@ const TaxCreateForm = () => {
         </div>
         <button
           type="submit"
-          className=" float-right p-2 m-2  bg-orange-700 opacity-20 uppercase text-white rounded "
+          className=" float-right p-2 m-2  bg-orange-700 opacity-100 mt-4 uppercase text-white rounded "
         >
           Save
         </button>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)https://spaalon.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Spaalon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    
+    <script>
+      if (window.Cypress) {
+        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ =
+          window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      }
+    </script>
+  <link rel="shortcut icon" href="https://spaalon.com/images/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="https://spaalon.com/images/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="https://spaalon.com/images/favicon-32x32.png"><link rel="manifest" href="https://spaalon.com/images/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#333"><meta name="application-name" content="Spa"><link rel="apple-touch-icon" sizes="57x57" href="https://spaalon.com/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://spaalon.com/images/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://spaalon.com/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://spaalon.com/images/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://spaalon.com/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://spaalon.com/images/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://spaalon.com/images/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://spaalon.com/images/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="167x167" href="https://spaalon.com/images/apple-touch-icon-167x167.png"><link rel="apple-touch-icon" sizes="180x180" href="https://spaalon.com/images/apple-touch-icon-180x180.png"><link rel="apple-touch-icon" sizes="1024x1024" href="https://spaalon.com/images/apple-touch-icon-1024x1024.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Spa"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="https://spaalon.com/images/apple-touch-startup-image-320x460.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="https://spaalon.com/images/apple-touch-startup-image-640x920.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="https://spaalon.com/images/apple-touch-startup-image-640x1096.png"><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="https://spaalon.com/images/apple-touch-startup-image-750x1294.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="https://spaalon.com/images/apple-touch-startup-image-1182x2208.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="https://spaalon.com/images/apple-touch-startup-image-1242x2148.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="https://spaalon.com/images/apple-touch-startup-image-748x1024.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="https://spaalon.com/images/apple-touch-startup-image-768x1004.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="https://spaalon.com/images/apple-touch-startup-image-1496x2048.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="https://spaalon.com/images/apple-touch-startup-image-1536x2008.png"><link rel="icon" type="image/png" sizes="228x228" href="https://spaalon.com/images/coast-228x228.png"><meta name="msapplication-TileColor" content="#ddd"><meta name="msapplication-TileImage" content="/images/mstile-144x144.png"><meta name="msapplication-config" content="/images/browserconfig.xml"><link rel="yandex-tableau-widget" href="https://spaalon.com/images/yandex-browser-manifest.json"><style data-styled="" data-styled-version="4.4.1">
+/* sc-component-id: sc-global-2390647588 */
+html{box-sizing:border-box;} *,*:before,*:after{box-sizing:inherit;} body{margin:0;min-width:320px;font-family:Insignia;font-size:1rem;line-height:1.25rem;color:#323232;} input,textarea,button{font-family:inherit;} h1{font-size:4rem;line-height:1;} h3{font-size:1.5rem;line-height:1.7rem;} h4{font-size:1.125rem;} a{-webkit-text-decoration:none;text-decoration:none;font-weight:normal;color:inherit;} p{line-height:1.5rem;} button{border:none;background-color:transparent;cursor:pointer;outline:none;padding:0;} ul{list-style:none;} #root{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;min-height:100vh;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;} #root > div:first-of-type{-webkit-flex:1;-ms-flex:1;flex:1;}
+/* sc-component-id: sc-bdVaJa */
+
+/* sc-component-id: sc-bwzfXH */
+
+/* sc-component-id: sc-htpNat */
+
+/* sc-component-id: sc-bxivhb */
+
+/* sc-component-id: sc-ifAKCX */
+
+/* sc-component-id: sc-EHOje */
+
+/* sc-component-id: sc-bZQynM */
+
+/* sc-component-id: sc-gzVnrw */
+
+/* sc-component-id: sc-htoDjs */
+
+/* sc-component-id: sc-dnqmqq */
+
+/* sc-component-id: sc-iwsKbI */
+
+/* sc-component-id: sc-gZMcBi */
+
+/* sc-component-id: sc-gqjmRU */
+
+/* sc-component-id: sc-VigVT */
+
+/* sc-component-id: sc-jTzLTM */
+
+/* sc-component-id: sc-fjdhpX */
+
+/* sc-component-id: sc-jzJRlG */
+
+/* sc-component-id: sc-cSHVUG */
+
+/* sc-component-id: sc-kAzzGY */
+
+/* sc-component-id: sc-chPdSV */
+
+/* sc-component-id: sc-kgoBCf */
+
+/* sc-component-id: sc-kGXeez */
+
+/* sc-component-id: sc-kpOJdX */
+
+/* sc-component-id: sc-dxgOiQ */
+
+/* sc-component-id: sc-ckVGcZ */
+
+/* sc-component-id: sc-jKJlTe */
+
+/* sc-component-id: sc-eNQAEJ */
+
+/* sc-component-id: sc-hMqMXs */
+
+/* sc-component-id: sc-kEYyzF */
+
+/* sc-component-id: sc-kkGfuU */
+
+/* sc-component-id: sc-iAyFgw */
+
+/* sc-component-id: sc-hSdWYo */
+
+/* sc-component-id: sc-eHgmQL */
+
+/* sc-component-id: sc-cvbbAY */
+
+/* sc-component-id: sc-jWBwVP */
+
+/* sc-component-id: sc-brqgnP */
+
+/* sc-component-id: sc-cMljjf */
+
+/* sc-component-id: sc-jAaTju */
+
+/* sc-component-id: sc-jDwBTQ */
+</style><style data-styled="" data-styled-version="4.4.1">
+/* sc-component-id: sc-gPEVay */
+
+/* sc-component-id: sc-iRbamj */
+
+/* sc-component-id: sc-jlyJG */
+
+/* sc-component-id: sc-gipzik */
+
+/* sc-component-id: sc-csuQGl */
+
+/* sc-component-id: sc-Rmtcm */
+
+/* sc-component-id: sc-bRBYWo */
+
+/* sc-component-id: sc-hzDkRC */
+
+/* sc-component-id: sc-jhAzac */
+
+/* sc-component-id: sc-fBuWsC */
+
+/* sc-component-id: sc-fMiknA */
+
+/* sc-component-id: sc-dVhcbM */
+
+/* sc-component-id: sc-eqIVtm */
+
+/* sc-component-id: sc-fAjcbJ */
+
+/* sc-component-id: sc-caSCKo */
+
+/* sc-component-id: sc-gisBJw */
+
+/* sc-component-id: sc-kjoXOD */
+
+/* sc-component-id: sc-cHGsZl */
+
+/* sc-component-id: sc-TOsTZ */
+
+/* sc-component-id: sc-kgAjT */
+
+/* sc-component-id: sc-cJSrbW */
+
+/* sc-component-id: sc-ksYbfQ */
+
+/* sc-component-id: sc-hmzhuo */
+
+/* sc-component-id: sc-frDJqD */
+
+/* sc-component-id: sc-kvZOFW */
+
+/* sc-component-id: sc-hqyNC */
+
+/* sc-component-id: sc-jbKcbu */
+
+/* sc-component-id: sc-dNLxif */
+
+/* sc-component-id: sc-jqCOkK */
+
+/* sc-component-id: sc-uJMKN */
+
+/* sc-component-id: sc-bbmXgH */
+
+/* sc-component-id: sc-gGBfsJ */
+
+/* sc-component-id: sc-jnlKLf */
+
+/* sc-component-id: sc-fYxtnH */
+
+/* sc-component-id: sc-tilXH */
+
+/* sc-component-id: sc-hEsumM */
+
+/* sc-component-id: sc-ktHwxA */
+
+/* sc-component-id: sc-cIShpX */
+
+/* sc-component-id: sc-kafWEX */
+
+/* sc-component-id: sc-feJyhm */
+</style><style data-styled="" data-styled-version="4.4.1">
+/* sc-component-id: sc-iELTvK */
+
+/* sc-component-id: sc-cmTdod */
+
+/* sc-component-id: sc-jwKygS */
+
+/* sc-component-id: sc-btzYZH */
+
+/* sc-component-id: sc-lhVmIH */
+
+/* sc-component-id: sc-bYSBpT */
+
+/* sc-component-id: sc-elJkPf */
+
+/* sc-component-id: sc-jtRfpW */
+
+/* sc-component-id: sc-kTUwUJ */
+
+/* sc-component-id: sc-dqBHgY */
+
+/* sc-component-id: sc-gxMtzJ */
+
+/* sc-component-id: sc-dfVpRl */
+
+/* sc-component-id: sc-gzOgki */
+
+/* sc-component-id: sc-iyvyFf */
+
+/* sc-component-id: sc-hwwEjo */
+
+/* sc-component-id: sc-kPVwWT */
+
+/* sc-component-id: sc-kfGgVZ */
+
+/* sc-component-id: sc-esjQYD */
+
+/* sc-component-id: sc-kIPQKe */
+
+/* sc-component-id: sc-eXEjpC */
+
+/* sc-component-id: sc-ibxdXY */
+
+/* sc-component-id: sc-RefOD */
+
+/* sc-component-id: sc-iQKALj */
+
+/* sc-component-id: sc-bwCtUz */
+
+/* sc-component-id: sc-hrWEMg */
+
+/* sc-component-id: sc-eTuwsz */
+
+/* sc-component-id: sc-gwVKww */
+
+/* sc-component-id: sc-hXRMBi */
+
+/* sc-component-id: sc-epnACN */
+
+/* sc-component-id: sc-iQNlJl */
+
+/* sc-component-id: sc-bsbRJL */
+
+/* sc-component-id: sc-hZSUBg */
+
+/* sc-component-id: sc-cMhqgX */
+
+/* sc-component-id: sc-iuJeZd */
+
+/* sc-component-id: sc-esOvli */
+
+/* sc-component-id: sc-cmthru */
+
+/* sc-component-id: sc-hMFtBS */
+
+/* sc-component-id: sc-cLQEGU */
+
+/* sc-component-id: sc-gqPbQI */
+
+/* sc-component-id: sc-hORach */
+</style><style data-styled="" data-styled-version="4.4.1">
+/* sc-component-id: sc-bMVAic */
+
+/* sc-component-id: sc-bAeIUo */
+
+/* sc-component-id: sc-iujRgT */
+
+/* sc-component-id: sc-GMQeP */
+
+/* sc-component-id: sc-exAgwC */
+
+/* sc-component-id: sc-cQFLBn */
+
+/* sc-component-id: sc-gojNiO */
+
+/* sc-component-id: sc-daURTG */
+
+/* sc-component-id: sc-bXGyLb */
+
+/* sc-component-id: sc-lkqHmb */
+
+/* sc-component-id: sc-eLExRp */
+
+/* sc-component-id: sc-cbkKFq */
+
+/* sc-component-id: sc-krvtoX */
+
+/* sc-component-id: sc-fYiAbW */
+
+/* sc-component-id: sc-fOKMvo */
+
+/* sc-component-id: sc-dUjcNx */
+
+/* sc-component-id: sc-gHboQg */
+
+/* sc-component-id: sc-eilVRo */
+
+/* sc-component-id: sc-eerKOB */
+
+/* sc-component-id: sc-emmjRN */
+
+/* sc-component-id: sc-cpmLhU */
+
+/* sc-component-id: sc-dymIpo */
+
+/* sc-component-id: sc-bnXvFD */
+
+/* sc-component-id: sc-gFaPwZ */
+
+/* sc-component-id: sc-fhYwyz */
+
+/* sc-component-id: sc-jzgbtB */
+
+/* sc-component-id: sc-gJWqzi */
+
+/* sc-component-id: sc-rBLzX */
+
+/* sc-component-id: sc-bMvGRv */
+
+/* sc-component-id: sc-CtfFt */
+
+/* sc-component-id: sc-laTMn */
+
+/* sc-component-id: sc-hGoxap */
+
+/* sc-component-id: sc-fjmCvl */
+
+/* sc-component-id: sc-TFwJa */
+
+/* sc-component-id: sc-bHwgHz */
+
+/* sc-component-id: sc-krDsej */
+
+/* sc-component-id: sc-dTdPqK */
+
+/* sc-component-id: sc-itybZL */
+
+/* sc-component-id: sc-eMigcr */
+
+/* sc-component-id: sc-fzsDOv */
+</style><style data-styled="" data-styled-version="4.4.1">
+/* sc-component-id: sc-gPWkxV */
+
+/* sc-component-id: sc-jVODtj */
+
+/* sc-component-id: sc-kUaPvJ */
+
+/* sc-component-id: sc-giadOv */
+
+/* sc-component-id: sc-fONwsr */
+
+/* sc-component-id: sc-VJcYb */
+
+/* sc-component-id: sc-ipXKqB */
+
+/* sc-component-id: sc-hmXxxW */
+
+/* sc-component-id: sc-cqCuEk */
+
+/* sc-component-id: sc-dliRfk */
+
+/* sc-component-id: sc-kLIISr */
+
+/* sc-component-id: sc-qrIAp */
+
+/* sc-component-id: sc-iqzUVk */
+
+/* sc-component-id: sc-ipZHIp */
+
+/* sc-component-id: sc-iGrrsa */
+
+/* sc-component-id: sc-bmyXtO */
+
+/* sc-component-id: sc-dEoRIm */
+
+/* sc-component-id: sc-jtggT */
+</style><style data-emotion=""></style><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/7892d4f0-53d3-412d-a7e4-d52cdb586ab8"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/28e39bb5-2689-41eb-9dfc-574aee2de874"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/151fd42a-ba36-4763-859f-c4ea08c5ab1d"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/3e1f0ceb-8bad-4cbf-806a-0756ccda8d4c"><style type="text/css" rel="stylesheet">@import url(https://rsms.me/inter/inter.css);</style><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/f1059ae4-29a0-4ed8-be91-5cec2d224584"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/4fae2ce0-6c62-4058-acdc-9e945b57b544"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/53143ea3-156c-4be2-b5e6-6c8debe252c4"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/0743334f-c54d-486c-a5ad-b7141afbcb6a"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/f7bede3d-a939-4097-b210-a0009d90b349"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/44b677bd-06d3-461b-b049-4419a6fcdb1e"><style id="inert-style">
+[inert] {
+  pointer-events: none;
+  cursor: default;
+}
+
+[inert], [inert] * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/b1cf7270-47c4-41a2-8597-ca021fddb00f"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/6f1095bd-1775-4289-aa32-0f2d05248d6c"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/28e1a415-68a0-46d3-b142-d9ceddfd7cf2"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/35e75085-1253-4a4e-946f-ef99aa56ac70"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/b1a4633b-52fe-4234-9047-9d968c2a1c1e"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/332da1de-cfdc-44a6-82f3-2f52e9172edb"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/bbcf8406-642f-43a3-848a-221e94ee807a"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/3875d0a2-63e2-45b0-a2e9-a8f867a17e90"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/aa540eb5-2564-41ce-82b7-b5aed08adc68"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/1f839a69-a59f-4b2b-87de-200f2e8da1fc"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/9b057b47-466d-4477-8416-36c17bd0b514"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/2ee74fb9-947f-4e08-ba98-0c14bb3fff2d"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/359d11c0-2edb-487e-aa50-ec1f8abfc0af"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/c6d60339-c832-4951-9502-d7d0a878aacb"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/a03376ba-e591-4f95-a67e-2f5a18af10db"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/27e10495-5d3f-4f28-883e-f79d9df9b9d6"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/05579e2a-860b-4bab-95da-a6edbe3529a3"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/f4335de9-cb4e-47b5-95f1-340335c75c44"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/9e056aa2-7f42-4a61-8243-a9c5ee0abf71"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/4a1208fe-6821-4429-8d61-7a24cc84246a"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/4973ac19-d1d9-4fd3-98d2-2fa8eda78ed6"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/0b6d4ba2-a38f-424c-b48e-af45e01d141e"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/25b27d7b-fb89-45d0-aace-c84ce770dae1"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/fc747360-0505-4dea-a4d7-e54ee15807e2"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/84c2cfff-e485-4546-b6b5-472985b56961"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/e9e58a8c-c8f3-4db5-80cb-51997aebe7c6"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/397d4aec-1c02-4ed7-a40d-a6913ae67ddb"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/b11a78e2-173f-4029-8794-5b8caf298cf3"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/117029c0-850e-4e07-9d64-6addf7ab9d45"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/0c3c67f6-48d0-47a6-a466-452c6d68a03d"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/673f1de4-0889-42a5-b4be-463b727c1979"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/6d29fe0f-0380-4c3e-a488-3901b6bf2cde"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/b5dfb9d5-f19c-4374-8ed6-7c37f0ff3dee"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/58cf5dff-8056-427d-a1e1-d3be507035e3"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/ff4d0db2-747e-4e25-850e-3eb41ed671d8"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/0f2261e4-ea2d-4dbd-9052-634814671570"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/ce292229-2c64-416f-9208-b09b8c2ee140"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/9a04712a-6bd2-4dc3-bd54-1ad1a1631184"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/c1e727d6-718d-4929-ad74-a95e326316c6"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/f9767c3d-f516-4678-8f0b-2238a2b42aa4"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/15cdfe7b-7080-4faf-beaf-74e9263c115e"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/cb9c3b74-0575-4705-9075-c3d02ab85989"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/c60fffaa-ac08-4f0b-9781-cb4f45961167"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/35f90ccd-827b-4036-ba3c-768b9e4f9e79"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/494e5273-a20d-4f31-be8f-7e79f38d6269"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/f639b26a-2745-499d-a405-12750615ed6c"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/eeb3a1a4-32ac-4110-9c6a-ccaad55cddc5"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/94f5045a-d72a-4ca6-98ad-ec7eabae021c"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/9c0a43a7-994e-43c9-987c-a058ca754bf0"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/7cde659d-37b9-4a65-86b8-f2aff4994315"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/73140b23-c0ed-4788-ade9-a2d0f9df8738"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/53ac6fd3-47f2-4fc5-9328-dfc00960efc7"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/9bbdf69e-d58c-4720-b314-4ac33602107d"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/0b7bd13c-2f5e-4ffb-b876-ead60f557493"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/d25aac9b-0aa5-4720-8648-6317b726a9ab"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/63824109-6903-458c-9ebf-8fcc157b08a2"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/5d2734c4-c2c2-4139-b6d4-b3e7858c2fb8"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/441b9cd3-ae09-4eee-aa93-79e793f3544a"><link type="text/css" rel="stylesheet" href="blob:https://spaalon.com/585b664a-bb66-4d1f-b572-fd89f9e7baff"><meta name="description" content="Open-source PWA storefront built with Saleor&#39;s e-commerce GraphQL API. Written with React and TypeScript." data-react-helmet="true"><meta property="og:url" content="https://spaalon.com" data-react-helmet="true"><meta property="og:type" content="website" data-react-helmet="true"><meta property="og:image" content="https://spaalon.com/images/logo.svg" data-react-helmet="true"></head>
+
+  <body cz-shortcut-listen="true" style="">
+    <div id="root"><header class="header clearfix element_to_stick sticky"><nav class="main-menu" id="header"><div class="container"><div class="nav-top"><a href="https://spaalon.com/"><div><img src="./Spaalon_files/SpaalonLogoRed.jpg" style="width: 140px; height: 30px;"></div></a><div class="main-menu__right"><ul><li data-cy="main-menu__item" class="main-menu__item"><ul class="main-menu__nav-dropdown"><li><a href="https://spaalon.com/category/hair/68/">Hair</a></li><li class="main-menu__nav-dropdown__body"><ul><li><a href="https://spaalon.com/category/hair-texture/71/">Hair texture</a><ul><a href="https://spaalon.com/category/hair-texture/71/">Perm</a><a href="https://spaalon.com/category/hair-texture/71/">Straightening</a><a href="https://spaalon.com/category/hair-texture/71/">Brazilian Blowout Keratin Treatment</a><a href="https://spaalon.com/category/hair-texture/71/">Rebonding Strait Therapy</a></ul></li><li><a href="https://spaalon.com/category/haircut/69/">Hair Cut</a><ul><a href="https://spaalon.com/category/haircut/69/">Men's Haircut</a><a href="https://spaalon.com/category/haircut/69/">Ladies Haircut</a><a href="https://spaalon.com/category/haircut/69/">Children Haircut</a></ul></li><li><a href="https://spaalon.com/category/hair-colour/70/">Hair Colour</a><ul><a href="https://spaalon.com/category/hair-colour/70/">Roots</a><a href="https://spaalon.com/category/hair-colour/70/">Balayage</a><a href="https://spaalon.com/category/hair-colour/70/">Highlights with spatula | Highlights Sunshine</a><a href="https://spaalon.com/category/hair-colour/70/">Low Lights</a><a href="https://spaalon.com/category/hair-colour/70/">Balayage | Highlights | Lowlights</a><a href="https://spaalon.com/category/hair-colour/70/">Global Hair</a><a href="https://spaalon.com/category/hair-colour/70/">Single Toner</a><a href="https://spaalon.com/category/hair-colour/70/">Salt and pepper</a></ul></li><li><a href="https://spaalon.com/category/by-concern/73/">By concern</a><ul><a href="https://spaalon.com/category/by-concern/73/">Hairfall</a><a href="https://spaalon.com/category/by-concern/73/">Dry and Frizzy Hair</a><a href="https://spaalon.com/category/by-concern/73/">Dandruff</a><a href="https://spaalon.com/category/by-concern/73/">Split Ends</a><a href="https://spaalon.com/category/by-concern/73/">Color Protection</a></ul></li><li><a href="https://spaalon.com/category/hair-spa/79/">Hair Spa</a></li></ul></li></ul></li><li data-cy="main-menu__item" class="main-menu__item"><ul class="main-menu__nav-dropdown"><li><a href="https://spaalon.com/category/body/74/">Body</a></li><li class="main-menu__nav-dropdown__body"><ul><li><a href="https://spaalon.com/category/waxing/78/">Waxing</a><ul><a href="https://spaalon.com/category/waxing/78/">Chocolate</a><a href="https://spaalon.com/category/waxing/78/">Honey</a><a href="https://spaalon.com/category/waxing/78/">Rica</a></ul></li><li><a href="https://spaalon.com/category/treatment/83/">Treatment</a></li></ul></li></ul></li><li data-cy="main-menu__item" class="main-menu__item"><ul class="main-menu__nav-dropdown"><li><a href="https://spaalon.com/category/spa/75/">Spa</a></li><li class="main-menu__nav-dropdown__body"><ul><li><a href="https://spaalon.com/category/massage/84/">Massage</a></li><li><a href="https://spaalon.com/category/body-scrub/85/">Body Scrub</a></li></ul></li></ul></li><li data-cy="main-menu__item" class="main-menu__item"><ul class="main-menu__nav-dropdown"><li><a href="https://spaalon.com/category/nails/76/">Nails</a></li><li class="main-menu__nav-dropdown__body"><ul><li><a href="https://spaalon.com/category/manicure/86/">Manicure</a></li><li><a href="https://spaalon.com/category/pedicure/87/">Pedicure</a></li><li><a href="https://spaalon.com/category/nail-extensions/88/">Nail Extensions</a></li></ul></li></ul></li><li data-cy="main-menu__item" class="main-menu__item"><ul class="main-menu__nav-dropdown"><li><a href="https://spaalon.com/category/face/72/">Face</a></li><li class="main-menu__nav-dropdown__body"><ul><li><a href="https://spaalon.com/category/bleach-and-detan/81/">Bleach and  Detan</a></li><li><a href="https://spaalon.com/category/facials-and-cleanup/80/">Facials &amp; Cleanup</a></li><li><a href="https://spaalon.com/category/threading-and-face-waxing/77/">Threading and face waxing</a><ul><a href="https://spaalon.com/category/threading-and-face-waxing/77/">Upper Lips</a><a href="https://spaalon.com/category/threading-and-face-waxing/77/">Eyebrows</a></ul></li><li><a href="https://spaalon.com/category/makeup/82/">Makeup</a></li></ul></li></ul></li></ul><ul><div data-testid="user-btn" class="menu-dropdown"><li class="main-menu__icon main-menu__user--active"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" fill="none" class="injected-svg" data-src="/images/user.svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.233 20.227c0 .544.27 2.276-.483 3.023.002.001-2.25.75-9.75.75-7.503 0-9.774-.75-9.75-.75-.75-.756-.483-2.479-.483-3.023 0-2.227 2.954-5.22 5.92-5.977.835-.205 1.318-1.172.75-1.5C5.982 11.998 5.221 8.502 5.221 6c0-3.832 3.145-6 6.107-6 2.96 0 5.893 2.169 5.893 6 0 2.387-.741 5.965-2.25 6.75-.617.352.001 1.275.75 1.5 3.017.762 5.512 3.797 5.512 5.977zm-1.492 1.72c-.409.077-.82.14-1.233.19-.964.116-1.932.198-2.901.249A83.97 83.97 0 0111 22.5a83.511 83.511 0 01-4.596-.114 41.614 41.614 0 01-2.902-.248 18.3 18.3 0 01-1.241-.19 3.743 3.743 0 01-.04-.577c.002-.223.01-.446.025-.67.01-.151.018-.303.02-.457.002-.151.025-.303.07-.45a3.11 3.11 0 01.258-.62c.134-.248.285-.484.456-.707a7.48 7.48 0 01.63-.724 8.437 8.437 0 011.61-1.271c.288-.176.586-.33.893-.465.283-.124.576-.225.874-.304a2.905 2.905 0 001.466-.889 2.66 2.66 0 00.452-.691c.131-.29.203-.602.208-.92a2.007 2.007 0 00-.244-.99 1.987 1.987 0 00-.787-.781.38.38 0 01-.114-.09 2.012 2.012 0 01-.26-.356 4.496 4.496 0 01-.288-.599 8.084 8.084 0 01-.264-.768 12.528 12.528 0 01-.377-1.815c-.085-.6-.126-1.204-.128-1.808-.002-.35.034-.7.107-1.04A4.16 4.16 0 018.154 2.69 4.875 4.875 0 0111.33 1.5c.559-.001 1.114.1 1.635.3.52.196.994.488 1.4.863.417.387.749.855.974 1.377.123.286.217.587.28.894.069.349.102.705.102 1.06a13.398 13.398 0 01-.125 1.754 12.576 12.576 0 01-.377 1.815 8.298 8.298 0 01-.266.78 4.72 4.72 0 01-.297.612 2.099 2.099 0 01-.27.373.485.485 0 01-.13.101c-.318.172-.584.43-.77.739a1.97 1.97 0 00-.268 1.022c.008.335.09.665.242.965a3.067 3.067 0 001.86 1.54c.306.077.602.178.887.307.289.13.566.281.832.454a7.069 7.069 0 012.001 1.96c.15.222.283.459.4.702.095.205.172.417.228.634.041.16.064.325.064.49.004.157.01.313.022.468.015.22.023.445.025.67a3.763 3.763 0 01-.038.566z" fill="#323232"></path></svg></div></div></li><div class="menu-dropdown__body"><ul class="main-menu__dropdown"><li><a href="https://spaalon.com/account/">My Account</a></li><li><a href="https://spaalon.com/booking-history/">Booking history</a></li><li data-testid="logout-link" style="text-transform: capitalize; color: black;">Log Out</li></ul></div></div><li class="main-menu__icon main-menu__cart"><div><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="injected-svg" data-src="/images/cart.svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M17.3 6.8v1c.4.2.7.6.7 1.2 0 .8-.7 1.5-1.5 1.5S15 9.8 15 9c0-.6.3-1 .8-1.3v-.9H8.2v1c.5.2.8.6.8 1.2 0 .8-.7 1.5-1.5 1.5S6 9.8 6 9c0-.6.3-1 .8-1.3v-1H4.5c-.1 0-.3 0-.4.1-.2.2-.4.3-.5.4-.2.2-.3.4-.4.6-.1.2-.2.4-.2.6l-.8 12.7v.1c0 .1 0 .2.1.3.1.2.2.3.4.5s.4.3.6.4c.2.1.3.1.5.1h16.5c.2 0 .3 0 .5-.1s.4-.2.5-.4c.1-.1.3-.3.4-.5.1-.1.1-.2.1-.4V21L21 8.4v-.1c0-.1-.1-.2-.1-.3-.2-.2-.4-.5-.6-.6-.3-.2-.6-.4-.9-.5-.1 0-.2-.1-.4-.1h-1.7zm0-1.6V3c0-1.9-.8-3-2.6-3H9.4C7.6 0 6.7 1.2 6.7 3.1v2.2H4.5c-1.5 0-2.8 1.5-3 3L.8 21c-.2 1.5 1.5 3 3 3h16.5c1.5 0 3.2-1.5 3-3l-.8-12.8c-.2-1.5-2.2-3-3.8-3h-1.4zm-9.1 0V2.6c0-.1 0-.3.1-.4 0-.2.1-.3.2-.4l.2-.2c.1 0 .1-.1.2-.1h6c.1 0 .2 0 .2.1.1 0 .2.1.2.1.1.1.1.2.2.4 0 .1.1.3.1.4v2.7H8.2z" fill-rule="evenodd" clip-rule="evenodd" fill="#fff"></path></svg></div></div><span class="cartBadge">3</span></li></ul></div></div></div></nav></header><div class="home-page"><script class="structured-data-list" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","description":"","name":"Spaalon","potentialAction":{"@type":"SearchAction","query-input":"required name=q","target":"https://spaalon.com/search?q={q}"},"url":"https://spaalon.com/"}</script><div class="hero_single version_2"><div class="home-page__hero opacity-mask" style="background-image: url(&quot;/images/Headerfirst.png&quot;); background-size: cover;"><div class="container"><div class="row justify-content-center"><div class="col-xl-9 col-lg-10 col-md-8"><h1>Discover &amp; Book</h1><p>Looking for Best Spa &amp; Salon Near you ?</p><form method="post" action="https://spaalon.com/#"><div class="row no-gutters custom-search-input"><div class="col-lg-6"><div class="form-group"><input class="form-control" type="text" placeholder="What are you looking for..." value=""><i class="icon_search"></i></div></div><div class="col-lg-4"><div class="form-group"><input class="form-control no_border_r" type="text" placeholder="Enter your location get started" value=""><i class="icon_pin_alt"></i></div></div><div class="col-lg-2"><a href="https://spaalon.com/category/haircut/69/"><button class="button-new  ">Search</button></a></div></div></form></div></div></div></div></div><div class="bg_gray" id="topCategory"><div class="container margin_60_40"><div class="main_title center"><span><em></em></span><h2>What's  Trending</h2><p>Let's not wait for the "Perfect Look"</p></div><div class="slider owl-carousel owl-theme categories_carousel" tabindex="0" style="box-sizing: border-box; display: block; height: inherit; position: relative; width: 100%;"><div aria-live="polite" aria-atomic="true" tabindex="-1" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">Slide 33 of 38</div><div class="slider-frame" style="box-sizing: border-box; display: block; height: 100%; margin: 0px; overflow: hidden; padding: 0px; position: relative; touch-action: pan-y pinch-zoom; transform: translate3d(0px, 0px, 0px);"><ul class="slider-list" style="box-sizing: border-box; cursor: pointer; display: block; height: 238px; margin: 0px; padding: 0px; position: relative; touch-action: pan-y pinch-zoom; transform: translate3d(-8864px, 0px, 0px); width: auto; transition: all 0s ease 0s;"><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 0px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/facials-and-cleanup/80/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Facials &amp; Cleanup</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 277px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/makeup/82/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Makeup</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 554px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/bleach-and-detan/81/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Bleach And Detan</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 831px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-cut/98/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Cut</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 1108px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-texture/99/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Texture</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 1385px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-colour/100/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Colour</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 1662px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/by-concern/101/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>By Concern</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 1939px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-spa/103/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Spa</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 2216px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/waxing/104/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Waxing</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 2493px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/spa/105/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Spa</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 2770px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/nails/106/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Nails</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 3047px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/face-m/107/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Face-M</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 3324px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-cut-c/119/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Cut-C</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 3601px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/massage/84/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Massage</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 3878px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/body-scrub/85/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Body Scrub</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 4155px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/manicure/86/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Manicure</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 4432px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/pedicure/87/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Pedicure</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 4709px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/nail-extensions/88/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Nail Extensions</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 4986px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/haircut/69/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Haircut</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 5263px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-texture/71/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair texture</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 5540px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-colour/70/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair colour</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 5817px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-spa/79/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Spa</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 6094px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-spa/102/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Spa</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 6371px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/threading-and-face-waxing/97/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Threading and face waxing</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 6648px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/face-w/108/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Face-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 6925px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/threading-and-face-waxing-w/109/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Threading And Face Waxing-w</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 7202px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/nails-w/110/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Nails-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 7479px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/spa-w/111/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Spa-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 7756px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/waxing-w/112/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Waxing-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 8033px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/body-w/113/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Body-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 8310px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-texture-w/114/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Texture-W</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 8587px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" inert="" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/hair-cut-w/115/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Cut -W</h3></a></div></li><li class="slider-slide slide-visible slide-current" style="box-sizing: border-box; display: inline-block; height: 238px; left: 8864px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" tabindex="-1"><div class="item" aria-hidden="false" tabindex="0"><a href="https://spaalon.com/category/hair-colour-w/116/"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Colour-W</h3></a></div></li><li class="slider-slide slide-visible" style="box-sizing: border-box; display: inline-block; height: 238px; left: 9141px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" tabindex="-1"><div class="item" aria-hidden="false" tabindex="0"><a href="https://spaalon.com/category/by-concern-w/117/"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>By Concern-W</h3></a></div></li><li class="slider-slide slide-visible" style="box-sizing: border-box; display: inline-block; height: 238px; left: 9418px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" tabindex="-1"><div class="item" aria-hidden="false" tabindex="0"><a href="https://spaalon.com/category/hair-spa-w/118/"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Hair Spa-W</h3></a></div></li><li class="slider-slide slide-visible" style="box-sizing: border-box; display: inline-block; height: 238px; left: 9695px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" tabindex="-1"><div class="item" aria-hidden="false" tabindex="0"><a href="https://spaalon.com/category/waxing/78/"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Waxing</h3></a></div></li><li class="slider-slide" style="box-sizing: border-box; display: inline-block; height: 238px; left: 9972px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" tabindex="-1"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/treatment/83/"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Treatment</h3></a></div></li><li class="slider-slide" inert="" style="box-sizing: border-box; display: inline-block; height: 238px; left: 10249px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 277px;" aria-hidden="true"><div class="item" aria-hidden="true"><a href="https://spaalon.com/category/body-scrub/96/" tabindex="-1"><div class="services-icons"><img src="./Spaalon_files/serviceImg.png"></div><h3>Body Scrub</h3></a></div></li></ul></div><div class="slider-control-centerleft" style="position: absolute; top: 50%; left: 0px; transform: translateY(-50%);"><div class="carousel__control carousel__control--left"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="injected-svg" data-src="/images/carousel-arrow.svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7.11 16.757a.746.746 0 01-.071 1.058.746.746 0 01-1.058-.072L.298 11.25h22.654a.75.75 0 110 1.5H3.606l3.504 4.007z" fill="#3EE7CD"></path></svg></div></div></div></div><div class="slider-control-centerright" style="position: absolute; top: 50%; right: 0px; transform: translateY(-50%);"><div class="carousel__control carousel__control--right"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="injected-svg" data-src="/images/carousel-arrow.svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7.11 16.757a.746.746 0 01-.071 1.058.746.746 0 01-1.058-.072L.298 11.25h22.654a.75.75 0 110 1.5H3.606l3.504 4.007z" fill="#3EE7CD"></path></svg></div></div></div></div><style type="text/css">.slider-slide > img { width: 100%; display: block; }
+          .slider-slide > img:focus { margin: auto; }</style></div></div></div><div class="container margin_60_40" id="popularSS"><div class="container"><div class="main_title"><span><em></em></span><h2>Popular Spa &amp; Salon</h2><p>We want you to look fabulous</p></div><div class="carousel_4"><div class="slider carousel" tabindex="0" style="box-sizing: border-box; display: block; height: inherit; position: relative; width: 100%;"><div aria-live="polite" aria-atomic="true" tabindex="-1" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">Slide 1 of 3</div><div class="slider-frame" style="box-sizing: border-box; display: block; height: 100%; margin: 0px; overflow: hidden; padding: 0px; position: relative; touch-action: pan-y pinch-zoom; transform: translate3d(0px, 0px, 0px);"><ul class="slider-list" style="box-sizing: border-box; cursor: pointer; display: block; height: 221px; margin: 0px; padding: 0px; position: relative; touch-action: pan-y pinch-zoom; transform: translate3d(0px, 0px, 0px); width: auto; transition: all 0s ease 0s;"><li class="slider-slide slide-visible slide-current" tabindex="-1" style="box-sizing: border-box; display: inline-block; height: 221px; left: 0px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 269px;"><a href="https://spaalon.com/salon/details/57"><div class="owl-cr"><div class="strip"><div class="crousel"><img src="./Spaalon_files/image_7.jpeg"></div><div class="item_title"><h3>NK Salon </h3></div><ul><li><span class="loc_open">Open</span></li><li></li></ul></div></div></a></li><li class="slider-slide slide-visible" tabindex="-1" style="box-sizing: border-box; display: inline-block; height: 221px; left: 269px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 269px;"><a href="https://spaalon.com/salon/details/69"><div class="owl-cr"><div class="strip"><div class="crousel"><img src="./Spaalon_files/gallery.png" class="dummy-img"></div><div class="item_title"><h3>Test Salon-2 </h3></div><ul><li></li><li></li></ul></div></div></a></li><li class="slider-slide slide-visible" tabindex="-1" style="box-sizing: border-box; display: inline-block; height: 221px; left: 538px; list-style-type: none; margin: auto 0px; position: absolute; top: 0px; transform: scale(1); transition: transform 0.4s linear 0s; vertical-align: top; width: 269px;"><a href="https://spaalon.com/salon/details/62"><div class="owl-cr"><div class="strip"><div class="crousel"><img src="./Spaalon_files/3_Po47aIS.jpg" naptha_cursor="text"></div><div class="item_title"><h3>Cutting Edge Salon </h3></div><ul><li><span class="loc_open">Open</span></li><li></li></ul></div></div></a></li></ul></div><div class="slider-control-centerright" style="position: absolute; top: 50%; right: 0px; transform: translateY(-50%);"><div class="carousel__control carousel__control--right"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" class="injected-svg" data-src="/images/carousel-arrow.svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7.11 16.757a.746.746 0 01-.071 1.058.746.746 0 01-1.058-.072L.298 11.25h22.654a.75.75 0 110 1.5H3.606l3.504 4.007z" fill="#3EE7CD"></path></svg></div></div></div></div><style type="text/css">.slider-slide > img { width: 100%; display: block; }
+          .slider-slide > img:focus { margin: auto; }</style></div></div></div><div class="banner lazy" style="background-image: url(&quot;/images/Headersecond.png&quot;); background-size: cover;"><div class="wrapper d-flex align-items-center opacity-mask"><div><small>Spaalon</small><h3>More than 3000 Spas &amp; Salons</h3><p>Book an appointment now within seconds </p><a class="btn_1" href="https://spaalon.com/category/haircut/69/">View All</a></div></div></div><span id="bestDeal"></span><div class="row"><div class="col-12"><div class="main_title version_2"><span><em></em></span><h2>Best Deals</h2><p>Come experience the best haircut and color services</p></div></div><div class="col-md-12"><div class="list_home"><ul><li class="col-md-6"><a href="https://spaalon.com/salon/details/70"><figure><img class="best-deal-img" src="./Spaalon_files/gallery.png" alt=""></figure><p style="margin: 0px; min-height: 24px;"></p><h3>Alankar Salon</h3><div class="address-shop"><small>Gali No 3, Noida</small></div><ul><li></li></ul></a></li><li class="col-md-6"><a href="https://spaalon.com/salon/details/69"><figure><img class="best-deal-img" src="./Spaalon_files/gallery.png" alt="" naptha_cursor="text"></figure><p style="margin: 0px; min-height: 24px;">Men's Haircut</p><h3>Test Salon-2</h3><div class="address-shop"><small>Piller No 12, Gurgaon</small></div><ul><li></li></ul></a></li><li class="col-md-6"><a href="https://spaalon.com/salon/details/64"><figure><img src="./Spaalon_files/salon_kvj4FlL.jpeg" alt="" class="lazy"></figure><p style="margin: 0px; min-height: 24px;">Upper Lips</p><h3>Looks salon</h3><div class="address-shop"><small>Chandigarh, Chandigarh</small></div><ul><li><span class="ribbon off">-10%</span></li></ul></a></li><li class="col-md-6"><a href="https://spaalon.com/salon/details/62"><figure><img src="./Spaalon_files/3_Po47aIS.jpg" alt="" class="lazy"></figure><p style="margin: 0px; min-height: 24px;">Men's Haircut</p><h3>Cutting Edge Salon</h3><div class="address-shop"><small>707, Sector 14, Gurgaon</small></div><ul><li><span class="ribbon off">-15.5%</span></li></ul></a></li><li class="col-md-6"><a href="https://spaalon.com/salon/details/57"><figure><img src="./Spaalon_files/image_7.jpeg" alt="" class="lazy"></figure><p style="margin: 0px; min-height: 24px;">Men's Haircut</p><h3>NK Salon</h3><div class="address-shop"><small>Logix Park, Noida</small></div><ul><li><span class="ribbon off">-10%</span></li></ul></a></li></ul></div></div></div><p class="text-center d-block d-md-block d-lg-none"><a href="https://spaalon.com/#" class="btn_1">View All</a></p></div></div><div class="footer" id="footer"><div class="footer__favicons container"><a href="https://www.facebook.com/mirumeelabs/" target="_blank" aria-label="facebook"></a><a href="https://www.instagram.com/mirumeelabs/" target="_blank" aria-label="instagram"></a><a href="https://twitter.com/getsaleor" target="_blank" aria-label="twitter"></a><a href="https://www.youtube.com/channel/UCg_ptb-U75e7BprLCGS4s1g/videos" target="_blank" aria-label="youtube"></a></div><footer class=""><div class="container"><div class="row"><div class="col-lg-3 col-md-6"><h3>Quick Links</h3><div><div class="links"><ul><li class="links"><a href="https://spaalon.com/page/about/">About</a><div class="footer-nav__section-content"></div></li><li class="links"><a href="https://spaalon.com/page/privacy-policy/">Privacy Policy</a><div class="footer-nav__section-content"></div></li><li class="links"><a href="https://spaalon.com/page/terms/">Terms and Conditions</a><div class="footer-nav__section-content"></div></li><li><a href="https://spaalon.com/vendor-regisration"> List Your Business</a></li></ul></div></div></div><div class="col-lg-3 col-md-6"><h3>Categories</h3><div class="links"><ul><li><a href="https://spaalon.com/#topCategory">Top Categories</a></li><li><a href="https://spaalon.com/#popularSS">Popular Spaa &amp; Salon</a></li><li><a href="https://spaalon.com/#bestDeal">Best Deals</a></li><li><a href="https://spaalon.com/#">Latest Submissions</a></li></ul></div></div><div class="col-lg-3 col-md-6"><h3>Contacts</h3><div class="contacts"><ul><li><i class="icon_house_alt"></i>Connaught Place, New Delhi, <br>India</li><li><i class="icon_mobile"></i>+91 9999-999-999</li><li><i class="icon_mail_alt"></i><a href="https://spaalon.com/#0">info@spaalon.com</a></li></ul></div></div><div class="col-lg-3 col-md-6"><h3>Keep in touch</h3><div class=""><div id="newsletter"><div id="message-newsletter"></div><div class="form-group"><input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Your email"><button id="submit-newsletter"><i class="arrow_carrot-right"></i></button></div></div><div class="follow_us"><h5>Follow Us</h5><ul><li><a href="https://spaalon.com/#0"><img src="./Spaalon_files/twitter_icon.svg" alt="" class="lazy"></a></li><li><a href="https://spaalon.com/#0"><img src="./Spaalon_files/facebook_icon.svg" alt="" class="lazy"></a></li><li><a href="https://spaalon.com/#0"><img src="./Spaalon_files/instagram_icon.svg" alt="" class="lazy"></a></li><li><a href="https://spaalon.com/#0"><img src="./Spaalon_files/youtube_icon.svg" alt="" class="lazy"></a></li></ul></div></div></div></div><hr><div class="row add_bottom_25"><div class="col-lg-6"></div><div class="col-lg-6"><ul class="additional_links"><li><span>© 2020 Spaalon</span></li></ul></div></div></div></footer></div></div>
+    <div id="modal-root"></div>
+  <script type="text/javascript" src="./Spaalon_files/app.js.download"></script><div></div>
+
+</body></html>
