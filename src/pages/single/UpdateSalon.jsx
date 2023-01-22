@@ -67,11 +67,11 @@ export const UpdateSalon = () => {
   };
 
   const defaultFields = {
-    vendor_id: formData && formData?.vendor_id,
-    shop_id: formData && formData?.id,
+    vendor_id: 1,
+    shop_id: id,
     shop_name: "",
     description: "",
-    is_active: "",
+    is_active: true,
     shop_email: "",
     latitude: "",
     longitude: "",
@@ -80,7 +80,7 @@ export const UpdateSalon = () => {
     mobile2: "",
     phone1: "",
     phone2: "",
-    service_type: "",
+    service_type: "hair",
     // password: "",
     // note: "",
     is_featured: true,
@@ -89,7 +89,23 @@ export const UpdateSalon = () => {
     updated_at: new Date().toLocaleDateString(),
   };
 
+  const shopAddressDefault = {
+    shop_id: id,
+    street_address_1: "",
+    street_address_2: "",
+    city: "",
+    // city_area: "",
+    postal_code: "",
+    state: "",
+    country: "",
+    city_area: "",
+    is_active: true,
+  };
+
+  // console.log(defaultFields, "default");
   const [editForm, setEditForm] = useState(defaultFields);
+  const [shopAddressForm, setShopAddressForm] = useState(shopAddressDefault);
+
   useEffect(() => {
     fetchApi();
     fetchApi1(id);
@@ -103,6 +119,12 @@ export const UpdateSalon = () => {
   const handleChangeForm = (e) => {
     const { name, value } = e.target;
     setEditForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleAddressForm = (e) => {
+    const { name, value } = e.target;
+    setShopAddressForm((prev) => {
       return { ...prev, [name]: value };
     });
   };
@@ -127,6 +149,33 @@ export const UpdateSalon = () => {
     try {
       const res = await fetch(
         "https://spaalon.harij.in/api/backend/EditShopInfo",
+        options
+      );
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        // navigate(`/owners`);
+        alert("Form updated");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleAddressSubmit = async (e) => {
+    e.preventDefault();
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(shopAddressForm),
+    };
+
+    try {
+      const res = await fetch(
+        "https://spaalon.harij.in/api/backend/EditShopAddress",
         options
       );
       console.log(res, "res form");
@@ -197,6 +246,7 @@ export const UpdateSalon = () => {
     ),
   ];
 
+  console.log(JSON.stringify(shopAddressForm), "shop Address");
   // console.log(shopDetails, "de");
   // console.log(formData, "form");
   // console.log(shopTiming, "timing");
@@ -386,73 +436,100 @@ export const UpdateSalon = () => {
         </form>
 
         {/* second form  */}
-        <div className="p-4 my-8 mx-1  bg-white rounded">
-          <h1>General Information</h1>
-          <hr />
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="filled-basic"
-              label="shop Address"
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) =>
-                setShopAddressData({ street_address_1: e.target.value })
-              }
-              value={shopAddressData && shopAddressData?.street_address_1}
-            />
-            <TextField
-              id="filled-basic"
-              label="shop Address 2 "
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) =>
-                setShopAddressData({ street_address_2: e.target.value })
-              }
-              value={shopAddressData && shopAddressData?.street_address_2}
-            />
-            <TextField
-              id="filled-basic"
-              label="Country"
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) => setShopAddressData({ country: e.target.value })}
-              value={shopAddressData && shopAddressData?.country}
-            />
+        <form onSubmit={handleAddressSubmit} action="">
+          <div className="p-4 my-8 mx-1  bg-white rounded">
+            <h1>General Information</h1>
+            <hr />
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="shop Address"
+                className="w-[30%]"
+                variant="outlined"
+                // onChange={(e) =>
+                //   setShopAddressData({ street_address_1: e.target.value })
+                // }
+                onChange={handleAddressForm}
+                // defaultValue={`the`}
+                name="street_address_1"
+                // value={shopAddressData && shopAddressData?.street_address_1}
+              />
+              <TextField
+                id="filled-basic"
+                label="shop Address 2 "
+                className="w-[30%]"
+                variant="outlined"
+                name="street_address_2"
+                // onChange={(e) =>
+                //   setShopAddressData({ street_address_2: e.target.value })
+                // }
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.street_address_2}
+              />
+              <TextField
+                id="filled-basic"
+                label="Country"
+                className="w-[30%]"
+                variant="outlined"
+                name="country"
+                // onChange={(e) => setShopAddressData({ country: e.target.value })}
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.country}
+              />
+            </div>
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="State"
+                className="w-[30%]"
+                variant="outlined"
+                // onChange={(e) => setShopAddressData({ state: e.target.value })}
+                name="state"
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.state}
+              />
+              <TextField
+                id="filled-basic"
+                label="City Area"
+                className="w-[30%]"
+                variant="outlined"
+                name="city_area"
+                // onChange={(e) => setShopAddressData({ city: e.target.value })}
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.city}
+              />
+              <TextField
+                id="filled-basic"
+                label="City"
+                className="w-[30%]"
+                variant="outlined"
+                name="city"
+                // onChange={(e) => setShopAddressData({ city: e.target.value })}
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.city}
+              />
+            </div>
+            <div className="p-2 m-2">
+              <TextField
+                id="filled-basic"
+                label="Postal Code"
+                className="w-[30%]"
+                variant="outlined"
+                name="postal_code"
+                // onChange={(e) =>
+                //   setShopAddressData({ postal_code: e.target.value })
+                // }
+                onChange={handleAddressForm}
+                // value={shopAddressData && shopAddressData?.postal_code}
+              />
+            </div>
+            <div className="ml-4">
+              <Button type="submit" variant="contained" color="error">
+                Save
+              </Button>
+            </div>
           </div>
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="filled-basic"
-              label="State"
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) => setShopAddressData({ state: e.target.value })}
-              value={shopAddressData && shopAddressData?.state}
-            />
-            <TextField
-              id="filled-basic"
-              label="City"
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) => setShopAddressData({ city: e.target.value })}
-              value={shopAddressData && shopAddressData?.city}
-            />
-            <TextField
-              id="filled-basic"
-              label="Postal Code"
-              className="w-[30%]"
-              variant="outlined"
-              onChange={(e) =>
-                setShopAddressData({ postal_code: e.target.value })
-              }
-              value={shopAddressData && shopAddressData?.postal_code}
-            />
-          </div>
-          <div className="ml-4">
-            <Button variant="contained" color="error">
-              Save
-            </Button>
-          </div>
-        </div>
+        </form>
         <div className="flex p-4 m-2 my-8 mx-1  bg-white rounded space-x-[50rem]">
           <h1>Cover Image (optional)</h1>
           <button className="text-orange-500 font-bold hover:bg-orange-100 p-1 ">
