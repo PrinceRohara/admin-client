@@ -4,6 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { FormBack } from "../../components/formbackbutton/formBack";
 const TaxForm = () => {
   let { id } = useParams();
   console.log(id, "idddd");
@@ -92,7 +93,7 @@ const TaxForm = () => {
           >
             Save
           </button>
-          <button className="text-gray-500 float-right p-2 m-2  ">Back</button>
+          <FormBack name={"Back"} />
         </div>
       </div>
     </div>

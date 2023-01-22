@@ -6,10 +6,12 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import axios from "axios";
+import { FormBack } from "../../components/formbackbutton/formBack";
 
 const Form = () => {
   const defaultFields = {
-    owner_id: "1",
+    owner_id: "",
     shop_name: "",
     email: "",
     discount: "",
@@ -27,9 +29,24 @@ const Form = () => {
     mobile_1: "",
     shop_capacity: "",
     shop_desc: "",
-    is_featured: "",
+    is_featured: false,
   };
   const [shopForm, setShopForm] = useState(defaultFields);
+  const [ownerList, setOwnerList] = useState([]);
+
+  const fetchApi = async () => {
+    const response = await axios.get(
+      "https://spaalon.harij.in/api/backend/OwnerList"
+    );
+    // console.log(response.data);
+    setOwnerList(response.data);
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
+  // console.log(ownerList, "ownerlist");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,12 +61,12 @@ const Form = () => {
 
   const coutnry = ["india", "usa", "japan"];
 
-  const data = ["Mahesh", "vincezo", "rohan"];
+  const data = [];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("rrun");
-
+    // console.log("rrun");
+    console.log(JSON.stringify(shopForm), "shop form");
     const options = {
       method: "post",
       headers: {
@@ -74,6 +91,8 @@ const Form = () => {
     }
   };
 
+  // console.log(shopForm);
+
   return (
     <>
       <form onSubmit={handleSubmit} className="p-2 m-2 ">
@@ -88,10 +107,14 @@ const Form = () => {
             color="warning"
             variant="outlined"
             onChange={handleChange}
+            name="owner_id"
           >
-            {data.map((option) => (
-              <MenuItem value={option}>{option}</MenuItem>
-            ))}
+            {ownerList &&
+              ownerList?.map((option) => (
+                <MenuItem value={option.id}>
+                  {`${option.first_name} ${option.last_name}`}
+                </MenuItem>
+              ))}
           </TextField>
           <TextField
             className="w-[70%] p-1 ml-2"
@@ -298,13 +321,13 @@ const Form = () => {
           >
             <FormControlLabel
               className="text-red-500 label:text-black label:text-red-500"
-              value="true"
+              value={true}
               control={<Radio />}
               label="Yes"
               name="is_featured"
             />
             <FormControlLabel
-              value="false"
+              value={false}
               color="false"
               control={<Radio />}
               label="No"
@@ -318,12 +341,7 @@ const Form = () => {
         >
           Save
         </button>{" "}
-        <button
-          disabled
-          className=" p-2 m-4 rounded text-black font-bold float-right"
-        >
-          Back
-        </button>
+        <FormBack name={"Back"} />
       </form>
     </>
   );

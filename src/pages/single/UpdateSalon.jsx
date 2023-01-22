@@ -39,7 +39,7 @@ export const UpdateSalon = () => {
     return { day, calories, fat, time, closingTime };
   }
   let { id } = useParams();
-  console.log(id, "idddd");
+  // console.log(id, "idddd");
 
   const fetchApi = async () => {
     const response = await axios.get(
@@ -48,6 +48,7 @@ export const UpdateSalon = () => {
     console.log(response.data.shoptype);
     setSalonType(response.data.shoptype);
   };
+
   const fetchApi1 = async (id) => {
     const response = await axios({
       method: "post",
@@ -57,19 +58,93 @@ export const UpdateSalon = () => {
       },
     });
     console.log(response, "shops");
+    // console.log(response, "now");
     setShopDetails(response.data);
     setFormData(response.data.shopinfo);
     setAmenities(response.data.amenity);
     setShopAddressData(response.data.shopaddress);
     setShopTiming(response.data.shoptiming);
   };
+
+  const defaultFields = {
+    vendor_id: formData && formData?.vendor_id,
+    shop_id: formData && formData?.id,
+    shop_name: "",
+    description: "",
+    is_active: "",
+    shop_email: "",
+    latitude: "",
+    longitude: "",
+    shop_discount: "",
+    mobile1: "",
+    mobile2: "",
+    phone1: "",
+    phone2: "",
+    service_type: "",
+    // password: "",
+    // note: "",
+    is_featured: true,
+    service_discount: "",
+    shop_capacity: "",
+    updated_at: new Date().toLocaleDateString(),
+  };
+
+  const [editForm, setEditForm] = useState(defaultFields);
   useEffect(() => {
     fetchApi();
     fetchApi1(id);
+    // console.log("run use");
   }, []);
+
   const handleChange = (newValue) => {
     setTiming(newValue);
   };
+
+  const handleChangeForm = (e) => {
+    const { name, value } = e.target;
+    setEditForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  // console.log(editForm, " edit form");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("rrun");
+    // setEditForm(editForm.service_type )
+    console.log(editForm);
+
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editForm),
+    };
+    console.log(JSON.stringify(editForm), "edit form json format");
+    try {
+      const res = await fetch(
+        "https://spaalon.harij.in/api/backend/EditShopInfo",
+        options
+      );
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        // navigate(`/owners`);
+        alert("Form updated");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // console.log("FFFFF");
+
+  // console.log(editForm.vendor_id, "venderr");
+  // console.log(JSON.stringify(editForm), "edit form json format");
+
+  console.log(formData, "form data ");
   const rows = [
     createData(
       shopTiming[0]?.day,
@@ -122,145 +197,193 @@ export const UpdateSalon = () => {
     ),
   ];
 
-  console.log(shopDetails, "de");
-  console.log(formData, "form");
-  console.log(shopTiming, "timing");
+  // console.log(shopDetails, "de");
+  // console.log(formData, "form");
+  // console.log(shopTiming, "timing");
   return (
     <>
       <BackButton name="SALON" />
       <div className="mt-[-5px] p-4">
-        <div className="flex ">
-          <h1 className="text-2xl p-2 ml-2">Update Salon</h1>{" "}
-          <div className="p-2 flex ml-[45rem]">
-            <FormGroup className="ml-12">
-              <FormControlLabel
-                label="Active"
-                control={<Switch defaultChecked {...label} color="warning" />}
-              />
-            </FormGroup>
-            <Button variant="contained" color="error">
-              Delete
-            </Button>
+        <form onSubmit={handleSubmit} action="">
+          <div className="flex ">
+            <h1 className="text-2xl p-2 ml-2">Update Salon</h1>{" "}
+            <div className="p-2 flex ml-[45rem]">
+              <FormGroup className="ml-12">
+                <FormControlLabel
+                  name="is_active"
+                  onChange={handleChangeForm}
+                  label="Active"
+                  control={<Switch defaultChecked {...label} color="warning" />}
+                />
+              </FormGroup>
+              <Button variant="contained" color="error">
+                Delete
+              </Button>
+            </div>
           </div>
-        </div>
 
-        <div className="p-4 my-2 mx-1 bg-white rounded">
-          <h1>General Information</h1>
-          <hr />
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="outlined-basic"
-              // label="Salon Name"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ shop_name: e.target.value })}
-              value={formData && formData?.shop_name}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="Email"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ shop_email: e.target.value })}
-              value={formData && formData?.shop_email}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="Discount"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) =>
-                setFormData({ service_discount: e.target.value })
-              }
-              value={formData && formData?.service_discount}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="Discount"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ shop_discount: e.target.value })}
-              value={formData && formData?.shop_discount}
-            />
+          <div className="p-4 my-2 mx-1 bg-white rounded">
+            <h1>General Information</h1>
+            <hr />
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="Salon Name"
+                defaultValue={formData && formData?.shop_name}
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ shop_name: e.target.value })}
+                onChange={handleChangeForm}
+                name="shop_name"
+                // value={formData && formData?.shop_name}
+                // defaultValue={formData && formData?.shop_name}
+              />
+              <TextField
+                id="filled-basic"
+                label="Email"
+                className="w-[22%]"
+                variant="outlined"
+                onChange={handleChangeForm}
+                // onChange={(e) => setFormData({ shop_email: e.target.value })}
+                // value={formData && formData?.shop_email}
+                defaultValue={formData && formData?.email}
+                name="shop_email"
+              />
+              <TextField
+                id="filled-basic"
+                label="Service Discount"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) =>
+                //   setFormData({ service_discount: e.target.value })
+                // }
+                // value={formData && formData?.service_discount}
+                name="service_discount"
+                onChange={handleChangeForm}
+              />
+              <TextField
+                id="filled-basic"
+                label="shop Discount"
+                className="w-[22%]"
+                variant="outlined"
+                onChange={handleChangeForm}
+                // onChange={(e) => setFormData({ shop_discount: e.target.value })}
+                // value={formData && formData?.shop_discount}
+                name="shop_discount"
+              />
+            </div>
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="latitude"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ latitude: e.target.value })}
+                // value={formData && formData?.latitude}
+                name="latitude"
+                onChange={handleChangeForm}
+              />
+              <TextField
+                id="filled-basic"
+                label="longitude"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ longitude: e.target.value })}
+                // value={formData && formData?.longitude}
+                onChange={handleChangeForm}
+                name="longitude"
+              />
+              <TextField
+                id="filled-basic"
+                label="taxId"
+                className="w-[22%]"
+                variant="outlined"
+                onChange={handleChangeForm}
+                name=""
+              />{" "}
+              <span className="ml-8 p-2">Featured</span>
+              <Switch
+                onChange={handleChangeForm}
+                name="is_featured"
+                {...label}
+                defaultChecked
+              />
+            </div>{" "}
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="phone1"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ phone1: e.target.value })}
+                // value={formData && formData?.phone1}
+                onChange={handleChangeForm}
+                name="phone1"
+              />
+              <TextField
+                id="filled-basic"
+                label="phone2"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ phone2: e.target.value })}
+                // value={formData && formData?.phone2}
+                onChange={handleChangeForm}
+                name="phone2"
+              />
+              <TextField
+                id="filled-basic"
+                label="mobile1"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ mobile1: e.target.value })}
+                // value={formData && formData?.mobile1}
+                onChange={handleChangeForm}
+                name="mobile1"
+              />
+              <TextField
+                id="filled-basic"
+                label="mobile 2"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ shop_capacity: e.target.value })}
+                // value={formData && formData?.shop_capacity}
+                onChange={handleChangeForm}
+                name="mobile2"
+              />
+            </div>
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="shop_capacity"
+                className="w-[22%]"
+                variant="outlined"
+                name="shop_capacity"
+                // onChange={(e) => setFormData({ shop_capacity: e.target.value })}
+                // value={formData && formData?.shop_capacity}
+                onChange={handleChangeForm}
+              />
+            </div>
+            <div className="p-2 m-2 space-x-4 w-[100%]">
+              <TextField
+                id="filled-basic"
+                label="description"
+                className="w-[95%]"
+                variant="outlined"
+                multiline
+                rows={8}
+                // onChange={(e) => setFormData({ description: e.target.value })}
+                // value={formData && formData?.description}
+                onChange={handleChangeForm}
+                name="description"
+              />
+            </div>
+            <div className="ml-4">
+              <Button type="submit" variant="contained" color="error">
+                Save
+              </Button>
+            </div>
           </div>
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="outlined-basic"
-              // label="latitude"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ latitude: e.target.value })}
-              value={formData && formData?.latitude}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="longitude"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ longitude: e.target.value })}
-              value={formData && formData?.longitude}
-            />
-            <TextField
-              id="outlined-basic"
-              label="taxId"
-              className="w-[22%]"
-              variant="outlined"
-            />{" "}
-            <span className="ml-8 p-2">Featured</span>
-            <Switch {...label} defaultChecked />
-          </div>{" "}
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="outlined-basic"
-              label="phone1"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ phone1: e.target.value })}
-              value={formData && formData?.phone1}
-            />
-            <TextField
-              id="outlined-basic"
-              label="phone2"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ phone2: e.target.value })}
-              value={formData && formData?.phone2}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="mobile1"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ mobile1: e.target.value })}
-              value={formData && formData?.mobile1}
-            />
-            <TextField
-              id="outlined-basic"
-              // label="shop_capacity"
-              className="w-[22%]"
-              variant="outlined"
-              onChange={(e) => setFormData({ shop_capacity: e.target.value })}
-              value={formData && formData?.shop_capacity}
-            />
-          </div>
-          <div className="p-2 m-2 space-x-4 w-[100%]">
-            <TextField
-              id="outlined-basic"
-              // label="description"
-              className="w-[95%]"
-              variant="outlined"
-              multiline
-              rows={8}
-              onChange={(e) => setFormData({ description: e.target.value })}
-              value={formData && formData?.description}
-            />
-          </div>
-          <div className="ml-4">
-            <Button variant="contained" color="error">
-              Save
-            </Button>
-          </div>
-        </div>
+        </form>
 
         {/* second form  */}
         <div className="p-4 my-8 mx-1  bg-white rounded">
@@ -268,8 +391,8 @@ export const UpdateSalon = () => {
           <hr />
           <div className="p-2 m-2 space-x-4 w-[100%]">
             <TextField
-              id="outlined-basic"
-              // label="shop Address"
+              id="filled-basic"
+              label="shop Address"
               className="w-[30%]"
               variant="outlined"
               onChange={(e) =>
@@ -278,8 +401,8 @@ export const UpdateSalon = () => {
               value={shopAddressData && shopAddressData?.street_address_1}
             />
             <TextField
-              id="outlined-basic"
-              // label="shop Address 2 "
+              id="filled-basic"
+              label="shop Address 2 "
               className="w-[30%]"
               variant="outlined"
               onChange={(e) =>
@@ -288,8 +411,8 @@ export const UpdateSalon = () => {
               value={shopAddressData && shopAddressData?.street_address_2}
             />
             <TextField
-              id="outlined-basic"
-              // label="Country"
+              id="filled-basic"
+              label="Country"
               className="w-[30%]"
               variant="outlined"
               onChange={(e) => setShopAddressData({ country: e.target.value })}
@@ -298,24 +421,24 @@ export const UpdateSalon = () => {
           </div>
           <div className="p-2 m-2 space-x-4 w-[100%]">
             <TextField
-              id="outlined-basic"
-              // label="State"
+              id="filled-basic"
+              label="State"
               className="w-[30%]"
               variant="outlined"
               onChange={(e) => setShopAddressData({ state: e.target.value })}
               value={shopAddressData && shopAddressData?.state}
             />
             <TextField
-              id="outlined-basic"
-              // label="City"
+              id="filled-basic"
+              label="City"
               className="w-[30%]"
               variant="outlined"
               onChange={(e) => setShopAddressData({ city: e.target.value })}
               value={shopAddressData && shopAddressData?.city}
             />
             <TextField
-              id="outlined-basic"
-              // label="Postal Code"
+              id="filled-basic"
+              label="Postal Code"
               className="w-[30%]"
               variant="outlined"
               onChange={(e) =>

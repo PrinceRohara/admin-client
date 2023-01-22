@@ -133,7 +133,7 @@ const OwnerList = () => {
               className="datagrid"
               rows={ownerList}
               checkboxSelection
-              getRowId={(row) => row.email}
+              getRowId={(row) => row.id}
               onRowClick={handleRowClick}
               columns={OwnersFields}
               style={{ cursor: "pointer" }}

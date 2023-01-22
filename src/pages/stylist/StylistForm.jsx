@@ -6,12 +6,13 @@ const StylistForm = () => {
   const data = ["test salaon", "new salaon", "test salaon", "new salaon"];
 
   const defaultFields = {
-    first_name: "",
-    last_name: "",
-    contact_no: "",
+    vendor_id: 1,
+    shop_id: 1,
+    name: "",
     email: "",
-    password: "",
-    note: "",
+    specialization: "",
+    description: "",
+    is_active: false,
   };
 
   const [form, setForm] = useState(defaultFields);
@@ -39,7 +40,7 @@ const StylistForm = () => {
 
     try {
       const res = await fetch(
-        "https://spaalon.harij.in/api/backend/AddOwner",
+        "https://spaalon.harij.in/api/backend/AddStylist",
         options
       );
       console.log(res, "res form");
@@ -56,7 +57,7 @@ const StylistForm = () => {
 
   return (
     <>
-      <form className="p-2 m-2">
+      <form onSubmit={handleSubmit} className="p-2 m-2">
         <h3 className="text-xl  font-bold ml-4 mt-4">General Information</h3>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
@@ -65,14 +66,16 @@ const StylistForm = () => {
             label="First Name"
             variant="outlined"
             color="warning"
+            name="name"
+            onChange={handleChange}
           />
-          <TextField
+          {/* <TextField
             className="w-[50%] p-1 ml-2"
             id="filled-basic"
             label="Last Name"
             variant="outlined"
             color="warning"
-          />
+          /> */}
         </div>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
@@ -82,9 +85,11 @@ const StylistForm = () => {
             variant="outlined"
             color="warning"
             type="email"
+            onChange={handleChange}
+            name="email"
           />
         </div>
-        <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
+        {/* <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[100%] p-1 m-2  foucs:border-orange-300"
             id="filled-select-currency"
@@ -93,12 +98,13 @@ const StylistForm = () => {
             // defaultValue="EUR"
             color="warning"
             variant="outlined"
+            name=""
           >
             {data.map((option) => (
               <MenuItem value={option}>{option}</MenuItem>
             ))}
           </TextField>
-        </div>
+        </div> */}
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[100%] p-1 ml-2"
@@ -106,6 +112,8 @@ const StylistForm = () => {
             label="specialization"
             variant="outlined"
             color="warning"
+            name="specialization"
+            onChange={handleChange}
           />
         </div>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
@@ -115,18 +123,23 @@ const StylistForm = () => {
             label="Description"
             variant="outlined"
             color="warning"
+            name="description"
+            onChange={handleChange}
           />
         </div>
+        <button
+          type="submit"
+          className="bg-orange-700 p-2 m-4 rounded text-white float-right"
+        >
+          Save
+        </button>
+        <button
+          disabled
+          className=" p-2 m-4 rounded text-black font-bold float-right"
+        >
+          Back
+        </button>
       </form>{" "}
-      <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">
-        Save
-      </button>{" "}
-      <button
-        disabled
-        className=" p-2 m-4 rounded text-black font-bold float-right"
-      >
-        Back
-      </button>
     </>
   );
 };

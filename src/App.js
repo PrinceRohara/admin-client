@@ -113,6 +113,7 @@ function App() {
             <Route path="categories/:id" element={<SingleCategory />} />
             <Route path="categories/add" element={<CategoriesAdd />} />
             <Route path="shop-services" element={<MangeService />} />
+
             <Route
               path="payoutrequests/:id"
               element={<PayoutRequestDetails />}

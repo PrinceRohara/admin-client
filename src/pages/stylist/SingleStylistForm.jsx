@@ -1,29 +1,83 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
+
 import MenuItem from "@mui/material/MenuItem";
+import { useState } from "react";
 const SingleStylistForm = () => {
   const data = ["test salaon", "new salaon", "test salaon", "new salaon"];
 
+  const defaultFields = {
+    stylist_id: "",
+    vendor_id: "",
+    shop_id: "",
+    name: "",
+    email: "",
+    specialization: "",
+    description: "",
+    is_active: true,
+  };
+
+  const [form, setForm] = useState(defaultFields);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+    // console.log(e.target);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("rrun");
+
+    const options = {
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    };
+
+    try {
+      const res = await fetch(
+        "https://spaalon.harij.in/api/backend/AddOwner",
+        options
+      );
+      console.log(res, "res form");
+      // console.log(res.status);
+      if (res.status === 201) {
+        // navigate(`/owners`);
+        alert("Form updated");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
-      <form className="p-2 m-4 bg-white rounded">
+      <form onSubmit={handleSubmit} className="p-2 m-4 bg-white rounded">
         <h3 className="text-xl  font-bold ml-4 my-4">General Information</h3>
         <hr />
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
             className="w-[50%] p-1 ml-2"
             id="filled-basic"
-            label="First Name"
+            label=" Name"
             variant="outlined"
             color="warning"
+            onChange={handleChange}
+            name="name"
           />
-          <TextField
+          {/* <TextField
             className="w-[50%] p-1 ml-2"
             id="filled-basic"
             label="Last Name"
             variant="outlined"
             color="warning"
-          />
+          /> */}
         </div>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
           <TextField
@@ -33,6 +87,8 @@ const SingleStylistForm = () => {
             variant="outlined"
             color="warning"
             type="email"
+            name="email"
+            onChange={handleChange}
           />
         </div>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
@@ -41,9 +97,11 @@ const SingleStylistForm = () => {
             id="filled-select-currency"
             select
             label="salon *"
-            defaultValue="EUR"
+            // defaultValue="EUR"
             color="warning"
             variant="outlined"
+            name="email"
+            onChange={handleChange}
           >
             {data.map((option) => (
               <MenuItem value={option}>{option}</MenuItem>
@@ -57,6 +115,8 @@ const SingleStylistForm = () => {
             label="specialization"
             variant="outlined"
             color="warning"
+            name="specialization"
+            onChange={handleChange}
           />
         </div>
         <div className="p-4 m-2 flex space-x-4 hover:border-orange-300">
@@ -66,21 +126,26 @@ const SingleStylistForm = () => {
             label="Description"
             variant="outlined"
             color="warning"
+            name="description"
+            onChange={handleChange}
           />
         </div>
+        <button className="bg-orange-700 p-2 m-4 rounded text-white float-left">
+          Delete
+        </button>
+        <button
+          type="submit"
+          className="bg-orange-700 p-2 m-4 rounded text-white float-right"
+        >
+          Save
+        </button>{" "}
+        <button
+          disabled
+          className=" p-2 m-4 rounded text-black font-bold float-right"
+        >
+          Back
+        </button>
       </form>{" "}
-      <button className="bg-orange-700 p-2 m-4 rounded text-white float-left">
-        Delete
-      </button>
-      <button className="bg-orange-700 p-2 m-4 rounded text-white float-right">
-        Save
-      </button>{" "}
-      <button
-        disabled
-        className=" p-2 m-4 rounded text-black font-bold float-right"
-      >
-        Back
-      </button>
     </>
   );
 };

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { FormBack } from "../../components/formbackbutton/formBack";
 const TaxCreateForm = () => {
   const taxtype = ["GST-12", "GST-17", "GST-18", "Service Tax", "Others"];
 
@@ -13,7 +15,7 @@ const TaxCreateForm = () => {
     created_by_id: "123456",
   };
   const [form, setForm] = useState(defaultFields);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => {
@@ -48,7 +50,8 @@ const TaxCreateForm = () => {
       console.log(res, "res form");
 
       if (res.status === 201) {
-        alert("Form created");
+        navigate(`/tax`);
+        // alert("Form created");
       }
     } catch (error) {
       console.log(error);
@@ -116,7 +119,8 @@ const TaxCreateForm = () => {
         >
           Save
         </button>
-        <button className="text-gray-500 float-right p-2 m-2  ">Back</button>
+        {/* <button className="text-gray-500 float-right p-2 m-2  ">Back</button> */}
+        <FormBack name={"Back"} />
       </form>
       <div className="mt-36 ">
         <div className=" ml-[65rem]">
