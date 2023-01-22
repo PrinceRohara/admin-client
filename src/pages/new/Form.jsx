@@ -11,7 +11,7 @@ import { FormBack } from "../../components/formbackbutton/formBack";
 
 const Form = () => {
   const defaultFields = {
-    owner_id: "",
+    owner_id: 1,
     shop_name: "",
     email: "",
     discount: "",
@@ -111,7 +111,7 @@ const Form = () => {
           >
             {ownerList &&
               ownerList?.map((option) => (
-                <MenuItem value={option.id}>
+                <MenuItem value={Number(option.id)}>
                   {`${option.first_name} ${option.last_name}`}
                 </MenuItem>
               ))}
@@ -317,7 +317,7 @@ const Form = () => {
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
             color="success"
-            onChange={handleChange}
+            // onChange={handleChange}
           >
             <FormControlLabel
               className="text-red-500 label:text-black label:text-red-500"
@@ -325,6 +325,7 @@ const Form = () => {
               control={<Radio />}
               label="Yes"
               name="is_featured"
+              onChange={handleChange}
             />
             <FormControlLabel
               value={false}
@@ -332,6 +333,7 @@ const Form = () => {
               control={<Radio />}
               label="No"
               name="is_featured"
+              onChange={handleChange}
             />
           </RadioGroup>
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const StylistForm = () => {
   const data = ["test salaon", "new salaon", "test salaon", "new salaon"];
 
@@ -14,7 +15,7 @@ const StylistForm = () => {
     description: "",
     is_active: false,
   };
-
+  const navigate = useNavigate();
   const [form, setForm] = useState(defaultFields);
 
   const handleChange = (e) => {
@@ -46,7 +47,8 @@ const StylistForm = () => {
       console.log(res, "res form");
       // console.log(res.status);
       if (res.status === 201) {
-        alert("Form created");
+        navigate(`/stylist`);
+        // alert("Form created");
       }
     } catch (error) {
       console.log(error);

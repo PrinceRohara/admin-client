@@ -40,6 +40,7 @@ export const UpdateSalon = () => {
   }
   let { id } = useParams();
   // console.log(id, "idddd");
+  console.log(shopDetails, "shopDetails");
 
   const fetchApi = async () => {
     const response = await axios.get(
@@ -57,6 +58,7 @@ export const UpdateSalon = () => {
         shop_id: id,
       },
     });
+
     console.log(response, "shops");
     // console.log(response, "now");
     setShopDetails(response.data);
@@ -67,8 +69,8 @@ export const UpdateSalon = () => {
   };
 
   const defaultFields = {
-    vendor_id: 1,
-    shop_id: id,
+    vendor_id: Number(id),
+    shop_id: Number(id),
     shop_name: "",
     description: "",
     is_active: true,
@@ -80,9 +82,8 @@ export const UpdateSalon = () => {
     mobile2: "",
     phone1: "",
     phone2: "",
-    service_type: "hair",
-    // password: "",
-    // note: "",
+    service_type: "",
+
     is_featured: true,
     service_discount: "",
     shop_capacity: "",
@@ -102,9 +103,41 @@ export const UpdateSalon = () => {
     is_active: true,
   };
 
+  const defaultAmenities = {
+    shop_id: id,
+    amenity_id: id,
+    is_active: true,
+  };
+  const defaultSalonType = {
+    shop_id: id,
+    amenity_id: id,
+    is_active: true,
+  };
+
+  const defaultShopTiming = {
+    shop_id: id,
+    day: "",
+    is_open: true,
+    opening_time: "",
+    closing_time: "",
+    peak_day: false,
+    is_active: true,
+  };
+  
+  const defaultShopType = {
+    shop_id: id,
+    shop_type:"",
+    is_active:true
+  };
+
   // console.log(defaultFields, "default");
+  // Forms
   const [editForm, setEditForm] = useState(defaultFields);
   const [shopAddressForm, setShopAddressForm] = useState(shopAddressDefault);
+  const [amenitiesForm, setAmenitiesForm] = useState(defaultAmenities);
+  const [salonTypeForm, setSalonTypeForm] = useState(defaultSalonType);
+  const [editShopTiming, setEditShopTiming] = useState(defaultShopTiming);
+  const [editShopType, setEditShopType] = useState(defaultShopType);
 
   useEffect(() => {
     fetchApi();
@@ -125,6 +158,26 @@ export const UpdateSalon = () => {
   const handleAddressForm = (e) => {
     const { name, value } = e.target;
     setShopAddressForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  const handleAmenitiesForm = (e) => {
+    const { name, value } = e.target;
+    setAmenitiesForm((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleShopType = (e) => {
+    const { name, value } = e.target;
+    setEditShopType((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleShopTiming = (e) => {
+    const { name, value } = e.target;
+    setEditShopTiming((prev) => {
       return { ...prev, [name]: value };
     });
   };
@@ -279,7 +332,7 @@ export const UpdateSalon = () => {
               <TextField
                 id="filled-basic"
                 label="Salon Name"
-                defaultValue={formData && formData?.shop_name}
+                // defaultValue={`${formData && formData?.shop_name}`}
                 className="w-[22%]"
                 variant="outlined"
                 // onChange={(e) => setFormData({ shop_name: e.target.value })}
@@ -342,21 +395,32 @@ export const UpdateSalon = () => {
                 // value={formData && formData?.longitude}
                 onChange={handleChangeForm}
                 name="longitude"
-              />
+              />{" "}
               <TextField
+                id="filled-basic"
+                label="service Type"
+                className="w-[22%]"
+                variant="outlined"
+                // onChange={(e) => setFormData({ phone1: e.target.value })}
+                // value={formData && formData?.phone1}
+                onChange={handleChangeForm}
+                name="service_type"
+              />
+              {/* <TextField
                 id="filled-basic"
                 label="taxId"
                 className="w-[22%]"
                 variant="outlined"
                 onChange={handleChangeForm}
                 name=""
-              />{" "}
+              />{" "} */}
               <span className="ml-8 p-2">Featured</span>
               <Switch
                 onChange={handleChangeForm}
                 name="is_featured"
                 {...label}
                 defaultChecked
+                value={false}
               />
             </div>{" "}
             <div className="p-2 m-2 space-x-4 w-[100%]">
@@ -474,7 +538,7 @@ export const UpdateSalon = () => {
                 name="country"
                 // onChange={(e) => setShopAddressData({ country: e.target.value })}
                 onChange={handleAddressForm}
-                // value={shopAddressData && shopAddressData?.country}
+                // defaultValue={shopAddressData && shopAddressData?.country}
               />
             </div>
             <div className="p-2 m-2 space-x-4 w-[100%]">
@@ -547,6 +611,8 @@ export const UpdateSalon = () => {
             <h3 className="text-xl font-bold">Amenities</h3>
             <hr />
             <Checkbox
+              onChange={handleAmenitiesForm}
+              name=""
               {...label}
               sx={{
                 "&.Mui-checked": {
@@ -579,8 +645,33 @@ export const UpdateSalon = () => {
           </div>
           <div className="p-4 bg-white w-[50%]">
             <h3 className="text-xl font-bold">Salon Type</h3>
-            <hr />
-            <Checkbox
+            <hr />{" "}
+            {/* <FormLabel id="demo-row-radio-buttons-group-label">
+              Gender
+            </FormLabel> */}
+            <RadioGroup
+              row
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="row-radio-buttons-group" onChange={handleShopType}
+            >
+              <FormControlLabel
+                value="female"
+                control={<Radio />}
+                label="Spa" 
+                name=""
+              />
+              <FormControlLabel
+                value="Salon"
+                control={<Radio />}
+                label="Salon"
+              />
+              <FormControlLabel
+                value="other"
+                control={<Radio />}
+                label="Tatto"
+              />
+            </RadioGroup>
+            {/* <Checkbox
               {...label}
               sx={{
                 "&.Mui-checked": {
@@ -606,7 +697,7 @@ export const UpdateSalon = () => {
                 },
               }}
             />
-            <label htmlFor="">{salonType && salonType[2]?.shop_type}</label>
+            <label htmlFor="">{salonType && salonType[2]?.shop_type}</label> */}
             <button className="bg-orange-600 text-white my-4  ml-48 p-2  mt-4 rounded">
               Save
             </button>
